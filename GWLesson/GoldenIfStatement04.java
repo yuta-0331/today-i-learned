@@ -16,11 +16,11 @@ public class GoldenIfStatement04 {
 
         String generation;
 
-        if (birthYear < 1969) {
+        if (birthYear <= 1969) {
             generation = "ベビーブーマー世代";
-        } else if (birthYear < 1979) {
+        } else if (birthYear <= 1979) {
             generation = "氷河期世代";
-        } else if (birthYear < 1999) {
+        } else if (birthYear <= 1999) {
             generation = "ミレニアム世代";
         } else {
             generation = "Z世代";
@@ -29,5 +29,8 @@ public class GoldenIfStatement04 {
         System.out.println(
             inputName + "さんは" + generation + "です。"
         );
+
+        inputBirthYearScanner.close();
+        inputNameScanner.close();
     }
 }
