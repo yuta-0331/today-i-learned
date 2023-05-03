@@ -17,5 +17,8 @@ public class IfStatement {
         } else {
             System.out.println(inputName + "さんは子供です");
         }
+
+        inputAge.close();
+        inputName.close();
     }
 }
