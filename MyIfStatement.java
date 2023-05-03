@@ -15,11 +15,11 @@ public class MyIfStatement {
             price = 200;
         }
 
-        if(price != null) {
-            System.out.println(productName + "は" + price + "円です。");
-        } else {
-            System.out.println("商品が見つかりません");
-        }
+        System.out.println(
+            price != null 
+                ? productName + "は" + price + "円です。"
+                : "商品が見つかりません"
+        );
 
         inputProductName.close();
     }
