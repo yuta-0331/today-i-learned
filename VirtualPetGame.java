@@ -1,4 +1,3 @@
-package GWLesson;
 
 public class VirtualPetGame {
 
