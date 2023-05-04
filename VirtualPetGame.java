@@ -21,7 +21,7 @@ class VirtualPet {
     int maxEnergy;
     int currentEnergy;
 
-    VirtualPet (String name, int maxEnergy, int currentEnergy) {
+    VirtualPet(String name, int maxEnergy, int currentEnergy) {
         this.name = name;
         this.maxEnergy = maxEnergy;
         this.currentEnergy = currentEnergy;
