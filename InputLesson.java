@@ -8,7 +8,7 @@ public class InputLesson {
 		
 		System.out.print("age ?");
 		Scanner inputAge = new Scanner(System.in); 
-		int age = Integer.parseInt(inputAge.nextLine());
+		int age = inputAge.nextInt();
 		
 		System.out.println(nameStr + "さんは、80才まであと" + (80 - age) + "年です");
 		

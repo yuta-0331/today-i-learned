@@ -1,5 +1,3 @@
-package GWLesson;
-
 import java.util.Scanner;
 
 public class FizzBuzz {

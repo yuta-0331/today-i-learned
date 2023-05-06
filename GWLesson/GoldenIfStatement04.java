@@ -10,9 +10,7 @@ public class GoldenIfStatement04 {
 
         System.out.println("生まれ年は？");
         Scanner inputBirthYearScanner = new Scanner(System.in);
-        int birthYear = Integer.parseInt(
-            inputBirthYearScanner.nextLine()
-        );
+        int birthYear = inputBirthYearScanner.nextInt();
 
         String generation;
 

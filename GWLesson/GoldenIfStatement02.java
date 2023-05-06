@@ -11,7 +11,7 @@ public class GoldenIfStatement02 {
 
         System.out.println("生まれ年は？");
         Scanner inputYearScanner = new Scanner(System.in);
-        int inputYear = Integer.parseInt(inputYearScanner.nextLine());
+        int inputYear = inputYearScanner.nextInt();
         
         if (inputYear >= 2000) {
             System.out.println(

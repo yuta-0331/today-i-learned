@@ -6,15 +6,11 @@ public class GoldenIfStatement03 {
     public static void main(String[] args) {
         System.out.println("商品Aの金額は？");
         Scanner inputProductPriceAScanner = new Scanner(System.in);
-        int ProductPriceA = Integer.parseInt(
-            inputProductPriceAScanner.nextLine()
-        );
+        int ProductPriceA = inputProductPriceAScanner.nextInt();
 
         System.out.println("商品Bの金額は？");
         Scanner inputProductPriceBScanner = new Scanner(System.in);
-        int ProductPriceB = Integer.parseInt(
-            inputProductPriceBScanner.nextLine()
-        );
+        int ProductPriceB = inputProductPriceBScanner.nextInt();
 
         int totalPrice = ProductPriceA + ProductPriceB;
 

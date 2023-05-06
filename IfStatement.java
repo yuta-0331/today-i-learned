@@ -10,7 +10,7 @@ public class IfStatement {
 
         System.out.println("age ?");
         Scanner inputAge = new Scanner(System.in);
-        int age = Integer.parseInt(inputAge.nextLine());
+        int age = inputAge.nextInt();
 
         if (age >= 18) {
             System.out.println(nameString + "さんは大人です");

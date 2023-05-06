@@ -6,9 +6,7 @@ public class GoldenIfStatement02_2 {
     public static void main(String[] args) {
         System.out.println("電車なら1を、バスなら2を入力してください");
         Scanner inputMeansOfTransportation = new Scanner(System.in);
-        int meansOfTransportation = Integer.parseInt(
-            inputMeansOfTransportation.nextLine()
-        );
+        int meansOfTransportation = inputMeansOfTransportation.nextInt();
 
         if (meansOfTransportation == 1) {
             System.out.println("電車は安くていいですね");
