@@ -2,6 +2,12 @@ package GWLesson;
 
 import java.util.Scanner;
 
+class InvalidSexNum extends Exception {
+    InvalidSexNum(String msg) {
+        super(msg);
+    }
+
+}
 public class GoldenIfStatement04 {
     public static void main(String[] args) {
         System.out.println("お名前は？");
@@ -26,17 +32,19 @@ public class GoldenIfStatement04 {
         try {
             inputSexNum = inputBirthYearScanner.nextInt();
             if (inputSexNum != 1 && inputSexNum != 2) {
-                System.out.println("1か2を入力してください");
                 inputNameScanner.close();
                 inputBirthYearScanner.close();
                 inputSexNumScanner.close();
-                return;
+                throw new InvalidSexNum("無効な番号です");
             }
         } catch (NumberFormatException e) {
             System.out.println("数値で入力してください");
             inputNameScanner.close();
             inputBirthYearScanner.close();
             inputSexNumScanner.close();
+            return;
+        } catch (InvalidSexNum e) {
+            System.out.println(e.getMessage());
             return;
         }
 
