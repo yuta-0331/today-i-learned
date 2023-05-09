@@ -1,6 +1,12 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+class InvalidMonthException extends Exception {
+    InvalidMonthException(String msg) {
+        super(msg);
+    }
+}
+
 public class MyAndOrOperator {
     public static void main(String[] args) {
         
@@ -9,13 +15,16 @@ public class MyAndOrOperator {
         int inputMonth;
         try {
             inputMonth = inputMonthScanner.nextInt();
+            if (inputMonth < 1 || inputMonth > 12) {
+                inputMonthScanner.close();
+                throw new InvalidMonthException("入力された月は無効です");
+            }
         } catch (InputMismatchException e) {
             System.out.println(e + " => 1〜12の数値で入力してください");
             inputMonthScanner.close();
             return;
-        }
-        if (inputMonth < 1 || inputMonth > 12) {
-            System.out.println("1〜12で入力してください");
+        } catch (InvalidMonthException e) {
+            System.out.println(e.getMessage());
             inputMonthScanner.close();
             return;
         }
