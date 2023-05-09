@@ -1,5 +1,6 @@
 package GWLesson;
 
+import java.sql.Ref;
 import java.util.Scanner;
 
 class InvalidSexNum extends Exception {
@@ -51,7 +52,11 @@ public class GoldenIfStatement04 {
         String generation;
 
         if (inputSexNum == 2) {
-            generation = "いつまでもシンデレラ";
+            System.out.println("女性はいつまでもシンデレラ");
+            inputBirthYearScanner.close();
+            inputNameScanner.close();
+            inputSexNumScanner.close();
+            return;
         } else if (birthYear <= 1969) {
             generation = "ベビーブーマー世代";
         } else if (birthYear <= 1979) {
