@@ -8,7 +8,7 @@ public class MyForLoopC {
             ahoNumArray[i] = (i  + 1) * 3;
         }
 
-        //ahoNumArrayにiが含まれるかどうかで3の倍数を判定する
+        //ahoNumArrayに含まれるかどうかで3の倍数を判定する
         for (int i = 1; i <= 30; i++) {
             if (Arrays.asList(ahoNumArray).contains(i)) {
                 System.out.println(i + "AHO");
