@@ -1,13 +1,11 @@
 package GWLesson;
 
-import java.sql.Ref;
 import java.util.Scanner;
 
-class InvalidSexNum extends Exception {
-    InvalidSexNum(String msg) {
+class InvalidSexNumException extends Exception {
+    InvalidSexNumException(String msg) {
         super(msg);
     }
-
 }
 public class GoldenIfStatement04 {
     public static void main(String[] args) {
@@ -36,7 +34,7 @@ public class GoldenIfStatement04 {
                 inputNameScanner.close();
                 inputBirthYearScanner.close();
                 inputSexNumScanner.close();
-                throw new InvalidSexNum("無効な番号です");
+                throw new InvalidSexNumException("無効な番号です");
             }
         } catch (NumberFormatException e) {
             System.out.println("数値で入力してください");
@@ -44,13 +42,12 @@ public class GoldenIfStatement04 {
             inputBirthYearScanner.close();
             inputSexNumScanner.close();
             return;
-        } catch (InvalidSexNum e) {
+        } catch (InvalidSexNumException e) {
             System.out.println(e.getMessage());
             return;
         }
 
         String generation;
-
         if (inputSexNum == 2) {
             System.out.println("女性はいつまでもシンデレラ");
             inputBirthYearScanner.close();
