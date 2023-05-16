@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 class InvalidNumberException extends Exception {
     InvalidNumberException(String msg) {
@@ -11,9 +10,8 @@ public class MyForLoopF {
         
         int width, height;
         System.out.println("よこ");
-        Scanner widthScanner = new Scanner(System.in);
         try {
-            width = widthScanner.nextInt();
+            width = Integer.parseInt(MyConsole.readLine());
             if (width < 0) throw new InvalidNumberException("正の整数で入力");
         } catch (InvalidNumberException e) {
             System.out.println(e.getMessage());
@@ -24,9 +22,8 @@ public class MyForLoopF {
         } 
 
         System.out.println("たて");
-        Scanner heightScanner = new Scanner(System.in);
         try {
-            height = heightScanner.nextInt();
+            height = Integer.parseInt(MyConsole.readLine());
 
             if (height < 0) throw new InvalidNumberException("正の整数で入力");
         } catch (InvalidNumberException e) {
@@ -43,8 +40,5 @@ public class MyForLoopF {
             }
             System.out.println("");
         }
-
-        widthScanner.close();
-        heightScanner.close();
     }
 }
