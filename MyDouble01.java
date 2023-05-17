@@ -1,4 +1,4 @@
-public class MyDouble {
+public class MyDouble01 {
     public static void main(String[] args) {
         boolean isContinue = true;
         int count = 1;
