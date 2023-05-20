@@ -1,5 +1,3 @@
-/*  授業で習った範囲で（二次元配列を用いずに）ビンゴゲームを作成する。
-    ただし、配列処理が使えず冗長になるので、処理のメソッド切り出しは可とする。*/
 public class BingoGame {
     //5*5の盤面を格納する配列
     public static int[] boardNumbers = new int[25];
@@ -26,30 +24,26 @@ public class BingoGame {
         }
     }
 
-    //盤面の行配列を作成するメソッド
+    //盤面の行配列を引数で渡された変数に格納するメソッド
     public static int[] createBoard(int[] args) {
-        int[] bColumnNumbers = new int[5]; 
-        int[] iColumnNumbers = new int[5]; 
-        int[] nColumnNumbers = new int[5]; 
-        int[] gColumnNumbers = new int[5];
-        int[] oColumnNumbers = new int[5];
-        createColumn(bColumnNumbers, 0);
-        createColumn(iColumnNumbers, 15);
-        createColumn(nColumnNumbers, 30);
-        createColumn(gColumnNumbers, 45);
-        createColumn(oColumnNumbers, 60);
+        //縦の列配列を作成
+        int[][] columnNumbers = new int [5][5];
+        for (int i = 0, j = 0; i < 5; i++, j += 15) {
+            createColumn(columnNumbers[i], j);
+        }
+        
         //縦の列配列を盤面配列に格納
         for (int i = 0, j = 0; i < 25; i++) {
             if ((i + 1) % 5 == 1) {
-                args[i] = bColumnNumbers[j];
+                args[i] = columnNumbers[0][j];
             } else if ((i + 1) % 5 == 2) {
-                args[i] = iColumnNumbers[j];
+                args[i] = columnNumbers[1][j];
             } else if ((i + 1) % 5 == 3) {
-                args[i] = nColumnNumbers[j];
+                args[i] = columnNumbers[2][j];
             } else if ((i + 1) % 5 == 4) {
-                args[i] = gColumnNumbers[j];
+                args[i] = columnNumbers[3][j];
             } else {
-                args[i] = oColumnNumbers[j];
+                args[i] = columnNumbers[4][j];
                 j++;
             }
         }
