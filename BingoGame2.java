@@ -4,7 +4,7 @@ public class BingoGame2 {
     //当たり番号を格納する配列（*todo:75の数値は最適化すること）
     public static int[] hitNumbers = new int[75];
 
-    //引数で与えられた配列のindex要素に、重複なしで番号を格納するメソッド
+    //引数のindex要素に、重複なしで番号を格納するメソッド
     //limit: 配列の要素数, range: 取り得る値の範囲, adjust: 取り得る値の調整,
     public static int[] generateArrayWithUniqueNumber(int index, int[] args, int limit, int range, int adjust) {
         while (true) {
@@ -25,14 +25,14 @@ public class BingoGame2 {
         return args;
     }
 
-    //引数で与えられた配列に、重複なく番号を保持した縦の列配列を格納するメソッド
+    //引数に、重複なく番号を保持した縦の列配列を格納するメソッド
     public static void createColumn(int[] args, int num) {
         for (int i = 0; i < 5; i++) {
             generateArrayWithUniqueNumber(i, args, 5, 15, num);
         }
     }
 
-    //盤面の行配列を引数で渡された変数に格納するメソッド
+    //盤面の行配列を引数に格納するメソッド
     public static int[][] createBoard(int[][] args) {
         //縦の列配列を作成
         int[][] columnNumbers = new int [5][5];
@@ -40,7 +40,7 @@ public class BingoGame2 {
             createColumn(columnNumbers[i], j);
         }
         
-        //縦の列配列を引数で与えられた変数に格納
+        //縦の列配列を引数に格納
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 args[i][j] = columnNumbers[j][i];
@@ -49,7 +49,7 @@ public class BingoGame2 {
         return boardNumbers;
     }
 
-    //引数で盤面配列を渡すと、盤面を出力するメソッド
+    //引数に盤面配列を渡すと、盤面を出力するメソッド
     public static void printBoard(int[][] args) {
         System.out.println("---------------------");
         System.out.println("| B | I | N | G | O |");
@@ -75,13 +75,13 @@ public class BingoGame2 {
         System.out.println("---------------------");
     }
 
-    //当たり番号を(重複しないように)抽選し、引数で渡した配列の指定indexに格納するメソッド
+    //当たり番号を(重複しないように)抽選し、引数の指定index要素に格納するメソッド
     public static int chooseHitNumber(int index, int[] args) {
         generateArrayWithUniqueNumber(index, args, 75, 75, 1);
         return args[index];
     }
 
-    //引数で与えた配列が要素にnumを持っていてたら、値を0に置換するメソッド
+    //引数の要素にnumを持っていてたら、値を0に置換するメソッド
     public static void checkHitNumber(int num, int[][] args) {
         boolean hitFlag = false;
         for (int i = 0; i < 5; i++) {
@@ -95,7 +95,7 @@ public class BingoGame2 {
         }
         System.out.println(hitFlag ? "Hit!" : "Deviate");
     }
-    //引数で渡した盤面配列がクリア条件を満たしていないかチェック
+    //引数に渡した盤面配列がクリア条件を満たしていないかチェック
     public static boolean checkAlign(int[][] args) {
         boolean alignFlag = false;
         for (int i = 0; i < 5; i++) {
