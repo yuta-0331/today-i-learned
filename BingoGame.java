@@ -180,8 +180,7 @@ public class BingoGame {
             printBoard(boardNumbers);
             count++;
             //ゲーム終了条件を満たしたらbreak
-            if (count < 4) continue;
-            if (checkBoard(boardNumbers)) {
+            if (count >= 4 && checkBoard(boardNumbers)) {
                 break;
             }
         }

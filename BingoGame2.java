@@ -52,22 +52,12 @@ public class BingoGame2 {
                 String temp;
                 if (args[i][j] != 0) {
                     //一桁の数値の場合のインデントを調整
-                    if (args[i][j] < 10) {
-                        temp = "| " + args[i][j] + " ";
-                    } else {
-                        temp = "| " + args[i][j];
-                    }
-                    if (j == 4) {
-                        temp = temp + "|";
-                    }
+                    temp = args[i][j] < 10 ? ("| " + args[i][j] + " ") : ("| " + args[i][j]);
+                    if (j == 4) temp = temp + "|";
                     System.out.print(temp);
                 } else {
                     //配列の要素が0の場合、■を出力する処理
-                    if (j == 4) {
-                        System.out.print("| ■ |");
-                    } else {
-                        System.out.print("| ■ ");
-                    }
+                    System.out.print(j == 4 ? "| ■ |" : "| ■ ");
                 }
                 if (j == 4) {
                     System.out.println();
@@ -109,11 +99,7 @@ public class BingoGame2 {
                 }
             }
         }
-        if (hitFlag) {
-            System.out.println("Hit!");
-        } else {
-            System.out.println("Deviate");
-        }
+        System.out.println(hitFlag ? "Hit!" : "Deviate");
     }
     //引数に渡した盤面配列がクリア条件を満たしていないかチェック
     public static boolean checkAlign(int[][] args) {
@@ -135,27 +121,22 @@ public class BingoGame2 {
     public static void main(String[] args) {
         //盤面の配列を作成
         createBoard(boardNumbers);
-
-        //ビンゴ画面表示
         boardNumbers[2][2] = 0;
-        printBoard(boardNumbers);
 
         //ゲーム開始
-        int count = 0;
-        while (true) {
+        for (int i = 1; i <= 75; i++) {
+            printBoard(boardNumbers);
             //enterが押されたら抽選スタート
             MyConsole.readLine();
-            int hitNumber = chooseHitNumber(count);
+            int hitNumber = chooseHitNumber(i - 1);
             System.out.println("抽選番号:" + hitNumber);
             checkHitNumber(hitNumber, boardNumbers);
-            printBoard(boardNumbers);
-            count++;
             //ゲーム終了条件を満たしたらbreak
-            if (count < 4) continue;
-            if (checkAlign(boardNumbers)) {
+            if (i >= 4 && checkAlign(boardNumbers)) {
+                printBoard(boardNumbers);
+                System.out.println(i + "回目でゲームが終了しました");
                 break;
             }
         }
-        System.out.println(count + "回目でゲームが終了しました");
     }
 }
