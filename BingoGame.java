@@ -125,20 +125,24 @@ public class BingoGame {
     //以下、クリア条件を満たしていないかチェック
     /////////////////////////////////////////////////////////
     //引数で与えられた盤面のnum行目が揃っているかをチェックするメソッド
-    public static boolean checkAlignLine(int[] args ,int num) {
-        if (args[5 * (num - 1)] == 0 && args[5 * (num - 1) + 1] == 0 && args[5 * (num - 1) + 2] == 0 && args[5 * (num - 1) + 3] == 0 && args[5 * (num - 1) + 4] == 0) {
-            return true;
-        } else {
-            return false;
+    public static boolean checkAlignLine(int[] args) {
+        boolean alignFlag = false;
+        for (int i = 1; i <= 5; i++) {
+            if ((args[5 * (i - 1)] == 0 && args[5 * (i - 1) + 1] == 0 && args[5 * (i - 1) + 2] == 0 && args[5 * (i - 1) + 3] == 0 && args[5 * (i - 1) + 4] == 0)) {
+                alignFlag = true;
+            }
         }
+        return alignFlag;
     }
     //引数で与えられた盤面のnum列目が揃っているかをチェックするメソッド
-    public static boolean checkAlignColumn(int[] args, int num) {
-        if (args[num - 1] == 0 && args[(num + 4)] == 0 && args[(num + 9)] == 0 && args[(num + 14)] == 0 && args[(num + 19)] == 0) {
-            return true;
-        } else {
-            return false;
+    public static boolean checkAlignColumn(int[] args) {
+        boolean alignFlag = false;
+        for (int i = 1; i <= 5; i++) {
+            if (args[i - 1] == 0 && args[(i + 4)] == 0 && args[(i + 9)] == 0 && args[(i + 14)] == 0 && args[(i + 19)] == 0) {
+                return true;
+            }
         }
+        return alignFlag;
     }
     //引数で与えられた盤面の対角線が揃っていないかをチェックするメソッド
     public static boolean checkAlignDiagonal(int[] args) {
@@ -152,10 +156,7 @@ public class BingoGame {
     //盤面がゲーム終了条件を満たしていないかチェックするメソッド
     public static boolean checkBoard(int[] args) {
         boolean clearFlag = false;
-        if (
-            checkAlignColumn(args, 1) || checkAlignColumn(args, 2) || checkAlignColumn(args, 3) || checkAlignColumn(args, 4) || checkAlignColumn(args, 5) ||
-            checkAlignLine(args, 1) || checkAlignLine(args, 2) || checkAlignLine(args, 3) || checkAlignLine(args, 4) || checkAlignLine(args, 5) ||
-            checkAlignDiagonal(args) 
+        if (checkAlignColumn(args) || checkAlignLine(args) || checkAlignDiagonal(args) 
         ) {
             clearFlag = true;
         }
