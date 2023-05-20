@@ -38,6 +38,7 @@ public class BingoGame {
         createColumn(nColumnNumbers, 30);
         createColumn(gColumnNumbers, 45);
         createColumn(oColumnNumbers, 60);
+        //縦の列配列を盤面配列に格納
         for (int i = 0, j = 0; i < 25; i++) {
             if ((i + 1) % 5 == 1) {
                 args[i] = bColumnNumbers[j];
@@ -120,9 +121,9 @@ public class BingoGame {
             } 
         }
         if (hitFlag) {
-            System.out.println("hit!");
+            System.out.println("Hit!");
         } else {
-            System.out.println("hitなし");
+            System.out.println("Deviate");
         }
     }
     /////////////////////////////////////////////////////////
