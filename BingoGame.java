@@ -10,7 +10,7 @@ public class BingoGame {
     public static void createColumn(int[] args, int num) {
         int index = 0;
         while (index < 5) {
-            int tmp = (int) (Math.random() * 15) + 1 + num;
+            int tmp = (int) (Math.random() * 15) + num;
             boolean continueFlag = true;
             for (int i = 0; i < 5; i++) {
                 if (args[i] == tmp) {
@@ -33,11 +33,11 @@ public class BingoGame {
         int[] nColumnNumbers = new int[5]; 
         int[] gColumnNumbers = new int[5];
         int[] oColumnNumbers = new int[5];
-        createColumn(bColumnNumbers, 0);
-        createColumn(iColumnNumbers, 15);
-        createColumn(nColumnNumbers, 30);
-        createColumn(gColumnNumbers, 45);
-        createColumn(oColumnNumbers, 60);
+        createColumn(bColumnNumbers, 1);
+        createColumn(iColumnNumbers, 16);
+        createColumn(nColumnNumbers, 31);
+        createColumn(gColumnNumbers, 46);
+        createColumn(oColumnNumbers, 61);
         //縦の列配列を盤面配列に格納
         for (int i = 0, j = 0; i < 25; i++) {
             if ((i + 1) % 5 == 1) {
