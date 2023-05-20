@@ -138,7 +138,7 @@ public class BingoGame2 {
             return false;
         }
     }
-    //引数で与えられた盤面の斜めが揃っていないかチェックするメソッド
+    //引数で与えられた盤面の対角線が揃っていないかをチェックするメソッド
     public static boolean checkAlignDiagonal(int[] args) {
         if (args[0] == 0 && args[6] == 0 && args[18] == 0 && args[24] == 0 || args[4] == 0 && args[8] == 0 && args[16] == 0 && args[20] == 0
         ) {
