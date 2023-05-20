@@ -1,12 +1,6 @@
 /*  授業で習った範囲で（二次元配列を用いずに）ビンゴゲームを作成する。
     ただし、配列処理が使えず冗長になるので、処理のメソッド切り出しは可とする。*/
 public class BingoGame {
-    //各列の番号を格納する配列
-    public static int[] bColumnNumbers = new int[5];
-    public static int[] iColumnNumbers = new int[5];
-    public static int[] nColumnNumbers = new int[5];
-    public static int[] gColumnNumbers = new int[5];
-    public static int[] oColumnNumbers = new int[5];
     //5*5の盤面を格納する配列
     public static int[] boardNumbers = new int[25];
     //当たり番号を格納する配列（*todo:75の数値は最適化すること）
@@ -34,6 +28,16 @@ public class BingoGame {
 
     //盤面の行配列を作成するメソッド
     public static int[] createBoard(int[] args) {
+        int[] bColumnNumbers = new int[5]; 
+        int[] iColumnNumbers = new int[5]; 
+        int[] nColumnNumbers = new int[5]; 
+        int[] gColumnNumbers = new int[5];
+        int[] oColumnNumbers = new int[5];
+        createColumn(bColumnNumbers, 0);
+        createColumn(iColumnNumbers, 15);
+        createColumn(nColumnNumbers, 30);
+        createColumn(gColumnNumbers, 45);
+        createColumn(oColumnNumbers, 60);
         for (int i = 0, j = 0; i < 25; i++) {
             if ((i + 1) % 5 == 1) {
                 args[i] = bColumnNumbers[j];
@@ -124,40 +128,31 @@ public class BingoGame {
     /////////////////////////////////////////////////////////
     //以下、クリア条件を満たしていないかチェック
     /////////////////////////////////////////////////////////
-    //引数で与えられた盤面のnum行目が揃っているかをチェックするメソッド
-    public static boolean checkAlignLine(int[] args) {
+    public static boolean checkAlign(int[] args) {
         boolean alignFlag = false;
+        //特定の行が揃っているかをチェック
         for (int i = 1; i <= 5; i++) {
             if ((args[5 * (i - 1)] == 0 && args[5 * (i - 1) + 1] == 0 && args[5 * (i - 1) + 2] == 0 && args[5 * (i - 1) + 3] == 0 && args[5 * (i - 1) + 4] == 0)) {
                 alignFlag = true;
             }
         }
-        return alignFlag;
-    }
-    //引数で与えられた盤面のnum列目が揃っているかをチェックするメソッド
-    public static boolean checkAlignColumn(int[] args) {
-        boolean alignFlag = false;
+        //特定の列が揃っているかをチェック
         for (int i = 1; i <= 5; i++) {
             if (args[i - 1] == 0 && args[(i + 4)] == 0 && args[(i + 9)] == 0 && args[(i + 14)] == 0 && args[(i + 19)] == 0) {
-                return true;
+                alignFlag = true;
             }
         }
-        return alignFlag;
-    }
-    //引数で与えられた盤面の対角線が揃っていないかをチェックするメソッド
-    public static boolean checkAlignDiagonal(int[] args) {
+        //対角線が揃っているかをチェック
         if (args[0] == 0 && args[6] == 0 && args[18] == 0 && args[24] == 0 || args[4] == 0 && args[8] == 0 && args[16] == 0 && args[20] == 0
         ) {
-            return true;
-        } else {
-            return false;
+            alignFlag = true;
         }
+        return alignFlag;
     }
     //盤面がゲーム終了条件を満たしていないかチェックするメソッド
     public static boolean checkBoard(int[] args) {
         boolean clearFlag = false;
-        if (checkAlignColumn(args) || checkAlignLine(args) || checkAlignDiagonal(args) 
-        ) {
+        if (checkAlign(args)) {
             clearFlag = true;
         }
         return clearFlag;
@@ -166,14 +161,7 @@ public class BingoGame {
     //以上クリア条件チェック
     //////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        //縦の列配列を作成
-        createColumn(bColumnNumbers, 0);
-        createColumn(iColumnNumbers, 15);
-        createColumn(nColumnNumbers, 30);
-        createColumn(gColumnNumbers, 45);
-        createColumn(oColumnNumbers, 60);
-
-        //縦の列配列を横の行配列に変換して扱いやすくする
+        //盤面の配列を作成
         createBoard(boardNumbers);
 
         //ビンゴ画面表示
