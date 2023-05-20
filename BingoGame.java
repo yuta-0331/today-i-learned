@@ -1,6 +1,6 @@
 /*  授業で習った範囲で（二次元配列を用いずに）ビンゴゲームを作成する。
     ただし、配列処理が使えず冗長になるので、処理のメソッド切り出しは可とする。*/
-public class BingoGame2 {
+public class BingoGame {
     //各列の番号を格納する配列
     public static int[] bColumnNumbers = new int[5];
     public static int[] iColumnNumbers = new int[5];
@@ -59,22 +59,24 @@ public class BingoGame2 {
 
         for (int i = 0; i < 25; i++) {
             String temp;
-            //一桁の数値の場合のインデント調整
-            if (args[i] < 10) {
-                temp = "| " + args[i] + " ";
-            } else {
-                temp = "| " + args[i];
-            }
-            if (i % 5 == 4) {
-                temp = temp + "|";
-            }
-            //配列の要素が0の場合、■を出力する処理
-            if (args[i] == 0 && i % 5 == 4) {
-                System.out.print("| ■ |");
-            } else if (args[i] == 0) {
-                System.out.print("| ■ ");
-            } else {
+            if (args[i] != 0) {
+                //一桁の数値の場合のインデントを調整
+                if (args[i] < 10) {
+                    temp = "| " + args[i] + " ";
+                } else {
+                    temp = "| " + args[i];
+                }
+                if (i % 5 == 4) {
+                    temp = temp + "|";
+                }
                 System.out.print(temp);
+            } else {
+                //配列の要素が0の場合、■を出力する処理
+                if (i % 5 == 4) {
+                    System.out.print("| ■ |");
+                } else {
+                    System.out.print("| ■ ");
+                }
             }
             if (i % 5 == 4) {
                 System.out.println();
@@ -119,9 +121,9 @@ public class BingoGame2 {
             System.out.println("hitなし");
         }
     }
-
     /////////////////////////////////////////////////////////
-    //以下、クリア条件を満たしていないかチェック////////////////////
+    //以下、クリア条件を満たしていないかチェック
+    /////////////////////////////////////////////////////////
     //引数で与えられた盤面のnum行目が揃っているかをチェックするメソッド
     public static boolean checkAlignLine(int[] args ,int num) {
         if (args[5 * (num - 1)] == 0 && args[5 * (num - 1) + 1] == 0 && args[5 * (num - 1) + 2] == 0 && args[5 * (num - 1) + 3] == 0 && args[5 * (num - 1) + 4] == 0) {
@@ -160,7 +162,7 @@ public class BingoGame2 {
         return clearFlag;
     }
     //////////////////////////////////////////////////////////
-    //以上クリア条件チェック//////////////////////////////////////
+    //以上クリア条件チェック
     //////////////////////////////////////////////////////////
     public static void main(String[] args) {
         //縦の列配列を作成
