@@ -22,14 +22,12 @@ public class BingoGame2 {
 
     //盤面の行配列を引数に格納するメソッド
     public static int[][] createBoard(int[][] boardArray) {
-        //縦の列配列を作成
         int[][] columnNumbers = new int [5][5];
         for (int i = 0, j = 1; i < 5; i++, j += 15) {
             for (int k = 0; k < 5; k++) {
                 generateArrayWithUniqueNumber(k, columnNumbers[i], 15, j);
             }
         }
-        //縦の列配列を引数に格納
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 boardArray[i][j] = columnNumbers[j][i];
