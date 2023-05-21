@@ -57,11 +57,7 @@ public class BingoGame2 {
                 } else {
                     temp = "| ■ ";
                 }
-                if (j == 4) {
-                    System.out.println(temp + "|");
-                } else {
-                    System.out.print(temp);
-                }
+                System.out.print(j == 4 ? temp + "|" + "\n" : temp);
             }
         }
         System.out.println("---------------------");
