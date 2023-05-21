@@ -1,0 +1,20 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# ビルドフォルダ
+bin/
+
+# 一時ファイル
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ログファイル
+*.log
+
+# その他の一時ファイル
+*~
+*.swp
