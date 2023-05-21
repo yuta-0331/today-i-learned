@@ -9,13 +9,13 @@ public class BingoGame2 {
     public static int[] generateArrayWithUniqueNumber(int index, int[] args, int range, int adjust) {
         while (true) {
             int tmp = (int) (Math.random() * range) + adjust;
-            boolean continueFlag = true;
+            boolean continueFlag = false;
             for (int i = 0; i < index; i++) {
                 if (args[i] == tmp) {
-                    continueFlag = false;
+                    continueFlag = true;
                 }
             }
-            if (!continueFlag) {
+            if (continueFlag) {
                 continue;
             } else {
                 args[index] = tmp;
