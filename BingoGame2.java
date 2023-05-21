@@ -1,9 +1,4 @@
 public class BingoGame2 {
-    //5*5の盤面を格納する配列
-    public static int[][] boardNumbers = new int[5][5];
-    //当たり番号を格納する配列（*todo:75の数値は最適化すること）
-    public static int[] hitNumbers = new int[75];
-
     //引数のindex要素に、重複なしで番号を格納するメソッド(盤面の作成、当たり番号の抽選で使用)
     //range: 取り得る値の範囲, adjust: 取り得る値の調整,
     public static int[] generateArrayWithUniqueNumber(int index, int[] array, int range, int adjust) {
@@ -40,7 +35,7 @@ public class BingoGame2 {
                 boardArray[i][j] = columnNumbers[j][i];
             }
         }
-        return boardNumbers;
+        return boardArray;
     }
 
     //引数に盤面の配列を渡すと、盤面を出力するメソッド
@@ -101,10 +96,14 @@ public class BingoGame2 {
     }
     
     public static void main(String[] args) {
+        //5*5の盤面を格納する配列
+        int[][] boardNumbers = new int[5][5];
         //盤面の配列を作成
         createBoard(boardNumbers);
         boardNumbers[2][2] = 0;
 
+        //当たり番号を格納する配列を用意（*todo:75の数値は最適化すること）
+        int[] hitNumbers = new int[75];
         //ゲーム開始
         for (int i = 1; i <= 75; i++) {
             printBoard(boardNumbers);
