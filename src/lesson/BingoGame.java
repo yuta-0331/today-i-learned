@@ -13,9 +13,7 @@ public class BingoGame {
                     break;
                 }
             }
-            if (continueFlag) {
-                continue;
-            } else {
+            if (!continueFlag) {
                 array[index] = tmp;
                 break;
             }
