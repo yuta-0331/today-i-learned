@@ -101,7 +101,7 @@ public class BingoGame {
             generateArrayWithUniqueNumber(i, hitNumbers, 75, 1);
             System.out.println("抽選番号:" + hitNumbers[i]);
             checkHitNumber(hitNumbers[i], boardNumbers);
-            if (i >= 4 && checkAlign(boardNumbers)) {
+            if (i >= 3 && checkAlign(boardNumbers)) {
                 printBoard(boardNumbers);
                 System.out.println(i + 1 + "回目でゲームが終了しました");
                 break;
