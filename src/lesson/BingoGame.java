@@ -95,15 +95,15 @@ public class BingoGame {
         boardNumbers[2][2] = 0;
 
         int[] hitNumbers = new int[75];
-        for (int i = 1; i <= 75; i++) {
+        for (int i = 0; i < 75; i++) {
             printBoard(boardNumbers);
             MyConsole.readLine();
-            generateArrayWithUniqueNumber(i - 1, hitNumbers, 75, 1);
-            System.out.println("抽選番号:" + hitNumbers[i - 1]);
-            checkHitNumber(hitNumbers[i - 1], boardNumbers);
+            generateArrayWithUniqueNumber(i, hitNumbers, 75, 1);
+            System.out.println("抽選番号:" + hitNumbers[i]);
+            checkHitNumber(hitNumbers[i], boardNumbers);
             if (i >= 4 && checkAlign(boardNumbers)) {
                 printBoard(boardNumbers);
-                System.out.println(i + "回目でゲームが終了しました");
+                System.out.println(i + 1 + "回目でゲームが終了しました");
                 break;
             }
         }
