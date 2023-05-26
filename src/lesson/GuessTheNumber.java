@@ -12,7 +12,7 @@ public class GuessTheNumber {
 			try {
 				int inputNum = Integer.parseInt(MyConsole.readLine());
 				if (inputNum <= min || inputNum > max) {
-					throw new InvalidNumberException(min + "より大きく" + max + "より小さい数値で入力してください");
+					throw new InvalidNumberException(min + "より大きく" + max + "以下の数値で入力してください");
 				}
 				return inputNum;
 	  		} catch (InvalidNumberException e) {
