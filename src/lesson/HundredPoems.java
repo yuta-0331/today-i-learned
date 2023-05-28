@@ -277,6 +277,9 @@ public class HundredPoems {
 					System.out.println("ゲームは引き分けです！");
 					break;
 				}
+				if (countCardsPlayer01Drawn > 50) {
+					break;
+				}
 				
 				//player2のターン
 				System.out.println(player02Name + "のターンです。: " + countCardsPlayer02Drawn);
