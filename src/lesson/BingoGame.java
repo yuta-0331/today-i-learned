@@ -1,7 +1,9 @@
 package lesson;
 
-public class BingoGame {
-    //引数のindex要素に、重複なしで番号を格納するメソッド(盤面の作成、当たり番号の抽選で使用)
+class BingoGameBoard {
+	int[][] gameBoard;
+	
+	//引数のindex要素に、重複なしで番号を格納するメソッド(盤面の作成、当たり番号の抽選で使用)
     //range: 取り得る値の範囲, adjust: 取り得る値の調整,
     public static void generateArrayWithUniqueNumber(int index, int[] array, int range, int adjust) {
         while (true) {
@@ -35,9 +37,14 @@ public class BingoGame {
         }
         return boardArray;
     }
-
+	public BingoGameBoard(int[][] args) {
+		this.gameBoard = createBoard(args);
+	}
+}
+public class BingoGame {
     //引数に盤面の配列を渡すと、盤面を出力するメソッド
-    public static void printBoard(int[][] boardArray) {
+    public static void printBoard(int[][] boardArray, String name) {
+    	System.out.println("player: " + name);
         System.out.println("---------------------");
         System.out.println("| B | I | N | G | O |");
         System.out.println("---------------------");
@@ -57,17 +64,17 @@ public class BingoGame {
     }
 
     //引数の要素にnumを持っていてたら、値を0に置換するメソッド
-    public static void checkHitNumber(int hitNum, int[][] boardArray) {
+    public static void checkHitNumber(int hitNum, int[][] boardArray, String name) {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 if (boardArray[i][j] == hitNum) {
                     boardArray[i][j] = 0;
-                    System.out.println("Hit!");
+                    System.out.println(name + ": Hit!");
                     return;
                 }
             }
         }
-        System.out.println("Deviate");
+        System.out.println(name + ": Deviate");
     }
     
     //引数に渡した盤面の配列がクリア条件を満たしていないかチェック
@@ -90,20 +97,40 @@ public class BingoGame {
     }
     
     public static void main(String[] args) {
-        int[][] boardNumbers = new int[5][5];
-        createBoard(boardNumbers);
-        boardNumbers[2][2] = 0;
-
+        //2つのボードを作成
+        int[][] boardNumbers_01 = new int[5][5];
+        new BingoGameBoard(boardNumbers_01);
+        boardNumbers_01[2][2] = 0;
+        int[][] boardNumbers_02 = new int[5][5];
+        new BingoGameBoard(boardNumbers_02);
+        boardNumbers_02[2][2] = 0;
+        //プレイヤー名を入力
+        System.out.println("player1の名前を入力してください");
+        String inputName_01 = MyConsole.readLine();
+        System.out.println("player2の名前を入力してください");
+        String inputName_02 = MyConsole.readLine();
+        
         int[] hitNumbers = new int[75];
         for (int i = 0; i < 75; i++) {
-            printBoard(boardNumbers);
+            printBoard(boardNumbers_01, inputName_01);
+            printBoard(boardNumbers_02, inputName_02);
             MyConsole.readLine();
-            generateArrayWithUniqueNumber(i, hitNumbers, 75, 1);
+            BingoGameBoard.generateArrayWithUniqueNumber(i, hitNumbers, 75, 1);
             System.out.println("抽選番号:" + hitNumbers[i]);
-            checkHitNumber(hitNumbers[i], boardNumbers);
-            if (i >= 3 && checkAlign(boardNumbers)) {
-                printBoard(boardNumbers);
-                System.out.println(i + 1 + "回目でゲームが終了しました");
+            checkHitNumber(hitNumbers[i], boardNumbers_01, inputName_01);
+            checkHitNumber(hitNumbers[i], boardNumbers_02, inputName_02);
+            if (i >= 3 && checkAlign(boardNumbers_01) && checkAlign(boardNumbers_02)) {
+                printBoard(boardNumbers_01, inputName_01);
+                printBoard(boardNumbers_02, inputName_02);
+                System.out.println(i + 1 + "回目でゲームが終了しました。引き分けです。");
+                break;
+            } else if (i >= 3 && checkAlign(boardNumbers_01)) {
+            	printBoard(boardNumbers_01, inputName_01);
+                System.out.println(i + 1 + "回目でゲームが終了しました。" + inputName_01 + "の勝利です。");
+                break;
+            } else if (i >= 3 && checkAlign(boardNumbers_02)) {
+            	printBoard(boardNumbers_02, inputName_02);
+                System.out.println(i + 1 + "回目でゲームが終了しました。" + inputName_02 + "の勝利です。");
                 break;
             }
         }

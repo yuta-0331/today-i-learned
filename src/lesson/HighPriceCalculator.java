@@ -27,6 +27,7 @@ public class HighPriceCalculator {
 			}
 		}
 		System.out.println(highPriceBook.title + "\t" + highPriceBook.price + "円です");
+		
 	}
 
 }
