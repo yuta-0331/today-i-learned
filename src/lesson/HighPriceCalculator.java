@@ -1,6 +1,16 @@
 package lesson;
 
 public class HighPriceCalculator {
+	
+	public static Book searchHighPriceBook(Book[] args) {
+		Book highPriceBook = args[0];
+		for (Book book : args) {
+			if (book.price > highPriceBook.price) {
+				highPriceBook = book;
+			}
+		}
+		return highPriceBook;
+	}
 
 	public static void main(String[] args) {
 
@@ -9,23 +19,14 @@ public class HighPriceCalculator {
 			books[i] = new Book();
 		}
 		
-		books[0].title = "初めてのWebGL";
-		books[0].price = 4200;
-		books[1].title = "PHP本格入門";
-		books[1].price = 3800;
-		books[2].title = "SQL入門";
-		books[2].price = 2980;
-		books[3].title = "JavaScript新版";
-		books[3].price = 3200;
-		books[4].title = "Java基本編";
-		books[4].price = 1600;
-		
-		Book highPriceBook = books[0];
-		for (Book book : books) {
-			if (book.price > highPriceBook.price) {
-				highPriceBook = book;
-			}
+		String[] titles = { "初めてのWebGL", "PHP本格入門", "SQL入門", "JavaScript新版", "Java基本編" };
+		int[] prices = { 4200, 3800, 2980, 3200, 1600 };
+		for (int i = 0; i < books.length; i++) {
+			books[i].title = titles[i];
+			books[i].price = prices[i]; 
 		}
+		
+		Book highPriceBook = searchHighPriceBook(books);
 		System.out.println(highPriceBook.title + "\t" + highPriceBook.price + "円です");
 		
 	}
