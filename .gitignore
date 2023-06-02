@@ -2,6 +2,8 @@
 .classpath
 .project
 .settings/
+.class
+out/
 
 # ビルドフォルダ
 bin/
