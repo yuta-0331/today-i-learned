@@ -29,7 +29,7 @@ public class HighPriceCalculator {
 				bookArray[j++] = args[i];
 			}
 		}
-
+		return bookArray;
 	}
 	public static void main(String[] args) {
 
@@ -48,7 +48,7 @@ public class HighPriceCalculator {
 		Book highPriceBook = searchHighPriceBook(books);
 		int count = countSamePrice(books, highPriceBook.price);
 		Book[] highPriceBooks = createArraySamePrice(books, highPriceBook.price, count);
-		System.out.println("最高価格の本")
+		System.out.println("最高価格の本");
 		for (Book book : highPriceBooks) {
 			System.out.print(book.title + " ");
 		}
