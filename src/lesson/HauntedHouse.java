@@ -39,6 +39,9 @@ class Human {
 
 public class HauntedHouse {
 
+    public static int humansIndex;
+    public static int ghostsIndex;
+
     public static void main(String[] args) {
 
         Human[] humans = {
@@ -56,28 +59,62 @@ public class HauntedHouse {
                 new Ghost("ゴーストE", "おおお"),
         };
 
-        int humansIndex = 0;
-        int ghostsIndex = 0;
         System.out.println("ゲームを開始します");
         MyConsole.readLine();
+        humansIndex = 0;
+        ghostsIndex = 0;
         while (true) {
+            //怖さレベル、怖がりレベルを変数に格納する
             int humanPower = humans[humansIndex].scaredLevel;
             int ghostPower = ghosts[ghostsIndex].scaryLevel;
-            System.out.println("プレイヤー: " + humanPower);
+            System.out.println(humans[humansIndex].name + ": " + humanPower);
             System.out.println("敵: " + ghostPower);
+            //サンジは女ゴーストに勝てない
             if (humans[humansIndex].name.equals("サンジ") && ghosts[ghostsIndex].sex.equals("女")) {
                 System.out.println("サンジ『死んでも女は蹴らん・・・！』");
                 System.out.println("サンジの負け");
                 humansIndex++;
             } else {
-                if (humanPower < ghostPower && humans[humansIndex].finishingMoveGauge != 0) {
-                    System.out.println("スキルを使いますか？ y/n");
-                    String ans = MyConsole.readLine();
+                //1/3の確率でゴーストのスキルが発動（スキルポイントが余っていれば）
+                if ((int) (Math.random() * 3) == 2 && ghosts[ghostsIndex].finishingMoveGauge != 0) {
+                    System.out.println("ゴーストのスキルが発動！");
+                    ghosts[ghostsIndex].scaryLevel -= 1;
+                    ghostPower += (int) (Math.random() * 6 + 1);
                 }
-
+                //ゴーストのパワーがヒューマンより高ければスキル発動
+                if (humanPower <= ghostPower && humans[humansIndex].finishingMoveGauge != 0) {
+                    System.out.println("スキルを使います!");
+                    MyConsole.readLine();
+                    System.out.println(humans[humansIndex].finishingMove + "が発動！");
+                    humans[humansIndex].finishingMoveGauge -= 1;
+                    humanPower += (int) (Math.random() * 6 + 1);
+                }
+                //バトル開始
+                if (humanPower > ghostPower) {
+                    System.out.println(humans[humansIndex].name + "の勝利");
+                    humanPower -= ghostPower;
+                    humans[humansIndex].scaredLevel = humanPower;
+                    ghostsIndex++;
+                } else if (humanPower == ghostPower) {
+                    System.out.println("引き分け");
+                    humansIndex++;
+                    ghostsIndex++;
+                } else {
+                    System.out.println(ghosts[ghostsIndex].name + "の勝利");
+                    ghostPower -= humanPower;
+                    ghosts[ghostsIndex].scaryLevel = ghostPower;
+                    humansIndex++;
+                }
             }
-
-            if (humansIndex == humans.length || ghostsIndex == ghosts.length) {
+            MyConsole.readLine();
+            if (humansIndex == humans.length && ghostsIndex == ghosts.length) {
+                System.out.println("引き分け");
+                break;
+            } else if (humansIndex == humans.length) {
+                System.out.println("Ghostの勝利");
+                break;
+            } else if (ghostsIndex == ghosts.length){
+                System.out.println("Humanの勝利");
                 break;
             }
         }
