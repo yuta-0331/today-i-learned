@@ -77,17 +77,17 @@ public class HauntedHouse {
             } else {
                 //1/3の確率でゴーストのスキルが発動（スキルポイントが余っていれば）
                 if ((int) (Math.random() * 3) == 2 && ghosts[ghostsIndex].finishingMoveGauge != 0) {
-                    System.out.println("ゴーストのスキルが発動！");
-                    ghosts[ghostsIndex].scaryLevel -= 1;
                     ghostPower += (int) (Math.random() * 6 + 1);
+                    System.out.println("ゴーストのスキルが発動！: " + ghostPower);
+                    ghosts[ghostsIndex].scaryLevel -= 1;
                 }
                 //ゴーストのパワーがヒューマンより高ければスキル発動
                 if (humanPower <= ghostPower && humans[humansIndex].finishingMoveGauge != 0) {
                     System.out.println("スキルを使います!");
                     MyConsole.readLine();
-                    System.out.println(humans[humansIndex].finishingMove + "が発動！");
-                    humans[humansIndex].finishingMoveGauge -= 1;
                     humanPower += (int) (Math.random() * 6 + 1);
+                    System.out.println(humans[humansIndex].finishingMove + "が発動！: " + humanPower);
+                    humans[humansIndex].finishingMoveGauge -= 1;
                 }
                 //バトル開始
                 if (humanPower > ghostPower) {
