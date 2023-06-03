@@ -107,6 +107,7 @@ public class HauntedHouse {
                 }
             }
             MyConsole.readLine();
+            //勝負の終了条件
             if (humansIndex == humans.length && ghostsIndex == ghosts.length) {
                 System.out.println("引き分け");
                 break;
