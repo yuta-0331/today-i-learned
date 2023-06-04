@@ -1,6 +1,6 @@
 package lesson;
 
-abstract class SumoPlayer {
+class SumoPlayer {
     public String name;
     public String signatureMove;
     public String signatureLine;
