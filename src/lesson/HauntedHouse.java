@@ -33,7 +33,6 @@ class Human {
         this.sex = sex;
         this.finishingMove = finishingMove;
         this.scaredLevel = scaredLevel;
-
     }
 }
 
@@ -79,7 +78,7 @@ public class HauntedHouse {
                 if ((int) (Math.random() * 3) == 2 && ghosts[ghostsIndex].finishingMoveGauge != 0) {
                     ghostPower += (int) (Math.random() * 6 + 1);
                     System.out.println("ゴーストのスキルが発動！: " + ghostPower);
-                    ghosts[ghostsIndex].scaryLevel -= 1;
+                    ghosts[ghostsIndex].scaryLevel--;
                 }
                 //ゴーストのパワーがヒューマンより高ければスキル発動
                 if (humanPower <= ghostPower && humans[humansIndex].finishingMoveGauge != 0) {
@@ -87,7 +86,7 @@ public class HauntedHouse {
                     MyConsole.readLine();
                     humanPower += (int) (Math.random() * 6 + 1);
                     System.out.println(humans[humansIndex].finishingMove + "が発動！: " + humanPower);
-                    humans[humansIndex].finishingMoveGauge -= 1;
+                    humans[humansIndex].finishingMoveGauge--;
                 }
                 //バトル開始
                 if (humanPower > ghostPower) {
