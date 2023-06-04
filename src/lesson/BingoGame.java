@@ -1,7 +1,7 @@
 package lesson;
 
 class BingoGameBoard {
-	int[][] gameBoard;
+	public int[][] gameBoard;
 	
 	//引数のindex要素に、重複なしで番号を格納するメソッド(盤面の作成、当たり番号の抽選で使用)
     //range: 取り得る値の範囲, adjust: 取り得る値の調整,
@@ -38,7 +38,7 @@ class BingoGameBoard {
         return boardArray;
     }
 	public BingoGameBoard(int[][] args) {
-		this.gameBoard = createBoard(args);
+        this.gameBoard = createBoard(args);
 	}
 }
 public class BingoGame {
@@ -98,12 +98,12 @@ public class BingoGame {
     
     public static void main(String[] args) {
         //2つのボードを作成
-        int[][] boardNumbers_01 = new int[5][5];
-        new BingoGameBoard(boardNumbers_01);
-        boardNumbers_01[2][2] = 0;
-        int[][] boardNumbers_02 = new int[5][5];
-        new BingoGameBoard(boardNumbers_02);
-        boardNumbers_02[2][2] = 0;
+        int[][] board_01 = new int[5][5];
+        new BingoGameBoard(board_01);
+        board_01[2][2] = 0;
+        int[][] board_02 = new int[5][5];
+        new BingoGameBoard(board_02);
+        board_02[2][2] = 0;
         //プレイヤー名を入力
         System.out.println("player1の名前を入力してください");
         String inputName_01 = MyConsole.readLine();
@@ -112,24 +112,24 @@ public class BingoGame {
         
         int[] hitNumbers = new int[75];
         for (int i = 0; i < 75; i++) {
-            printBoard(boardNumbers_01, inputName_01);
-            printBoard(boardNumbers_02, inputName_02);
+            printBoard(board_01, inputName_01);
+            printBoard(board_02, inputName_02);
             MyConsole.readLine();
             BingoGameBoard.generateArrayWithUniqueNumber(i, hitNumbers, 75, 1);
             System.out.println("抽選番号:" + hitNumbers[i]);
-            checkHitNumber(hitNumbers[i], boardNumbers_01, inputName_01);
-            checkHitNumber(hitNumbers[i], boardNumbers_02, inputName_02);
-            if (i >= 3 && checkAlign(boardNumbers_01) && checkAlign(boardNumbers_02)) {
-                printBoard(boardNumbers_01, inputName_01);
-                printBoard(boardNumbers_02, inputName_02);
+            checkHitNumber(hitNumbers[i], board_01, inputName_01);
+            checkHitNumber(hitNumbers[i], board_02, inputName_02);
+            if (i >= 3 && checkAlign(board_01) && checkAlign(board_02)) {
+                printBoard(board_01, inputName_01);
+                printBoard(board_02, inputName_02);
                 System.out.println(i + 1 + "回目でゲームが終了しました。引き分けです。");
                 break;
-            } else if (i >= 3 && checkAlign(boardNumbers_01)) {
-            	printBoard(boardNumbers_01, inputName_01);
+            } else if (i >= 3 && checkAlign(board_01)) {
+            	printBoard(board_01, inputName_01);
                 System.out.println(i + 1 + "回目でゲームが終了しました。" + inputName_01 + "の勝利です。");
                 break;
-            } else if (i >= 3 && checkAlign(boardNumbers_02)) {
-            	printBoard(boardNumbers_02, inputName_02);
+            } else if (i >= 3 && checkAlign(board_02)) {
+            	printBoard(board_02, inputName_02);
                 System.out.println(i + 1 + "回目でゲームが終了しました。" + inputName_02 + "の勝利です。");
                 break;
             }
