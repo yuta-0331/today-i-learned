@@ -1,7 +1,6 @@
 package lesson;
-///////////////////////////////////////
-//////////キャラ、ラスボスのクラス//////////
-///////////////////////////////////////
+
+//キャラ、ラスボスのクラス
 class Character {
     String name;
     String job;
@@ -29,9 +28,7 @@ class Adventurer extends Character {
         super(name, job);
     }
 }
-//////////////////////////
-//////////Jobクラス//////////
-//////////////////////////
+//Jobクラス
 class Job {
     String jobName;
     int hitPoint;
@@ -80,9 +77,8 @@ class FinalBossJob extends Job {
     }
 }
 
-///////////////////////////////
-//////////無効な入力の例外//////////
-///////////////////////////////
+
+//無効な入力のカスタム例外
 class InvalidCommandException extends Exception {
     InvalidCommandException(String msg) {
         super(msg);
@@ -97,7 +93,7 @@ public class FantasyAdventure {
     //パーティのHPとスキルポイントを表示
     public static void printPlayerStatus(Adventurer[] args) {
         for (Adventurer arg : args) {
-            System.out.println(arg.name + "\tHP: " + arg.hitPoint + " SP: " + arg.skillPoint);
+            System.out.println(arg.name + "\n HP: " + arg.hitPoint + " SP: " + arg.skillPoint);
         }
     }
     //コマンドの表示
@@ -126,7 +122,7 @@ public class FantasyAdventure {
     }
     public static void main(String[] args) {
         Adventurer[] adventurePartyGroup = new Adventurer[PARTY_SIZE];
-        // ジョブの選択、名前の入力をしてパーティの作成
+        // ジョブの選択、名前の入力をして味方パーティの作成
         int i = 0;
         do {
             System.out.println((i + 1) + "人目の名前を入力してください");
@@ -156,7 +152,7 @@ public class FantasyAdventure {
                 }
             }
         } while (i != PARTY_SIZE);
-        //ボスの作成
+        //ボスパーティの作成
         FinalBoss[] finalBossGroup = {
                 new FinalBoss("魔王", new FinalBossJob("Devil")),
                 new FinalBoss("魔導士A", new FinalBossJob("Sorcerer")),
@@ -164,9 +160,11 @@ public class FantasyAdventure {
         };
         //味方の行動ターン
         printPlayerStatus(adventurePartyGroup);
-        for (int j = 0; j < adventurePartyGroup.length; j++) {
-            String[] commands = createCommand(adventurePartyGroup[j].job);
-            System.out.print(commands[j] + " ");
+        for (Adventurer adventurer : adventurePartyGroup) {
+            String[] commands = createCommand(adventurer.job);
+            for (String command : commands) {
+                System.out.print(command + " ");
+            }
             while (true) {
                 try {
                     int inputCommand = Integer.parseInt(MyConsole.readLine());
