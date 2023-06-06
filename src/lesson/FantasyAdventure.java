@@ -4,6 +4,7 @@ package lesson;
 class Character {
     String name;
     String job;
+    String skillName;
     int hitPoint;
     int attackPower;
     int skillPoint;
@@ -11,9 +12,10 @@ class Character {
     Character(String name, Job job) {
         this.name = name;
         this.job = job.jobName;
-        this.hitPoint = job.hitPoint;
-        this.attackPower = job.attackPower;
-        this.skillPoint = job.skillPoint;
+        hitPoint = job.hitPoint;
+        attackPower = job.attackPower;
+        skillPoint = job.skillPoint;
+        skillName = job.skillName;
     }
 }
 
@@ -31,6 +33,7 @@ class Adventurer extends Character {
 //Jobクラス
 class Job {
     String jobName;
+    String skillName;
     int hitPoint;
     int attackPower;
     int skillPoint;
@@ -41,19 +44,22 @@ class AdventurerJob extends Job {
         this.jobName = args;
         switch (this.jobName) {
             case "Warrior":
-                this.attackPower = 50;
-                this.hitPoint = 2000;
-                this.skillPoint = 5;
+                attackPower = 50;
+                hitPoint = 2000;
+                skillPoint = 5;
+                skillName = "会心の一撃";
                 break;
             case "Cleric":
-                this.attackPower = 12;
-                this.hitPoint = 1800;
-                this.skillPoint = 30;
+                attackPower = 12;
+                hitPoint = 1800;
+                skillPoint = 30;
+                skillName = "回復魔法";
                 break;
             case "Knight":
-                this.attackPower = 35;
-                this.hitPoint = 2500;
-                this.skillPoint = 12;
+                attackPower = 35;
+                hitPoint = 2500;
+                skillPoint = 12;
+                skillName = "華麗なる剣技";
                 break;
         }
 
@@ -64,14 +70,14 @@ class FinalBossJob extends Job {
     FinalBossJob(String args) {
         switch (args) {
             case "Devil":
-                this.attackPower = 60;
-                this.hitPoint = 10000;
-                this.skillPoint = 30;
+                attackPower = 60;
+                hitPoint = 10000;
+                skillPoint = 30;
                 break;
             case "Sorcerer":
-                this.attackPower = 12;
-                this.hitPoint = 5000;
-                this.skillPoint = 50;
+                attackPower = 12;
+                hitPoint = 5000;
+                skillPoint = 50;
                 break;
         }
     }
@@ -88,7 +94,9 @@ class InvalidCommandException extends Exception {
 //メインクラス
 public class FantasyAdventure {
     public static final String[] PLAYER_JOBS = { "Warrior", "Cleric", "Knight" };
-    public static final int PARTY_SIZE = 3;
+    public static int partySize;
+    public static int bossSize;
+
 
     //パーティのHPとスキルポイントを表示
     public static void printPlayerStatus(Adventurer[] args) {
@@ -121,18 +129,19 @@ public class FantasyAdventure {
         }
     }
     public static void main(String[] args) {
-        Adventurer[] adventurePartyGroup = new Adventurer[PARTY_SIZE];
         // ジョブの選択、名前の入力をして味方パーティの作成
-        int i = 0;
+        partySize =  3;
+        Adventurer[] adventurePartyGroup = new Adventurer[partySize];
+        int partyIndex = 0;
         do {
-            System.out.println((i + 1) + "人目の名前を入力してください");
+            System.out.println((partyIndex + 1) + "人目の名前を入力してください");
             String inputName = MyConsole.readLine();
             JobLoop:
             while (true) {
                 try {
-                    System.out.println((i + 1) + "人目のジョブを選択してください");
-                    for (int j = 0; j < PLAYER_JOBS.length; j++) {
-                        System.out.print((j + 1) + ":" + PLAYER_JOBS[j] + " ");
+                    System.out.println((partyIndex + 1) + "人目のジョブを選択してください");
+                    for (int i = 0; i < PLAYER_JOBS.length; i++) {
+                        System.out.print((i + 1) + ":" + PLAYER_JOBS[i] + " ");
                     }
                     ;
                     int inputJobNum = Integer.parseInt(MyConsole.readLine());
@@ -141,42 +150,93 @@ public class FantasyAdventure {
                     }
                     for (String jobKind : PLAYER_JOBS) {
                         if (jobKind.equals(PLAYER_JOBS[inputJobNum - 1])) {
-                            adventurePartyGroup[i] = new Adventurer(inputName, new AdventurerJob(PLAYER_JOBS[inputJobNum - 1]));
-                            i++;
+                            adventurePartyGroup[partyIndex] = new Adventurer(inputName, new AdventurerJob(PLAYER_JOBS[inputJobNum - 1]));
+                            partyIndex++;
                             break JobLoop;
                         }
                     }
                     throw new InvalidCommandException("ジョブが見つかりません");
                 } catch (InvalidCommandException e) {
                     System.out.println(e.getMessage());
+                } catch (NumberFormatException e) {
+                    System.out.print(e.getMessage());
                 }
             }
-        } while (i != PARTY_SIZE);
+        } while (partyIndex != partySize);
         //ボスパーティの作成
-        FinalBoss[] finalBossGroup = {
+        FinalBoss[] bossGroup = {
                 new FinalBoss("魔王", new FinalBossJob("Devil")),
                 new FinalBoss("魔導士A", new FinalBossJob("Sorcerer")),
                 new FinalBoss("魔導士B", new FinalBossJob("Sorcerer")),
         };
+        bossSize = 3;
+
         //味方の行動ターン
         printPlayerStatus(adventurePartyGroup);
-        for (Adventurer adventurer : adventurePartyGroup) {
+        int[] commandArray;
+        //生存しているパーティの配列を新たに作成
+        Adventurer[] aliveAdventurers = new Adventurer[partySize];
+        for (int i = 0; i < partySize; i++) {
+            aliveAdventurers[i] = adventurePartyGroup[i];
+        }
+        //生存しているボスの配列を新たに作成
+        FinalBoss[] aliveBosses = new FinalBoss[bossSize];
+        for (int i = 0; i < bossSize; i++) {
+            aliveBosses[i] = bossGroup[i];
+        }
+        for (Adventurer adventurer : aliveAdventurers) {
+            commandArray = new int[partySize];
             String[] commands = createCommand(adventurer.job);
+            System.out.println(adventurer.name + "のターン！");
             for (String command : commands) {
                 System.out.print(command + " ");
             }
+            //コマンドの入力
+            int commandIndex = 0;
             while (true) {
                 try {
                     int inputCommand = Integer.parseInt(MyConsole.readLine());
                     if (inputCommand < 0 || inputCommand > commands.length) {
                         throw new InvalidCommandException("無効な入力です");
                     }
+                    commandArray[commandIndex] = inputCommand;
                     break;
                 } catch (NumberFormatException e) {
                     System.out.println("数値で入力してください");
                 } catch (InvalidCommandException e) {
                     System.out.println(e.getMessage());
                 }
+            }
+            switch (commandArray[commandIndex++]) {
+                case 1:
+                    System.out.println("たたかう");
+                    int damage = (int) ((Math.random() + 2) * adventurer.attackPower);
+                    int targetIndex = (int) (Math.random() * bossSize);
+                    bossGroup[targetIndex].hitPoint -= damage;
+                    System.out.println(bossGroup[targetIndex].name + "に" + damage + "のダメージを与えた！");
+                    break;
+                case 2:
+                    System.out.println(adventurer.skillName);
+                    if (adventurer.skillName.equals("会心の一撃")) {
+                        damage = (int) ((Math.random() + 2) * 3 * adventurer.attackPower);
+                        targetIndex = (int) (Math.random() * bossSize);
+                        aliveBosses[targetIndex].hitPoint -= damage;
+                        adventurer.hitPoint -= damage/10;
+                        System.out.println(aliveBosses[targetIndex].name + "に" + damage + "のダメージを与えた！");
+                        System.out.println(adventurer.name + "は" + (damage / 10) + "の反動ダメージを受けた！");
+                    } else if (adventurer.skillName.equals("回復魔法")) {
+                        int heal = (int) ((Math.random() + 3) * adventurer.attackPower);
+                        for (Adventurer chara : aliveAdventurers) {
+                            chara.hitPoint += heal;
+                        }
+                        System.out.println("味方全員の体力が" + heal + "回復した！");
+                    } else {
+
+                    }
+                    break;
+                case 3:
+                    System.out.println("防御");
+                    break;
             }
 
         }
