@@ -1,12 +1,12 @@
 package fantasyAdventure;
 
 public class FantasyAdventure {
-    //jobの種類, party・bossの残り人数をグローバルで定義
+    // jobの種類, party・bossの残り人数をグローバルで定義
     public static final String[] PLAYER_JOBS = { "Warrior", "Cleric", "Knight" };
     public static int partySize;
     public static int bossSize;
 
-    //パーティの作成メソッド
+    // パーティの作成メソッド
     public static Adventurer[] createAdventureParty() {
         partySize =  3;
         Adventurer[] adventureParty = new Adventurer[partySize];
@@ -51,8 +51,8 @@ public class FantasyAdventure {
         return adventureParty;
     }
 
+    // ボスパーティの作成メソッド
     public static Boss[] createBossParty() {
-        //ボスパーティの作成メソッド
         bossSize = 3;
         return new Boss[]{
                 new Boss("魔王", new BossJob("Devil")),
@@ -61,6 +61,7 @@ public class FantasyAdventure {
         };
     }
 
+    // 攻撃対象の選択
     public static int selectTarget(Boss[] bosses) {
         System.out.println("対象を選択してください");
         for (int i = 0; i < bosses.length; i++) {
@@ -73,16 +74,14 @@ public class FantasyAdventure {
                 if (index < 0 || index > bosses.length) {
                     throw new InvalidCommandException("不正な入力です");
                 }
-                return index;
-            } catch (NumberFormatException e) {
-                System.out.println(e.getMessage());
-            } catch (InvalidCommandException e) {
+                return index - 1;
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
-    //パーティのHPとスキルポイントを表示
+    // パーティのHPとスキルポイントを表示
     public static void printPlayerStatus(Adventurer[] args) {
         for (Adventurer arg : args) {
             System.out.println(arg.name + "\n HP: " + arg.hitPoint + " SP: " + arg.skillPoint);
@@ -90,39 +89,42 @@ public class FantasyAdventure {
     }
 
     public static void main(String[] args) {
-        //ボスと味方のパーティを作成
+        // ボスと味方のパーティを作成
         Adventurer[] adventurePartyGroup = createAdventureParty();
         Boss[] bossGroup = createBossParty();
 
-        //生存しているパーティの配列を新たに作成
+        // 生存しているパーティの配列を新たに作成
         Adventurer[] aliveAdventurers = new Adventurer[partySize];
         for (int i = 0; i < partySize; i++) {
             aliveAdventurers[i] = adventurePartyGroup[i];
         }
-        //生存しているボスの配列を新たに作成
+        // 生存しているボスの配列を新たに作成
         Boss[] aliveBosses = new Boss[bossSize];
         for (int i = 0; i < bossSize; i++) {
             aliveBosses[i] = bossGroup[i];
         }
 
         int turnCount = 1;
-        //味方の行動ターン
+        // 味方の行動ターン
         printPlayerStatus(adventurePartyGroup);
         int[] commandArray;
         for (Adventurer adventurer : aliveAdventurers) {
             commandArray = new int[partySize];
             System.out.println(adventurer.name + "のターン！");
-            //コマンドの表示
+            // コマンドの表示
             for (int i = 0; i < adventurer.command.command.length; i++) {
                 System.out.print(i + 1 + ":" + adventurer.command.command[i] + " ");
             }
-            //コマンドの入力
+            // コマンドの入力
             int commandIndex = 0;
             while (true) {
                 try {
                     int inputCommand = Integer.parseInt(MyConsole.readLine());
                     if (inputCommand < 0 || inputCommand > 3) {
                         throw new InvalidCommandException("無効な入力です");
+                    }
+                    if (adventurer.skillPoint == 0 && inputCommand == 1) {
+                        throw new InvalidCommandException("SPが足りません！");
                     }
                     commandArray[commandIndex] = inputCommand;
                     break;
@@ -134,10 +136,12 @@ public class FantasyAdventure {
             }
             switch (commandArray[commandIndex++]) {
                 case 1:
-                    adventurer.attack(aliveBosses[0]);
+                    int index = selectTarget(aliveBosses);
+                    adventurer.attack(aliveBosses[index]);
                     break;
                 case 2:
                     if (adventurer.job.equals(PLAYER_JOBS[0])) {
+                        index = selectTarget(aliveBosses);
                         adventurer.castSkill(aliveBosses[0]);
                     } else if (adventurer.job.equals(PLAYER_JOBS[1])) {
                         adventurer.castSkill(aliveAdventurers);
