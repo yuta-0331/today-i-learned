@@ -29,7 +29,7 @@ public class FantasyAdventure {
                         continue;
                     }
                     if (inputJobNum > PLAYER_JOBS.length || inputJobNum < 0) {
-                        throw new InvalidCommandException("ジョブを選んでください");
+                        throw new InvalidCommandException("入力された番号は不正です");
                     }
                     for (String jobKind : PLAYER_JOBS) {
                         if (jobKind.equals(PLAYER_JOBS[inputJobNum - 1])) {
@@ -41,10 +41,8 @@ public class FantasyAdventure {
                         }
                     }
                     throw new InvalidCommandException("ジョブが見つかりません");
-                } catch (InvalidCommandException e) {
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
-                } catch (NumberFormatException e) {
-                    System.out.print(e.getMessage());
                 }
             }
         } while (partyIndex != partySize);
