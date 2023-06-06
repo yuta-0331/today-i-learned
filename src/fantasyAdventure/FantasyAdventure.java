@@ -40,7 +40,7 @@ public class FantasyAdventure {
                             break JobLoop;
                         }
                     }
-                    throw new InvalidCommandException("ジョブが見つかりません");
+//                    throw new InvalidCommandException("ジョブが見つかりません");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -69,7 +69,7 @@ public class FantasyAdventure {
             int index;
             try {
                 index = Integer.parseInt(MyConsole.readLine());
-                if (index < 0 || index > bosses.length) {
+                if (index < 1 || index > bosses.length) {
                     throw new InvalidCommandException("不正な入力です");
                 }
                 return index - 1;
@@ -118,7 +118,7 @@ public class FantasyAdventure {
             while (true) {
                 try {
                     int inputCommand = Integer.parseInt(MyConsole.readLine());
-                    if (inputCommand < 0 || inputCommand > 3) {
+                    if (inputCommand < 1 || inputCommand > 3) {
                         throw new InvalidCommandException("無効な入力です");
                     }
                     if (adventurer.skillPoint == 0 && inputCommand == 1) {
