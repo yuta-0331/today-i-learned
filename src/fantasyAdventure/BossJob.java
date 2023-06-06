@@ -1,7 +1,7 @@
 package fantasyAdventure;
 
-class FinalBossJob extends Job {
-    FinalBossJob(String args) {
+class BossJob extends Job {
+    BossJob(String args) {
         switch (args) {
             case "Devil":
                 attackPower = 60;
