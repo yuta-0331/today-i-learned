@@ -2,12 +2,16 @@ package fantasyAdventure;
 
 public class FantasyAdventure {
     // jobの種類, party・bossの残り人数をグローバルで定義
-    public static final String[] PLAYER_JOBS = { "Warrior", "Cleric", "Knight" };
-    public static int partySize;
-    public static int bossSize;
+    private static String[] PLAYER_JOBS = { "Warrior", "Cleric", "Knight" };
+    private static int partySize;
+    private static int bossSize;
+
+    public static String[] getPlayerJobs() {
+        return PLAYER_JOBS;
+    }
 
     // パーティの作成メソッド
-    public static Adventurer[] createAdventureParty() {
+    private static Adventurer[] createAdventureParty() {
         partySize =  3;
         Adventurer[] adventureParty = new Adventurer[partySize];
         int partyIndex = 0;
@@ -50,7 +54,7 @@ public class FantasyAdventure {
     }
 
     // ボスパーティの作成メソッド
-    public static Boss[] createBossParty() {
+    private static Boss[] createBossParty() {
         bossSize = 3;
         return new Boss[]{
                 new Boss("魔王", new BossJob("Devil")),
@@ -60,10 +64,10 @@ public class FantasyAdventure {
     }
 
     // 攻撃対象の選択
-    public static int selectTarget(Boss[] bosses) {
+    private static int selectTarget(Boss[] bosses) {
         System.out.println("対象を選択してください");
         for (int i = 0; i < bosses.length; i++) {
-            System.out.print(i + 1 + bosses[i].name + " ");
+            System.out.print(i + 1 + bosses[i].getName() + " ");
         }
         while (true) {
             int index;
@@ -80,9 +84,9 @@ public class FantasyAdventure {
     }
 
     // パーティのHPとスキルポイントを表示
-    public static void printPlayerStatus(Adventurer[] args) {
+    private static void printPlayerStatus(Adventurer[] args) {
         for (Adventurer arg : args) {
-            System.out.println(arg.name + "\n HP: " + arg.hitPoint + " SP: " + arg.skillPoint);
+            System.out.println(arg.getName() + "\n HP: " + arg.getHitPoint() + " SP: " + arg.getSkillPoint());
         }
     }
 
@@ -108,10 +112,10 @@ public class FantasyAdventure {
         int[] commandArray;
         for (Adventurer adventurer : aliveAdventurers) {
             commandArray = new int[partySize];
-            System.out.println(adventurer.name + "のターン！");
+            System.out.println(adventurer.getName() + "のターン！");
             // コマンドの表示
-            for (int i = 0; i < adventurer.command.command.length; i++) {
-                System.out.print(i + 1 + ":" + adventurer.command.command[i] + " ");
+            for (int i = 0; i < adventurer.getCommand().getCommands().length; i++) {
+                System.out.print(i + 1 + ":" + adventurer.getCommand().getCommands()[i] + " ");
             }
             // コマンドの入力
             int commandIndex = 0;
@@ -121,7 +125,7 @@ public class FantasyAdventure {
                     if (inputCommand < 1 || inputCommand > 3) {
                         throw new InvalidCommandException("無効な入力です");
                     }
-                    if (adventurer.skillPoint == 0 && inputCommand == 1) {
+                    if (adventurer.getSkillPoint() == 0 && inputCommand == 2) {
                         throw new InvalidCommandException("SPが足りません！");
                     }
                     commandArray[commandIndex] = inputCommand;
@@ -138,12 +142,12 @@ public class FantasyAdventure {
                     adventurer.attack(aliveBosses[index]);
                     break;
                 case 2:
-                    if (adventurer.job.equals(PLAYER_JOBS[0])) {
+                    if (adventurer.getJobName().equals(PLAYER_JOBS[0])) {
                         index = selectTarget(aliveBosses);
                         adventurer.castSkill(aliveBosses[0]);
-                    } else if (adventurer.job.equals(PLAYER_JOBS[1])) {
+                    } else if (adventurer.getJobName().equals(PLAYER_JOBS[1])) {
                         adventurer.castSkill(aliveAdventurers);
-                    } else if (adventurer.job.equals((PLAYER_JOBS[2]))){
+                    } else if (adventurer.getJobName().equals((PLAYER_JOBS[2]))){
                         adventurer.castSkill(aliveBosses);
                     }
                     break;

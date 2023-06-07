@@ -1,20 +1,24 @@
 package fantasyAdventure;
 
 class AdventurerCommand {
-    String[] command = new String[3];
+    private String[] commands = new String[3];
+
+    public String[] getCommands() {
+        return commands;
+    }
 
     AdventurerCommand(String jobName) {
-        command[0] = "たたかう";
-        command[2] = "ぼうぎょ";
-        String[] jobs = FantasyAdventure.PLAYER_JOBS;
+        commands[0] = "たたかう";
+        commands[2] = "ぼうぎょ";
+        String[] jobs = FantasyAdventure.getPlayerJobs();
         if (jobName.equals(jobs[0])) {
-            command[1] = "会心の一撃";
+            commands[1] = "会心の一撃";
         } else if (jobName.equals(jobs[1])) {
-            command[1] = "回復魔法";
+            commands[1] = "回復魔法";
         } else if (jobName.equals(jobs[2])){
-            command[1] = "華麗なる剣技";
+            commands[1] = "華麗なる剣技";
         } else {
-            command[1] = null;
+            commands[1] = null;
         }
     }
 }
