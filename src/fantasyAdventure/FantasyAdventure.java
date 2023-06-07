@@ -5,6 +5,8 @@ public class FantasyAdventure {
     private static String[] PLAYER_JOBS = { "Warrior", "Cleric", "Knight" };
     private static int partySize;
     private static int bossSize;
+    private static Adventurer[] aliveAdventurers;
+    private static Boss[] aliveBosses;
 
     public static String[] getPlayerJobs() {
         return PLAYER_JOBS;
@@ -89,6 +91,29 @@ public class FantasyAdventure {
             System.out.println(arg.getName() + "\n HP: " + arg.getHitPoint() + " SP: " + arg.getSkillPoint());
         }
     }
+    // プレイヤーのターンの行動を実行
+    private static void executeAdventurersTurn(Adventurer adventurer, int commandNumber, int turnCount) {
+        switch (commandNumber) {
+            case 1:
+                int index = selectTarget(aliveBosses);
+                adventurer.attack(aliveBosses[index]);
+                break;
+            case 2:
+                if (adventurer.getJobName().equals(PLAYER_JOBS[0])) {
+                    index = selectTarget(aliveBosses);
+                    adventurer.castSkill(aliveBosses[index]);
+                } else if (adventurer.getJobName().equals(PLAYER_JOBS[1])) {
+                    adventurer.castSkill(aliveAdventurers);
+                } else if (adventurer.getJobName().equals((PLAYER_JOBS[2]))){
+                    adventurer.castSkill(aliveBosses);
+                }
+                break;
+            case 3:
+                System.out.println("防御");
+                adventurer.defense();
+                break;
+        }
+    }
 
     public static void main(String[] args) {
         // ボスと味方のパーティを作成
@@ -101,7 +126,7 @@ public class FantasyAdventure {
             aliveAdventurers[i] = adventurePartyGroup[i];
         }
         // 生存しているボスの配列を新たに作成
-        Boss[] aliveBosses = new Boss[bossSize];
+        aliveBosses = new Boss[bossSize];
         for (int i = 0; i < bossSize; i++) {
             aliveBosses[i] = bossGroup[i];
         }
@@ -118,17 +143,16 @@ public class FantasyAdventure {
                 System.out.print(i + 1 + ":" + adventurer.getCommand().getCommands()[i] + " ");
             }
             // コマンドの入力
-            int commandIndex = 0;
+            int inputCommand;
             while (true) {
                 try {
-                    int inputCommand = Integer.parseInt(MyConsole.readLine());
+                    inputCommand = Integer.parseInt(MyConsole.readLine());
                     if (inputCommand < 1 || inputCommand > 3) {
                         throw new InvalidCommandException("無効な入力です");
                     }
                     if (adventurer.getSkillPoint() == 0 && inputCommand == 2) {
-                        throw new InvalidCommandException("SPが足りません！");
+                        throw new InvalidCommandException("SPが足りない！");
                     }
-                    commandArray[commandIndex] = inputCommand;
                     break;
                 } catch (NumberFormatException e) {
                     System.out.println("数値で入力してください");
@@ -136,25 +160,8 @@ public class FantasyAdventure {
                     System.out.println(e.getMessage());
                 }
             }
-            switch (commandArray[commandIndex++]) {
-                case 1:
-                    int index = selectTarget(aliveBosses);
-                    adventurer.attack(aliveBosses[index]);
-                    break;
-                case 2:
-                    if (adventurer.getJobName().equals(PLAYER_JOBS[0])) {
-                        index = selectTarget(aliveBosses);
-                        adventurer.castSkill(aliveBosses[0]);
-                    } else if (adventurer.getJobName().equals(PLAYER_JOBS[1])) {
-                        adventurer.castSkill(aliveAdventurers);
-                    } else if (adventurer.getJobName().equals((PLAYER_JOBS[2]))){
-                        adventurer.castSkill(aliveBosses);
-                    }
-                    break;
-                case 3:
-                    System.out.println("防御");
-                    break;
-            }
+            executeAdventurersTurn(adventurer,inputCommand, turnCount);
+
         }
     }
 }

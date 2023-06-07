@@ -27,9 +27,8 @@ class Adventurer extends Character {
     }
 
     // 防御
-    double defense(Character character) {
-       character.setDamageMultiplier(0.1);
-       return character.getDamageMultiplier();
+    void defense() {
+       setDamageMultiplier(0.1);
     }
 
     // Warriorのスキル
