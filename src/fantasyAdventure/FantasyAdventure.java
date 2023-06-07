@@ -93,9 +93,10 @@ public class FantasyAdventure {
     }
     // プレイヤーのターンの行動を実行
     private static void executeAdventurersTurn(Adventurer adventurer, int commandNumber, int turnCount) {
+        int index;
         switch (commandNumber) {
             case 1:
-                int index = selectTarget(aliveBosses);
+                index = selectTarget(aliveBosses);
                 adventurer.attack(aliveBosses[index]);
                 break;
             case 2:
@@ -134,9 +135,7 @@ public class FantasyAdventure {
         int turnCount = 1;
         // 味方の行動ターン
         printPlayerStatus(adventurePartyGroup);
-        int[] commandArray;
         for (Adventurer adventurer : aliveAdventurers) {
-            commandArray = new int[partySize];
             System.out.println(adventurer.getName() + "のターン！");
             // コマンドの表示
             for (int i = 0; i < adventurer.getCommand().getCommands().length; i++) {
@@ -161,7 +160,6 @@ public class FantasyAdventure {
                 }
             }
             executeAdventurersTurn(adventurer,inputCommand, turnCount);
-
         }
     }
 }
