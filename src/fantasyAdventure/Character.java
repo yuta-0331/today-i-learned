@@ -8,6 +8,7 @@ class Character {
     private int maxHitPoint;
     private int attackPower;
     private int skillPoint;
+    private double damageMultiplier; // ダメージ倍率
 
     // Setter
     public void setName(String name) {
@@ -30,6 +31,9 @@ class Character {
     }
     public void setMaxHitPoint(int maxHitPoint) {
         this.maxHitPoint = maxHitPoint;
+    }
+    public void setDamageMultiplier(double damageMultiplier) {
+        this.damageMultiplier = damageMultiplier;
     }
     public void increaseSkillPoint() {
         skillPoint++;
@@ -69,5 +73,8 @@ class Character {
     }
     public String getSkillName() {
         return skillName;
+    }
+    public double getDamageMultiplier() {
+        return damageMultiplier;
     }
 }
