@@ -56,12 +56,12 @@ class Adventurer extends Character {
     }
 
     // Clericのスキル
-    void castSkill(Adventurer[] party) {
+    void castSkill(Adventurer[] adventurers) {
         System.out.println(this.getSkillName());
 
         int heal = (int) ((Math.random() * 10 + 3) * this.getAttackPower());
-        for (Adventurer chara : party) {
-            chara.increaseHitPoint(heal);
+        for (Adventurer adventurer : adventurers) {
+            adventurer.increaseHitPoint(heal);
         }
         this.decreaseSkillPoint();
         System.out.println("味方全員の体力が" + heal + "回復した！");

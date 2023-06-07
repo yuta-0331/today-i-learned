@@ -7,6 +7,7 @@ public class FantasyAdventure {
     private static int bossSize;
     private static Adventurer[] aliveAdventurers;
     private static Boss[] aliveBosses;
+    private static int inputCommand;
 
     public static String[] getPlayerJobs() {
         return PLAYER_JOBS;
@@ -46,7 +47,6 @@ public class FantasyAdventure {
                             break JobLoop;
                         }
                     }
-//                    throw new InvalidCommandException("ジョブが見つかりません");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -85,14 +85,46 @@ public class FantasyAdventure {
         }
     }
 
-    // パーティのHPとスキルポイントを表示
+    // パーティのHPとスキルポイント残を表示
     private static void printPlayerStatus(Adventurer[] args) {
         for (Adventurer arg : args) {
-            System.out.println(arg.getName() + "\n HP: " + arg.getHitPoint() + " SP: " + arg.getSkillPoint());
+            System.out.println(
+                    arg.getName() + "\n HP: " + arg.getHitPoint() + "/" + arg.getMaxHitPoint() + " SP: " + arg.getSkillPoint()
+            );
+        }
+    }
+    // プレイヤーの行動を選択
+    private static void selectAdventurersAction(Adventurer adventurer) {
+        // コマンドの表示
+        for (int i = 0; i < adventurer.getCommand().getCommands().length; i++) {
+            System.out.print(i + 1 + ":" + adventurer.getCommand().getCommands()[i] + " ");
+        }
+        // コマンドの入力
+        while (true) {
+            try {
+                inputCommand = Integer.parseInt(MyConsole.readLine());
+                if (inputCommand < 1 || inputCommand > 3) {
+                    throw new InvalidCommandException("無効な入力です");
+                }
+                if (adventurer.getSkillPoint() == 0 && inputCommand == 2) {
+                    throw new InvalidCommandException("SPが足りない！");
+                }
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("数値で入力してください");
+            } catch (InvalidCommandException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
     // プレイヤーのターンの行動を実行
     private static void executeAdventurersTurn(Adventurer adventurer, int commandNumber, int turnCount) {
+        // 防御の効果をリセット
+        adventurer.setDamageMultiplier(1);
+        //5ターンに1ずつSP回復
+        if (turnCount % 5 == 1 && turnCount > 1) {
+            adventurer.increaseSkillPoint();
+        }
         int index;
         switch (commandNumber) {
             case 1:
@@ -122,7 +154,7 @@ public class FantasyAdventure {
         Boss[] bossGroup = createBossParty();
 
         // 生存しているパーティの配列を新たに作成
-        Adventurer[] aliveAdventurers = new Adventurer[partySize];
+        aliveAdventurers = new Adventurer[partySize];
         for (int i = 0; i < partySize; i++) {
             aliveAdventurers[i] = adventurePartyGroup[i];
         }
@@ -133,32 +165,11 @@ public class FantasyAdventure {
         }
 
         int turnCount = 1;
-        // 味方の行動ターン
         printPlayerStatus(adventurePartyGroup);
         for (Adventurer adventurer : aliveAdventurers) {
             System.out.println(adventurer.getName() + "のターン！");
-            // コマンドの表示
-            for (int i = 0; i < adventurer.getCommand().getCommands().length; i++) {
-                System.out.print(i + 1 + ":" + adventurer.getCommand().getCommands()[i] + " ");
-            }
-            // コマンドの入力
-            int inputCommand;
-            while (true) {
-                try {
-                    inputCommand = Integer.parseInt(MyConsole.readLine());
-                    if (inputCommand < 1 || inputCommand > 3) {
-                        throw new InvalidCommandException("無効な入力です");
-                    }
-                    if (adventurer.getSkillPoint() == 0 && inputCommand == 2) {
-                        throw new InvalidCommandException("SPが足りない！");
-                    }
-                    break;
-                } catch (NumberFormatException e) {
-                    System.out.println("数値で入力してください");
-                } catch (InvalidCommandException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
+
+            selectAdventurersAction(adventurer);
             executeAdventurersTurn(adventurer,inputCommand, turnCount);
         }
     }

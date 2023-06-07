@@ -8,7 +8,7 @@ class Character {
     private int maxHitPoint;
     private int attackPower;
     private int skillPoint;
-    private double damageMultiplier; // ダメージ倍率
+    private double damageMultiplier; // ダメージ倍率 *todo: 敵のデバフ用のダメージ倍率も作成
 
     // Setter
     public void setName(String name) {
