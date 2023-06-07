@@ -14,6 +14,7 @@ class Adventurer extends Character {
         this.setAttackPower(job.getAttackPower());
         this.setSkillPoint(job.getSkillPoint());
         this.setSkillName(job.getSkillName());
+        this.setDamageMultiplier(1.0);
         command = new AdventurerCommand(job.getJobName());
     }
 
@@ -25,9 +26,12 @@ class Adventurer extends Character {
         System.out.println(targetBoss.getName() + "に" + damage + "のダメージを与えた！");
     }
 
-    // スキル使用（*ジョブが増えた時の為にcastSkill内で
-    // if (this.job.equals(FantasyAdventure.PLAYER_JOBS[0]))）を
-    // 使用しているが現状は不要
+    // 防御
+    double defense(Character character) {
+       character.setDamageMultiplier(0.1);
+       return character.getDamageMultiplier();
+    }
+
     // Warriorのスキル
     void castSkill(Boss targetBoss) {
         System.out.println(this.getSkillName());
