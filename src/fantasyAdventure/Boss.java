@@ -10,4 +10,11 @@ class Boss extends Character {
         this.setSkillPoint(job.getSkillPoint());
         this.setSkillName(job.getSkillName());
     }
+
+    void attack(Adventurer targetAdventurer) {
+        System.out.println("たたかう");
+        int damage = (int) ((Math.random() + 2) * this.getAttackPower());
+        targetAdventurer.decreaseHitPoint(damage);
+        System.out.println(targetAdventurer.getName() + "に" + damage + "のダメージを与えた！");
+    }
 }

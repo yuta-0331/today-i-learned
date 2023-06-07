@@ -148,6 +148,12 @@ public class FantasyAdventure {
         }
     }
 
+    // Bossのターンの行動を実行
+    private static void executeBossesTurn(Boss boss, int turnCount) {
+        int targetIndex = (int) (Math.random() * partySize);
+        boss.attack(aliveAdventurers[targetIndex]);
+    }
+
     public static void main(String[] args) {
         // ボスと味方のパーティを作成
         Adventurer[] adventurePartyGroup = createAdventureParty();
@@ -165,12 +171,22 @@ public class FantasyAdventure {
         }
 
         int turnCount = 1;
-        printPlayerStatus(adventurePartyGroup);
-        for (Adventurer adventurer : aliveAdventurers) {
-            System.out.println(adventurer.getName() + "のターン！");
+        while (true) {
+            printPlayerStatus(aliveAdventurers);
+            for (Adventurer adventurer : aliveAdventurers) {
+                System.out.println(adventurer.getName() + "のターン！");
 
-            selectAdventurersAction(adventurer);
-            executeAdventurersTurn(adventurer,inputCommand, turnCount);
+                selectAdventurersAction(adventurer);
+                executeAdventurersTurn(adventurer,inputCommand, turnCount);
+            }
+            // *todo: 生存チェック
+            printPlayerStatus(aliveAdventurers);
+            for (Boss boss : aliveBosses) {
+                System.out.println(boss.getName() + "のターン！");
+                MyConsole.readLine();
+                executeBossesTurn(boss, turnCount);
+            }
+            turnCount++;
         }
     }
 }
