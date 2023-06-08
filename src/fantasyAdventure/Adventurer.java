@@ -20,7 +20,7 @@ class Adventurer extends Character {
 
     // こうげき
     void attack(Boss targetBoss) {
-        System.out.println("たたかう");
+        System.out.println(this.command.getCommands()[0]);
         int damage = (int) ((Math.random() + 2) * this.getAttackPower());
         targetBoss.decreaseHitPoint(damage);
         System.out.println(targetBoss.getName() + "に" + damage + "のダメージを与えた！");
@@ -28,7 +28,8 @@ class Adventurer extends Character {
 
     // 防御
     void defense() {
-       setDamageMultiplier(0.1);
+        System.out.println(this.command.getCommands()[2]);
+        setDamageMultiplier(0.1);
     }
 
     // Warriorのスキル

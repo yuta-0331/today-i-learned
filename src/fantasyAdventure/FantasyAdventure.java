@@ -2,12 +2,13 @@ package fantasyAdventure;
 
 public class FantasyAdventure {
     // jobの種類, party・bossの残り人数をグローバルで定義
-    private static String[] PLAYER_JOBS = { "Warrior", "Cleric", "Knight" };
+    private static final String[] PLAYER_JOBS = { "Warrior", "Cleric", "Knight" };
     private static int partySize;
     private static int bossSize;
     private static Adventurer[] aliveAdventurers;
     private static Boss[] aliveBosses;
     private static int inputCommand;
+    private static boolean battleLoopFlag;
 
     public static String[] getPlayerJobs() {
         return PLAYER_JOBS;
@@ -122,7 +123,7 @@ public class FantasyAdventure {
         // 防御の効果をリセット
         adventurer.setDamageMultiplier(1);
         //5ターンに1ずつSP回復
-        if (turnCount % 5 == 1 && turnCount > 1) {
+        if (adventurer.getHitPoint() != 0 && turnCount % 5 == 1 && turnCount > 1) {
             adventurer.increaseSkillPoint();
         }
         int index;
@@ -148,12 +149,31 @@ public class FantasyAdventure {
         }
     }
 
-    // Bossのターンの行動を実行
+    // Bossのターンの行動を実行 *todo: ターン数によって行動を変える
     private static void executeBossesTurn(Boss boss, int turnCount) {
         int targetIndex = (int) (Math.random() * partySize);
-        boss.attack(aliveAdventurers[targetIndex]);
+        boss.demiseMagic(aliveAdventurers);;
     }
 
+    // Adventurerの生存チェック
+    public static void checkAliveAdventurers(Adventurer[] adventurers) {
+        for (Adventurer adventurer : adventurers) {
+            if (adventurer.getHitPoint() <= 0) {
+                partySize--;
+            }
+        }
+        aliveAdventurers = new Adventurer[partySize];
+        int index = 0;
+        for (Adventurer adventurer : adventurers) {
+            if (adventurer.getHitPoint() > 0) {
+                aliveAdventurers[index++] = adventurer;
+            }
+        }
+        if (partySize == 0) {
+            System.out.println("全滅しました");
+            battleLoopFlag = false;
+        }
+    }
     public static void main(String[] args) {
         // ボスと味方のパーティを作成
         Adventurer[] adventurePartyGroup = createAdventureParty();
@@ -171,21 +191,24 @@ public class FantasyAdventure {
         }
 
         int turnCount = 1;
-        while (true) {
-            printPlayerStatus(aliveAdventurers);
+        battleLoopFlag = true;
+        while (battleLoopFlag) {
+            printPlayerStatus(adventurePartyGroup);
             for (Adventurer adventurer : aliveAdventurers) {
                 System.out.println(adventurer.getName() + "のターン！");
 
                 selectAdventurersAction(adventurer);
                 executeAdventurersTurn(adventurer,inputCommand, turnCount);
             }
-            // *todo: 生存チェック
+            checkAliveAdventurers(adventurePartyGroup);
             printPlayerStatus(aliveAdventurers);
             for (Boss boss : aliveBosses) {
                 System.out.println(boss.getName() + "のターン！");
                 MyConsole.readLine();
                 executeBossesTurn(boss, turnCount);
             }
+            checkAliveAdventurers(aliveAdventurers);
+            if (!battleLoopFlag) break;
             turnCount++;
         }
     }

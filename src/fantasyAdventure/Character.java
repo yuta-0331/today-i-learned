@@ -42,7 +42,7 @@ class Character {
         skillPoint--;
     }
     public void increaseHitPoint(int heal) {
-        if (hitPoint + heal > maxHitPoint) {
+        if (hitPoint != 0 && hitPoint + heal > maxHitPoint) {
             hitPoint = maxHitPoint;
         } else {
             hitPoint += heal;
@@ -50,6 +50,9 @@ class Character {
     }
     public void decreaseHitPoint(int damage) {
         hitPoint -= damage;
+        if (hitPoint < 0) {
+            hitPoint = 0;
+        }
     }
 
     //Getter
