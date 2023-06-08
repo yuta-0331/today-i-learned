@@ -29,7 +29,7 @@ public class Party {
     }
     // Setter
     // 戦闘パーティの作成
-    public void setAdventurersParty() {
+    public void setAdventurerParty() {
         partySize = 3;
         Adventurer[] adventureParty = new Adventurer[partySize];
         int partyIndex = 0;

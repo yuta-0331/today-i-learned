@@ -113,7 +113,7 @@ public class FantasyAdventure {
 
     public static void main(String[] args) {
         // プレイヤーのパーティを作成
-        party.setAdventurersParty();
+        party.setAdventurerParty();
         party.setAliveAdventurers(party.getPartySize());
         Adventurer[] adventureParty = party.getAdventurers();
 
