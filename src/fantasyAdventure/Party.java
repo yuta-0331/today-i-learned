@@ -9,7 +9,7 @@ public class Party {
 
 
     // Adventurerの生存チェック
-    public static void checkAliveAdventurers(Party party) {
+    public void checkAliveAdventurers(Party party) {
         for (Adventurer adventurer : party.aliveAdventurers) {
             if (adventurer.getHitPoint() <= 0) {
                 party.decreasePartySize();

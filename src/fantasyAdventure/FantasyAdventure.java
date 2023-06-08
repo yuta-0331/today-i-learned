@@ -1,24 +1,11 @@
 package fantasyAdventure;
 
 public class FantasyAdventure {
-    private static int bossSize;
-    private static Boss[] aliveBosses;
-    private static int inputCommand;
-    private static boolean battleLoopFlag;
     private static final Party party = new Party();
+    private static final BossGroup bossGroup = new BossGroup();
 
     public static Party getParty() {
         return party;
-    }
-
-    // ボスパーティの作成メソッド
-    private static Boss[] createBossParty() {
-        bossSize = 3;
-        return new Boss[]{
-                new Boss("魔王", new BossJob("Devil")),
-                new Boss("魔導士A", new BossJob("Sorcerer")),
-                new Boss("魔導士B", new BossJob("Sorcerer")),
-        };
     }
 
     // 攻撃対象の選択
@@ -50,12 +37,13 @@ public class FantasyAdventure {
         }
     }
     // プレイヤーの行動を選択
-    private static void selectAdventurersAction(Adventurer adventurer) {
+    private static int selectAdventurersAction(Adventurer adventurer) {
         // コマンドの表示
         for (int i = 0; i < adventurer.getCommand().getCommands().length; i++) {
             System.out.print(i + 1 + ":" + adventurer.getCommand().getCommands()[i] + " ");
         }
         // コマンドの入力
+        int inputCommand;
         while (true) {
             try {
                 inputCommand = Integer.parseInt(MyConsole.readLine());
@@ -72,6 +60,7 @@ public class FantasyAdventure {
                 System.out.println(e.getMessage());
             }
         }
+        return inputCommand;
     }
     // プレイヤーのターンの行動を実行
     private static void executeAdventurersTurn(Adventurer adventurer, int commandNumber, int turnCount) {
@@ -84,17 +73,17 @@ public class FantasyAdventure {
         int index;
         switch (commandNumber) {
             case 1:
-                index = selectTarget(aliveBosses);
-                adventurer.attack(aliveBosses[index]);
+                index = selectTarget(bossGroup.getAliveBosses());
+                adventurer.attack(bossGroup.getAliveBosses()[index]);
                 break;
             case 2:
                 if (adventurer.getJobName().equals(party.getPlayerJobs()[0])) {
-                    index = selectTarget(aliveBosses);
-                    adventurer.castSkill(aliveBosses[index]);
+                    index = selectTarget(bossGroup.getAliveBosses());
+                    adventurer.castSkill(bossGroup.getAliveBosses()[index]);
                 } else if (adventurer.getJobName().equals(party.getPlayerJobs()[1])) {
                     adventurer.castSkill(party.getAliveAdventurers());
                 } else if (adventurer.getJobName().equals((party.getPlayerJobs()[2]))){
-                    adventurer.castSkill(aliveBosses);
+                    adventurer.castSkill(bossGroup.getAliveBosses());
                 }
                 break;
             case 3:
@@ -117,34 +106,33 @@ public class FantasyAdventure {
         party.setAliveAdventurers(party.getPartySize());
         Adventurer[] adventureParty = party.getAdventurers();
 
-
-        Boss[] bossGroup = createBossParty();
-
-
-        // 生存しているボスの配列を新たに作成
-        aliveBosses = new Boss[bossSize];
-        for (int i = 0; i < bossSize; i++) {
-            aliveBosses[i] = bossGroup[i];
-        }
+        // ボスグループの作成
+        bossGroup.setBossGroup();
+        bossGroup.setAliveBosses(bossGroup.getBossSize());
+        //Boss[] bosses = bossGroup.getBossGroup();
 
         int turnCount = 1;
-        battleLoopFlag = true;
+        boolean battleLoopFlag = true;
         while (battleLoopFlag) {
             printPlayerStatus(adventureParty);
             for (Adventurer adventurer : party.getAliveAdventurers()) {
                 System.out.println(adventurer.getName() + "のターン！");
 
-                selectAdventurersAction(adventurer);
+                int inputCommand = selectAdventurersAction(adventurer);
                 executeAdventurersTurn(adventurer,inputCommand, turnCount);
+                // 各キャラの行動後に生存チェックする
+                party.checkAliveAdventurers(party);
+                bossGroup.checkAliveBosses(bossGroup);
             }
-            party.checkAliveAdventurers(party);
             printPlayerStatus(party.getAliveAdventurers());
-            for (Boss boss : aliveBosses) {
+            for (Boss boss : bossGroup.getAliveBosses()) {
                 System.out.println(boss.getName() + "のターン！");
                 MyConsole.readLine();
                 executeBossesTurn(boss, turnCount);
+                // 各敵の行動後に生存チェックする
+                party.checkAliveAdventurers(party);
+                bossGroup.checkAliveBosses(bossGroup);
             }
-            party.checkAliveAdventurers(party);
             if (!battleLoopFlag) break;
             turnCount++;
         }
