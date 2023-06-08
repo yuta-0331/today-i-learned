@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/src/fantasyAdventure/AdventurerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fantasyAdventure/AdventurerCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fantasyAdventure/AdventurerJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fantasyAdventure/AdventurerJob.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fantasyAdventure/FantasyAdventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fantasyAdventure/FantasyAdventure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fantasyAdventure/Party.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fantasyAdventure/Party.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
       <workItem from="1685872348957" duration="26000" />
       <workItem from="1685872381260" duration="5810000" />
       <workItem from="1685883717524" duration="247000" />
-      <workItem from="1685883972227" duration="31795000" />
+      <workItem from="1685883972227" duration="34475000" />
     </task>
     <servers />
   </component>

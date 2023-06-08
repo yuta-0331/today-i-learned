@@ -1,12 +1,12 @@
 package fantasyAdventure;
 
 public class Party {
-    private Adventurer[] adventurers;
+    private Adventurer[] adventurerParty;
     private int partySize;
     private static final String[] PLAYER_JOBS = { "戦士", "白魔道士", "騎士" };
     private static final String[] PLAYER_SKILL = { "会心の一撃", "回復魔法", "華麗なる剣技" };
 
-    public void setAdventurers(Adventurer[] adventurers) {
+    public void setAdventurers() {
         partySize = 3;
         Adventurer[] adventureParty = new Adventurer[partySize];
         int partyIndex = 0;
@@ -44,10 +44,28 @@ public class Party {
                 }
             }
         } while (partyIndex != partySize);
-        this.adventurers = adventurers;
+        this.adventurerParty = adventureParty;
+    }
+
+    public void setPartySize(int partySize) {
+        this.partySize = partySize;
+    }
+    public void decreasePartySize() {
+        this.partySize--;
     }
 
     public Adventurer[] getAdventurers() {
-        return adventurers;
+        return adventurerParty;
+    }
+
+    public String[] getPlayerJobs() {
+        return PLAYER_JOBS;
+    }
+    public String[] getPlayerSkill() {
+        return PLAYER_SKILL;
+    }
+
+    public int getPartySize() {
+        return partySize;
     }
 }
