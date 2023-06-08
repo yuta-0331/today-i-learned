@@ -2,11 +2,34 @@ package fantasyAdventure;
 
 public class Party {
     private Adventurer[] adventurerParty;
+    private Adventurer[] aliveAdventurers;
     private int partySize;
-    private static final String[] PLAYER_JOBS = { "戦士", "白魔道士", "騎士" };
-    private static final String[] PLAYER_SKILL = { "会心の一撃", "回復魔法", "華麗なる剣技" };
+    private final String[] PLAYER_JOBS = { "戦士", "白魔道士", "騎士" };
+    private final String[] PLAYER_SKILL = { "会心の一撃", "回復魔法", "華麗なる剣技" };
 
-    public void setAdventurers() {
+
+    // Adventurerの生存チェック
+    public static void checkAliveAdventurers(Party party) {
+        for (Adventurer adventurer : party.aliveAdventurers) {
+            if (adventurer.getHitPoint() <= 0) {
+                party.decreasePartySize();
+            }
+        }
+        party.aliveAdventurers = new Adventurer[party.getPartySize()];
+        int index = 0;
+        for (Adventurer adventurer : party.adventurerParty) {
+            if (adventurer.getHitPoint() > 0) {
+                party.aliveAdventurers[index++] = adventurer;
+            }
+        }
+        if (party.getPartySize() == 0) {
+            System.out.println("全滅しました");
+//            battleLoopFlag = false;
+        }
+    }
+    // Setter
+    // 戦闘パーティの作成
+    public void setAdventurersParty() {
         partySize = 3;
         Adventurer[] adventureParty = new Adventurer[partySize];
         int partyIndex = 0;
@@ -47,6 +70,14 @@ public class Party {
         this.adventurerParty = adventureParty;
     }
 
+    // 生存しているパーティの配列を新たに作成
+    public void setAliveAdventurers(int partySize) {
+        aliveAdventurers = new Adventurer[partySize];
+        for (int i = 0; i < partySize; i++) {
+            aliveAdventurers[i] = adventurerParty[i];
+        }
+    }
+
     public void setPartySize(int partySize) {
         this.partySize = partySize;
     }
@@ -54,6 +85,7 @@ public class Party {
         this.partySize--;
     }
 
+    // Getter
     public Adventurer[] getAdventurers() {
         return adventurerParty;
     }
@@ -67,5 +99,9 @@ public class Party {
 
     public int getPartySize() {
         return partySize;
+    }
+
+    public Adventurer[] getAliveAdventurers() {
+        return aliveAdventurers;
     }
 }
