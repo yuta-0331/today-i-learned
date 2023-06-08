@@ -10,13 +10,12 @@ class AdventurerCommand {
     AdventurerCommand(String jobName) {
         commands[0] = "たたかう";
         commands[2] = "ぼうぎょ";
-        String[] jobs = FantasyAdventure.getPlayerJobs();
-        if (jobName.equals(jobs[0])) {
-            commands[1] = "会心の一撃";
-        } else if (jobName.equals(jobs[1])) {
-            commands[1] = "回復魔法";
-        } else if (jobName.equals(jobs[2])){
-            commands[1] = "華麗なる剣技";
+        if (jobName.equals(FantasyAdventure.getPlayerJobs()[0])) {
+            commands[1] = FantasyAdventure.getPlayerSkill()[0];
+        } else if (jobName.equals(FantasyAdventure.getPlayerJobs()[1])) {
+            commands[1] = FantasyAdventure.getPlayerSkill()[1];
+        } else if (jobName.equals(FantasyAdventure.getPlayerJobs()[2])){
+            commands[1] = FantasyAdventure.getPlayerSkill()[2];
         } else {
             commands[1] = null;
         }

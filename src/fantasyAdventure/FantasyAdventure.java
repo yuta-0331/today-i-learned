@@ -2,7 +2,8 @@ package fantasyAdventure;
 
 public class FantasyAdventure {
     // jobの種類, party・bossの残り人数をグローバルで定義
-    private static final String[] PLAYER_JOBS = { "Warrior", "Cleric", "Knight" };
+    private static final String[] PLAYER_JOBS = { "戦士", "白魔道士", "騎士" };
+    private static final String[] PLAYER_SKILL = { "会心の一撃", "回復魔法", "華麗なる剣技" };
     private static int partySize;
     private static int bossSize;
     private static Adventurer[] aliveAdventurers;
@@ -12,6 +13,9 @@ public class FantasyAdventure {
 
     public static String[] getPlayerJobs() {
         return PLAYER_JOBS;
+    }
+    public static String[] getPlayerSkill() {
+        return PLAYER_SKILL;
     }
 
     // パーティの作成メソッド
