@@ -77,9 +77,6 @@ class Party {
         }
     }
 
-    public void setPartySize(int partySize) {
-        this.partySize = partySize;
-    }
     public void decreasePartySize() {
         this.partySize--;
     }

@@ -90,7 +90,6 @@ class GameController {
                 }
                 break;
             case 3:
-                System.out.println("防御");
                 adventurer.defense();
                 break;
         }
@@ -98,8 +97,31 @@ class GameController {
 
     // Bossのターンの行動を実行 *todo: ターン数によって行動を変える
     void executeBossesTurn(Boss boss, int turnCount) {
-        int targetIndex = (int) (Math.random() * party.getPartySize());
-        boss.demiseMagic(party.getAliveAdventurers());;
+        if (boss.getJobName().equals("Devil")) {
+            if (turnCount % 5 == 0) {
+                System.out.println("魔王に邪悪なエネルギーが集まっていく・・・！");
+            } else if (turnCount % 5 == 1 && turnCount > 1) {
+                boss.demiseMagic(party.getAliveAdventurers());
+            } else {
+                int tmp = (int) (Math.random() * 3);
+                int targetIndex = (int) (Math.random() * party.getPartySize());
+                if (tmp == 0) {
+                    boss.doubleAttack(party.getAliveAdventurers()[targetIndex]);
+                } else {
+                    boss.attack(party.getAliveAdventurers()[targetIndex]);
+                }
+            }
+        } else {
+            int tmp = (int) (Math.random() * 5);
+            int targetIndex = (int) (Math.random() * party.getPartySize());
+            if (tmp < 2) {
+                boss.attack(party.getAliveAdventurers()[targetIndex]);
+            } else if (tmp < 4) {
+                boss.doubleAttack(party.getAliveAdventurers()[targetIndex]);
+            } else {
+                boss.healMagic(bossGroup.getAliveBosses());
+            }
+        }
     }
 
     //バトルループ実行メソッド
@@ -114,6 +136,7 @@ class GameController {
         // ボスグループの作成
         bossGroup.setBossGroup();
         bossGroup.setAliveBosses(bossGroup.getBossSize());
+        // バトル開始
         int turnCount = 1;
         BattleLoop: while (isGameLoopFlag()) {
             printPlayerStatus(adventurerParty);
@@ -125,7 +148,6 @@ class GameController {
                 // 各キャラの行動後に生存チェックする
                 party.checkAliveAdventurers(party);
                 bossGroup.checkAliveBosses(bossGroup);
-                System.out.println(isGameLoopFlag());
                 if (!isGameLoopFlag()) {
                     break BattleLoop;
                 }

@@ -15,8 +15,8 @@ class Boss extends Character {
     void attack(Adventurer targetAdventurer) {
         System.out.println("たたかう");
         int damage = (int) ((Math.random() + 2) * this.getAttackPower());
-        targetAdventurer.decreaseHitPoint(damage);
         System.out.println(targetAdventurer.getName() + "は" + damage + "のダメージを受けた！");
+        targetAdventurer.decreaseHitPoint(damage);
     }
     // 二回攻撃
     void doubleAttack(Adventurer targetAdventurer) {
@@ -30,8 +30,8 @@ class Boss extends Character {
         int damage;
         for (Adventurer adventurer : adventurers) {
             damage = (int) (adventurer.getDamageMultiplier() * 1500);
-            adventurer.decreaseHitPoint(damage);
             System.out.println(adventurer.getName() + "は" + damage + "のダメージを受けた！");
+            adventurer.decreaseHitPoint(damage);
         }
     }
     // 回復魔法: 魔導士A, Bがランダムで使用
@@ -42,6 +42,8 @@ class Boss extends Character {
                 minHpBoss = boss;
             }
         }
-        minHpBoss.increaseHitPoint((int) ((Math.random() * 10 + 5) * getAttackPower()));
+        int heal = (int) ((Math.random() * 10 + 5) * getAttackPower());
+        System.out.println(minHpBoss.getName() + "は" + heal + "回復した");
+        minHpBoss.increaseHitPoint(heal);
     }
 }

@@ -51,6 +51,7 @@ class Character {
     public void decreaseHitPoint(int damage) {
         hitPoint -= damage;
         if (hitPoint < 0) {
+            System.out.println(name + "は倒れた！");
             hitPoint = 0;
         }
     }

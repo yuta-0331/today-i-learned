@@ -9,7 +9,7 @@ public class MyConsole {
         BufferedReader br = new BufferedReader(
             new InputStreamReader(System.in)
         );
-        String str = null;
+        String str;
         try {
             str = br.readLine();
         } catch (IOException e) {
