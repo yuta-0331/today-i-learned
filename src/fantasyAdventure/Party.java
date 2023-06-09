@@ -1,6 +1,6 @@
 package fantasyAdventure;
 
-public class Party {
+class Party {
     private Adventurer[] adventurerParty;
     private Adventurer[] aliveAdventurers;
     private int partySize;
@@ -24,14 +24,14 @@ public class Party {
         }
         if (party.getPartySize() == 0) {
             System.out.println("全滅しました");
-//            battleLoopFlag = false;
+            FantasyAdventure.getGameController().setGameLoopFlag(false);
         }
     }
     // Setter
     // 戦闘パーティの作成
     public void setAdventurerParty() {
         partySize = 3;
-        Adventurer[] adventureParty = new Adventurer[partySize];
+        adventurerParty = new Adventurer[partySize];
         int partyIndex = 0;
         do {
             System.out.println((partyIndex + 1) + "人目の名前を入力してください");
@@ -55,7 +55,7 @@ public class Party {
                     }
                     for (String jobKind : PLAYER_JOBS) {
                         if (jobKind.equals(PLAYER_JOBS[inputJobNum - 1])) {
-                            adventureParty[partyIndex] = new Adventurer(
+                            adventurerParty[partyIndex] = new Adventurer(
                                     inputName, new AdventurerJob(PLAYER_JOBS[inputJobNum - 1])
                             );
                             partyIndex++;
@@ -67,7 +67,6 @@ public class Party {
                 }
             }
         } while (partyIndex != partySize);
-        this.adventurerParty = adventureParty;
     }
 
     // 生存しているパーティの配列を新たに作成

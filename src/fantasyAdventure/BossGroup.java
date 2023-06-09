@@ -21,7 +21,7 @@ public class BossGroup {
         }
         if (bosses.getBossSize() == 0) {
             System.out.println("魔王軍を倒した！");
-//            battleLoopFlag = false;
+            FantasyAdventure.getGameController().setGameLoopFlag(false);
         }
     }
 
