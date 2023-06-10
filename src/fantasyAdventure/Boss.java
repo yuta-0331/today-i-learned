@@ -36,14 +36,19 @@ class Boss extends Character {
     }
     // 回復魔法: 魔導士A, Bがランダムで使用
     void healMagic(Boss[] bosses) {
-        Boss minHpBoss = bosses[0];
+        System.out.println("回復魔法");
+        Boss mostInjuredBoss = bosses[0]; // ダメージ量が大きいボス
         for (Boss boss : bosses) {
-            if (boss.getHitPoint() < minHpBoss.getHitPoint()) {
-                minHpBoss = boss;
+            if (boss.getMaxHitPoint() - boss.getHitPoint() > mostInjuredBoss.getMaxHitPoint() - mostInjuredBoss.getHitPoint()) {
+                mostInjuredBoss = boss;
             }
         }
-        int heal = (int) ((Math.random() * 10 + 5) * getAttackPower());
-        System.out.println(minHpBoss.getName() + "は" + heal + "回復した");
-        minHpBoss.increaseHitPoint(heal);
+        if (mostInjuredBoss.getMaxHitPoint() == mostInjuredBoss.getHitPoint()) {
+            System.out.println(mostInjuredBoss.getName() + "には効果がなかった！");
+        } else {
+            int heal = (int) ((Math.random() * 10 + 5) * getAttackPower());
+            System.out.println(mostInjuredBoss.getName() + "は" + heal + "回復した");
+            mostInjuredBoss.increaseHitPoint(heal);
+        }
     }
 }
