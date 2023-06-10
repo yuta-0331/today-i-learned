@@ -164,7 +164,13 @@ class GameController {
                     break BattleLoop;
                 }
             }
+            MyConsole.readLine();
             turnCount++;
+        }
+        if (party.getAliveAdventurers().length == 0) {
+            System.out.println("hint: おすすめの編成は戦士2　白魔道士1です。危険を感じたら防御しましょう！");
+        } else {
+            System.out.println("無事、姫を救い出しました！");
         }
     }
 
