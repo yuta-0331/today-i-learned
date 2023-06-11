@@ -95,7 +95,7 @@ class GameController {
         }
     }
 
-    // Bossのターンの行動を実行 *todo: ターン数によって行動を変える
+    // Bossのターンの行動を実行
     void executeBossesTurn(Boss boss, int turnCount) {
         if (boss.getJobName().equals("Devil")) {
             if (turnCount % 5 == 0) {
@@ -103,20 +103,20 @@ class GameController {
             } else if (turnCount % 5 == 1 && turnCount > 1) {
                 boss.demiseMagic(party.getAliveAdventurers());
             } else {
-                int tmp = (int) (Math.random() * 3);
+                int ran = (int) (Math.random() * 3); // 乱数で行動を制御
                 int targetIndex = (int) (Math.random() * party.getPartySize());
-                if (tmp == 0) {
+                if (ran == 0) {
                     boss.doubleAttack(party.getAliveAdventurers()[targetIndex]);
                 } else {
                     boss.attack(party.getAliveAdventurers()[targetIndex]);
                 }
             }
         } else {
-            int tmp = (int) (Math.random() * 5);
+            int ran = (int) (Math.random() * 5); // 乱数で行動を制御
             int targetIndex = (int) (Math.random() * party.getPartySize());
-            if (tmp < 2) {
+            if (ran < 2) {
                 boss.attack(party.getAliveAdventurers()[targetIndex]);
-            } else if (tmp < 4) {
+            } else if (ran < 4) {
                 boss.doubleAttack(party.getAliveAdventurers()[targetIndex]);
             } else {
                 boss.healMagic(bossGroup.getAliveBosses());

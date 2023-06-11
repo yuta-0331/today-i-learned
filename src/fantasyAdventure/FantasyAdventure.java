@@ -16,6 +16,5 @@ public class FantasyAdventure {
         );
         gameController = new GameController();
         getGameController().executeBattle();
-
     }
 }
