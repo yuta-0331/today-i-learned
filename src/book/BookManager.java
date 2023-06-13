@@ -9,10 +9,6 @@ public class BookManager {
     public ArrayList<Book> getBooks() {
         return books;
     }
-    //Setter
-    public void setBooks(ArrayList<Book> books) {
-        this.books = books;
-    }
     public BookManager(ArrayList<Book> books) {
         this.books = books;
     }
