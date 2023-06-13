@@ -11,7 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="15ea3b1e-8a98-49e5-af44-8f466544d945" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lesson/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lesson/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lesson/HighPriceCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lesson/HighPriceCalculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/yuta-higa/dev/JavaProject",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -148,7 +149,6 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method v="2">
-        <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="unnamed" />
         </option>
@@ -174,7 +174,9 @@
       <workItem from="1686315646319" duration="7561000" />
       <workItem from="1686568416914" duration="199000" />
       <workItem from="1686569340183" duration="85000" />
-      <workItem from="1686569432402" duration="1306000" />
+      <workItem from="1686569432402" duration="1973000" />
+      <workItem from="1686572067206" duration="1008000" />
+      <workItem from="1686573269817" duration="2849000" />
     </task>
     <servers />
   </component>
