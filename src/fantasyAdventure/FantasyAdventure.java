@@ -15,6 +15,6 @@ public class FantasyAdventure {
                 + "\n*魔王軍を倒して、姫を救い出しましょう！"
         );
         gameController = new GameController();
-        getGameController().executeBattle();
+        gameController.executeBattle();
     }
 }
