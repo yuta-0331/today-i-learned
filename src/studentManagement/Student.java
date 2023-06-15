@@ -1,6 +1,7 @@
 package studentManagement;
 
 // *todo クラスはint型で良いのか確認する
+// *todo 点数はマイナスはないか確認する
 public class Student {
     private int id;
     private int classNum;
@@ -12,7 +13,13 @@ public class Student {
         this.id = id;
         this.classNum = classNum;
         this.name = name;
+        if (englishScore < 0) {
+            englishScore = 0;
+        }
         this.englishScore = englishScore;
+        if (mathScore < 0) {
+            mathScore = 0;
+        }
         this.mathScore = mathScore;
     }
     public int getId() {
@@ -38,9 +45,15 @@ public class Student {
         this.name = name;
     }
     public void setEnglishScore(int englishScore) {
+        if (englishScore < 0) {
+            englishScore = 0;
+        }
         this.englishScore = englishScore;
     }
     public void setMathScore(int mathScore) {
+        if (mathScore < 0) {
+            mathScore = 0;
+        }
         this.mathScore = mathScore;
     }
 
