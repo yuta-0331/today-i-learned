@@ -73,9 +73,9 @@ public class FunctionController {
         while (true) {
             inputString = scan.nextLine();
             if (!inputString.equals("")) {
-                System.out.println("不正な入力です");
                 break;
             }
+            System.out.println("不正な入力です");
         }
         return inputString;
     }
