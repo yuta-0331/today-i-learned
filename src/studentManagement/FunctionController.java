@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 // todo 例外コメントの内容を確認する
 public class FunctionController {
     private int finalDigit; // 末尾のdataのid
@@ -36,13 +37,10 @@ public class FunctionController {
             br.close();
         } catch (IOException e) {
             System.out.println("ファイル読み込みに失敗しました");
+            e.printStackTrace();
         }
         this.students = students;
         scan = new Scanner(System.in);
-    }
-    
-    public Scanner getScan() {
-        return scan;
     }
     
     //menu選択のメソッド
@@ -51,7 +49,11 @@ public class FunctionController {
         String[] menuList = { "一覧", "検索", "追加", "修正", "削除", "保存して終了" };
         System.out.println();
         for (int i = 0; i < menuList.length; i++) {
-            System.out.print(i + 1 + menuList[i] + " ");
+            if (i == menuList.length - 1) {
+                System.out.print(":" + (i + 1) + ":" + menuList[i]);
+            } else {
+                System.out.print(i + 1 + ":" + menuList[i] + " ");
+            }
         }
         System.out.print("\n:");
         //ユーザーの入力受付
@@ -83,10 +85,10 @@ public class FunctionController {
         return inputString;
     }
     // ユーザーに文字列を入力してもらう（空文字の場合、デフォルト値を返す）
-    public String userInputString(String defaultStr) {
+    public String userInputString(String defaultValue) {
         String inputString = scan.nextLine();
         if (inputString.equals("")) {
-            inputString = defaultStr;
+            inputString = defaultValue;
         }
         return inputString;
     }
@@ -105,13 +107,13 @@ public class FunctionController {
         return inputNum;
     }
     // ユーザーに数値を入力してもらう(空文字入力の場合、デフォルト値を返す)
-    public int userInputNum(int defaultNum) {
+    public int userInputNum(int defaultValue) {
         int inputNum;
         while (true) {
             try {
                 String inputNumStr = scan.nextLine();
                 if (inputNumStr.equals("")) {
-                    inputNum = defaultNum;
+                    inputNum = defaultValue;
                 } else {
                     inputNum = Integer.parseInt(inputNumStr);
                 }
@@ -195,33 +197,37 @@ public class FunctionController {
     public void fixItem() {
         System.out.print("ID?:");
         Student student = searchStudentById();
-        // 修正画面で空文字が入力された場合、その項目は変更しない仕様に設定
-        System.out.print("クラス(" + student.getClassNum() + "):");
-        int classNum = userInputNum(student.getClassNum());
-        System.out.print("名前(" + student.getName() + "):");
-        String name = userInputString(student.getName());
-        System.out.print("英語(" + student.getEnglishScore() + "):");
-        int englishScore = userInputNum(student.getEnglishScore());
-        System.out.print("数学(" + student.getMathScore() + "):");
-        int mathScore = userInputNum(student.getMathScore());
-        // データの更新
-        student.setClassNum(classNum);
-        student.setName(name);
-        student.setEnglishScore(englishScore);
-        student.setMathScore(mathScore);
-        System.out.println("編集しました");
+        if (student != null) {
+            // 修正画面で空文字が入力された場合、その項目は変更しない仕様に設定
+            System.out.print("クラス(" + student.getClassNum() + "):");
+            int classNum = userInputNum(student.getClassNum());
+            System.out.print("名前(" + student.getName() + "):");
+            String name = userInputString(student.getName());
+            System.out.print("英語(" + student.getEnglishScore() + "):");
+            int englishScore = userInputNum(student.getEnglishScore());
+            System.out.print("数学(" + student.getMathScore() + "):");
+            int mathScore = userInputNum(student.getMathScore());
+            // データの更新
+            student.setClassNum(classNum);
+            student.setName(name);
+            student.setEnglishScore(englishScore);
+            student.setMathScore(mathScore);
+            System.out.println("編集しました");
+        }
     }
 
     // データを削除するメソッド
     public void deleteData() {
         System.out.print("ID:");
-        Student deleteStudent = searchStudentById();
-        printList(deleteStudent);
-        System.out.println("削除しますか？(y/n):");
-        String ans = scan.nextLine();
-        if (ans.equals("y")) {
-            students.remove(deleteStudent);
-            System.out.println("ID: " + deleteStudent.getId() + "  を削除しました");
+        Student student = searchStudentById();
+        if (student != null) {
+            printList(student);
+            System.out.println("削除しますか？(y/n):");
+            String ans = scan.nextLine();
+            if (ans.equals("y")) {
+                students.remove(student);
+                System.out.println("ID: " + student.getId() + "  を削除しました");
+            }
         }
     }
 
@@ -244,6 +250,7 @@ public class FunctionController {
             System.out.println("保存しました。終了。");
         } catch (IOException e) {
             System.out.println("保存に失敗しました");
+            e.printStackTrace();
         }
     }
 
@@ -268,6 +275,7 @@ public class FunctionController {
                     break;
                 case 6:
                     writeData();
+                    scan.close();
                     break FunctionLoop;
             }
         } while (true);
