@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 // todo 例外コメントの内容を確認する
 public class FunctionController {
+    private String[] MENU_LIST = { "一覧", "検索", "追加", "修正", "削除", "保存して終了" };
     private int finalDigit; // 末尾のdataのid
     private ArrayList<Student> students;
     private Scanner scan;
@@ -42,34 +43,35 @@ public class FunctionController {
         this.students = students;
         scan = new Scanner(System.in);
     }
-    
-    //menu選択のメソッド
-    public int selectMenu() {
-        //menu表示
-        String[] menuList = { "一覧", "検索", "追加", "修正", "削除", "保存して終了" };
+
+    // menu表示
+    public void displayMenu() {
         System.out.println();
-        for (int i = 0; i < menuList.length; i++) {
-            if (i == menuList.length - 1) {
-                System.out.print(":" + (i + 1) + ":" + menuList[i]);
+        for (int i = 0; i < MENU_LIST.length; i++) {
+            if (i == MENU_LIST.length - 1) {
+                System.out.print(":" + (i + 1) + ":" + MENU_LIST[i]);
             } else {
-                System.out.print(i + 1 + ":" + menuList[i] + " ");
+                System.out.print(i + 1 + ":" + MENU_LIST[i] + " ");
             }
         }
         System.out.print("\n:");
+    }
+    // menu選択のメソッド
+    public int selectMenu() {
+        displayMenu();
         //ユーザーの入力受付
         int userSelectMenu;
         while (true) {
             userSelectMenu = userInputNum();
-            if (userSelectMenu > menuList.length || userSelectMenu < 1) {
-                System.out.println("不正な値です");
-            } else {
-                break;
+            if (userSelectMenu >= 1 && userSelectMenu <= MENU_LIST.length) {
+                if (userSelectMenu != MENU_LIST.length) {
+                    System.out.println(MENU_LIST[userSelectMenu - 1] + "------");
+                    ;
+                }
+                return userSelectMenu;
             }
+            System.out.println("不正な値です");
         }
-        if (!menuList[userSelectMenu - 1].equals("保存して終了")) {
-            System.out.println(menuList[userSelectMenu - 1] + "------");;
-        }
-        return userSelectMenu;
     }
 
     // ユーザーに文字列を入力してもらう(入力チェックあり)
