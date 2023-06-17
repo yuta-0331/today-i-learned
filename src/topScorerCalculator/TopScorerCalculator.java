@@ -1,35 +1,49 @@
 package topScorerCalculator;
 
-public class TopScorerCalculator {
+import java.util.ArrayList;
 
-	//ハイスコアの生徒を一人算出するメソッド
-	public Student searchHighScorer(Student[] students) {
-		Student higheScoreStudent = students[0];
+public class TopScorerCalculator {
+	private ArrayList<Student> students;
+
+	public TopScorerCalculator(ArrayList<Student> students) {
+		this.students = students;
+	}
+
+	//ハイスコアを算出するメソッド
+	public int searchHighScore() {
+		Student higheScoreStudent = students.get(0);
 		for (Student student : students) {
-			if (student.score > higheScoreStudent.score) {
+			if (student.getScore() > higheScoreStudent.getScore()) {
 				higheScoreStudent = student;
 			}
 		}
-		return higheScoreStudent;
-	}
-	//同じ点数の生徒の人数をカウントするメソッド
-	public int countSameScorer(Student[] students, int score) {
-		int count = 0;
-		for (Student student : students) {
-			if (student.score == score) {
-				count++;
-			}
-		}
-		return count;
+		return higheScoreStudent.getScore();
 	}
 	//同じ点数の生徒を配列に格納するメソッド
-	public Student[] searchSameScorer(Student[] students, int score, int count) {
-		Student[] sameScoreStudents = new Student[count];
-		for (int i = 0, j = 0; i < students.length && j < count; i++) {
-			if (students[i].score == score) {
-				sameScoreStudents[j++] = students[i];
+	public ArrayList<Student> searchSameScorer(int score) {
+		ArrayList<Student> sameScoreStudents = new ArrayList<>();
+		for (Student student : students) {
+			if (student.getScore() == score) {
+				sameScoreStudents.add(student);
 			}
 		}
 		return sameScoreStudents;
+	}
+	//計算の実行
+	public ArrayList<Student> calculator() {
+		int highScore = searchHighScore();
+		return searchSameScorer(highScore);
+	}
+	//表示
+	public void displayStudents(ArrayList<Student> students) {
+		for (Student student : students) {
+			System.out.print(student.getName() + " ");
+		}
+	}
+	//最高得点者の表示
+	public void displayHighScorer() {
+		System.out.print("最高得点者:");
+		displayStudents(calculator());
+		System.out.print("最高得点:" + searchHighScore());
 	}
 }
