@@ -11,13 +11,6 @@ public class Exec {
         };
         int[] scores = { 86, 72, 94, 33, 94 };
 
-        //names, scoresからStudentリストを作成
-        ArrayList<Student> students = new ArrayList<>();
-        for (int i = 0; i < names.length; i++) {
-            students.add(new Student(names[i], scores[i] ));
-        }
-
-        TopScorerCalculator calculator = new TopScorerCalculator(students);
-        calculator.displayHighScorer();
+        new TopScorerCalculator(names, scores).displayHighScorer();
     }
 }

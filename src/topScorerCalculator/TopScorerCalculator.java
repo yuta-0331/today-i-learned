@@ -8,6 +8,13 @@ public class TopScorerCalculator {
 	public TopScorerCalculator(ArrayList<Student> students) {
 		this.students = students;
 	}
+	public TopScorerCalculator(String[] names, int[] scores) {
+		students = new ArrayList<>();
+		//names, scoresからStudentリストを作成
+		for (int i = 0; i < names.length; i++) {
+			students.add(new Student(names[i], scores[i] ));
+		}
+	}
 
 	//ハイスコアを算出するメソッド
 	public int searchHighScore() {

@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="15ea3b1e-8a98-49e5-af44-8f466544d945" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/src/topScorerCalculator/Exec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/topScorerCalculator/Exec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/topScorerCalculator/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/topScorerCalculator/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/topScorerCalculator/TopScorerCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/topScorerCalculator/TopScorerCalculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
