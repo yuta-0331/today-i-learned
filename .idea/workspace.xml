@@ -10,10 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15ea3b1e-8a98-49e5-af44-8f466544d945" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/studentManagement/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/studentManagement/View.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fiveDrawPoker/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fiveDrawPoker/Deck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fiveDrawPoker/Exec.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fiveDrawPoker/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fiveDrawPoker/PlayerHand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/studentManagement/FunctionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/studentManagement/FunctionController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +68,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/fiveDrawPoker" />
+      <recent name="$PROJECT_DIR$/src/StudentPerformance_Data" />
       <recent name="$PROJECT_DIR$/src/studentManagement" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
