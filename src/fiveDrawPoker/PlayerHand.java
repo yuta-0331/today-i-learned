@@ -2,6 +2,7 @@ package fiveDrawPoker;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 
 public class PlayerHand {
@@ -25,6 +26,25 @@ public class PlayerHand {
         cards.remove(0);
     }
 
+    // s > c > h > dにソートしたい
+    public void sortHand() {
+        for (int i = 0; i < hand.size(); i++) {
+            for (int j = 0; j < hand.size() - 1 - i; j++) {
+                Card left = hand.get(i);
+                Card right = hand.get(j + 1);
+                System.out.println(left.getSuitInt());
+                System.out.println(right.getSuitInt());
+                if (left.getSuitInt() > right.getSuitInt()) {
+                    System.out.println("位置を交換します");
+                    Collections.swap(hand, i, j);
+                } else {
+                    System.out.println("交換しません");
+                }
+
+            }
+        }
+    }
+
     //手札の表示
     public void displayHand() {
         for (int i = 0; i < 5; i++) {
@@ -37,6 +57,7 @@ public class PlayerHand {
     public void ChangeCards(HashSet<Integer> choiceNum, ArrayList<Card> cards) {
         int index = 0;
         for (Integer num : choiceNum) {
+            System.out.println(num);
             hand.remove(num - 1  - index++);
         }
         for (int i = 0; i < choiceNum.size(); i++) {

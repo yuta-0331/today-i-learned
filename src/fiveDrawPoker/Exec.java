@@ -7,5 +7,4 @@ public class Exec {
         GameController gc = new GameController();
         gc.executeGame();
     }
-
 }

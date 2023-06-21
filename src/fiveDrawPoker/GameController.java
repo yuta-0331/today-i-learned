@@ -36,6 +36,8 @@ public class GameController {
         deck.shuffle();
         PlayerHand hand_01 = new PlayerHand(deck.getCards());
         hand_01.displayHand();
+        hand_01.sortHand();
+        hand_01.displayHand();
         HashSet<Integer> choiceNum = selectCards();
         hand_01.ChangeCards(choiceNum, deck.getCards());
 //        PlayerHand hand_02 = new PlayerHand(deck.getCards());

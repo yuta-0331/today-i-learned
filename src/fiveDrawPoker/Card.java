@@ -1,13 +1,16 @@
 package fiveDrawPoker;
 
+import java.util.EnumMap;
+
 public class Card {
     private int number;
-    private Suit suit;
-    public enum Suit {S, C, H, D};
-    
-    public Card(int number, Suit suit) {
+    private Suit.suit suit;
+
+
+    public Card(int number, Suit.suit suit) {
         this.number = number;
         this.suit = suit;
+
     }
     
     public String getNumberStr() {
@@ -24,7 +27,10 @@ public class Card {
                 return Integer.valueOf(number).toString();
         }
     }
-    public Suit getSuit() {
+    public Suit.suit getSuit() {
         return suit;
+    }
+    public int getSuitInt() {
+        return Suit.suitIntegerEnumMap.get(suit);
     }
 }
