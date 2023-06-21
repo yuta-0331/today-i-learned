@@ -15,16 +15,16 @@ public class Deck {
     public Deck() {
         ArrayList<Card> cards = new ArrayList<>();
         for (int i = 1; i <= 13; i++) {
-            cards.add(new Card(i, Card.Suit.clover));
+            cards.add(new Card(i, Card.Suit.C));
         }
         for (int i = 1; i <= 13; i++) {
-            cards.add(new Card(i, Card.Suit.spade));
+            cards.add(new Card(i, Card.Suit.S));
         }
         for (int i = 1; i <= 13; i++) {
-            cards.add(new Card(i, Card.Suit.heart));
+            cards.add(new Card(i, Card.Suit.H));
         }
         for (int i = 1; i <= 13; i++) {
-            cards.add(new Card(i, Card.Suit.diamond));
+            cards.add(new Card(i, Card.Suit.D));
         }
         
         this.cards = cards;
