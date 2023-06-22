@@ -1,6 +1,5 @@
 package fiveDrawPoker;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -26,21 +25,25 @@ public class PlayerHand {
         cards.remove(0);
     }
 
-    // s > c > h > dにソートしたい
     public void sortHand() {
-        for (int i = 0; i < hand.size(); i++) {
-            for (int j = 0; j < hand.size() - 1 - i; j++) {
-                Card left = hand.get(i);
-                Card right = hand.get(j + 1);
-                System.out.println(left.getSuitInt());
-                System.out.println(right.getSuitInt());
-                if (left.getSuitInt() > right.getSuitInt()) {
-                    System.out.println("位置を交換します");
-                    Collections.swap(hand, i, j);
-                } else {
-                    System.out.println("交換しません");
+        // s > c > h > dにソート
+        for (int i = 0; i < hand.size() - 1; i++) {
+            for (int j = 0; j < hand.size()- 1 - i; j++) {
+                if (hand.get(j).getSuitInt() > hand.get(j + 1).getSuitInt()) {
+                    Collections.swap(hand, j, j + 1);
                 }
-
+            }
+        }
+        // 各suitの中で番号順にする
+        for (int i = 0; i < hand.size() - 1; i++) {
+            for (int j = 0; j < hand.size() - 1 - i; j++) {
+                if (
+                        hand.get(j).getNumber() > hand.get(j + 1).getNumber() 
+                        && hand.get(j).getSuitInt() == hand.get(j + 1).getSuitInt() 
+                        ) {
+                    
+                    Collections.swap(hand, j, j + 1);
+                }
             }
         }
     }

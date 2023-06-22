@@ -1,6 +1,5 @@
 package fiveDrawPoker;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;

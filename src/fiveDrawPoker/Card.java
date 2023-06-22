@@ -1,7 +1,5 @@
 package fiveDrawPoker;
 
-import java.util.EnumMap;
-
 public class Card {
     private int number;
     private Suit.suit suit;
@@ -12,7 +10,9 @@ public class Card {
         this.suit = suit;
 
     }
-    
+    public int getNumber() {
+        return number;
+    }
     public String getNumberStr() {
         switch (number) {
             case 1:
