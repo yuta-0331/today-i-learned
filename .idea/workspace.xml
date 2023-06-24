@@ -10,8 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15ea3b1e-8a98-49e5-af44-8f466544d945" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/fiveDrawPoker/HandRanking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fiveDrawPoker/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fiveDrawPoker/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fiveDrawPoker/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fiveDrawPoker/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fiveDrawPoker/PlayerHand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fiveDrawPoker/PlayerHand.java" afterDir="false" />
     </list>

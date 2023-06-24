@@ -25,7 +25,8 @@ public class PlayerHand {
         cards.remove(0);
     }
 
-    public void sortHand() {
+    //手札をsuit毎にソート
+    public PlayerHand sortHandBySuit() {
         // s > c > h > dにソート
         for (int i = 0; i < hand.size() - 1; i++) {
             for (int j = 0; j < hand.size()- 1 - i; j++) {
@@ -37,17 +38,24 @@ public class PlayerHand {
         // 各suitの中で番号順にする
         for (int i = 0; i < hand.size() - 1; i++) {
             for (int j = 0; j < hand.size() - 1 - i; j++) {
-                if (
-                        hand.get(j).getNumber() > hand.get(j + 1).getNumber() 
-                        && hand.get(j).getSuitInt() == hand.get(j + 1).getSuitInt() 
-                        ) {
-                    
+                if (hand.get(j).getNumber() > hand.get(j + 1).getNumber() && hand.get(j).getSuitInt() == hand.get(j + 1).getSuitInt()) {
                     Collections.swap(hand, j, j + 1);
                 }
             }
         }
+        return this;
     }
-
+    //手札を番号順にソート
+    public PlayerHand sortHand() {
+        for (int i = 0; i < hand.size() - 1; i++) {
+            for (int j = 0; j < hand.size() - 1 - i; j++) {
+                if (hand.get(j).getNumber() > hand.get(j + 1).getNumber()) {
+                    Collections.swap(hand, j, j + 1);
+                }
+            }
+        }
+        return this;
+    }
     //手札の表示
     public void displayHand() {
         for (int i = 0; i < 5; i++) {
