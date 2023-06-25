@@ -35,6 +35,10 @@ public class GameController {
         Deck deck = new Deck();
         deck.shuffle();
         PlayerHand hand_01 = new PlayerHand(deck.getCards());
+        hand_01.displayHand();
+        System.out.println(checkHand(hand_01));
+        hand_01.ChangeCards(selectCards(), deck.getCards());
+        hand_01.displayHand();
         System.out.println(checkHand(hand_01));
 //        hand_01.displayHand();
 //        hand_01.sortHandBySuit();
