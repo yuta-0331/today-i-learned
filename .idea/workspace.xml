@@ -11,8 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="15ea3b1e-8a98-49e5-af44-8f466544d945" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fiveDrawPoker/Exec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fiveDrawPoker/Exec.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fiveDrawPoker/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fiveDrawPoker/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fiveDrawPoker/HandRanking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fiveDrawPoker/HandRanking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fiveDrawPoker/PlayerHand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fiveDrawPoker/PlayerHand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,6 +198,11 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/fiveDrawPoker/PlayerHand.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
