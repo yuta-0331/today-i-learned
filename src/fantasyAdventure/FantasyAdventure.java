@@ -14,6 +14,7 @@ public class FantasyAdventure {
                 + "\n*「たたかう」「ぼうぎょ」または、各Job毎の固有のコマンドを選択して戦闘を進めます"
                 + "\n*魔王軍を倒して、姫を救い出しましょう！"
         );
-        new GameController().executeBattle();
+        gameController = new GameController();
+        gameController.executeBattle();
     }
 }
