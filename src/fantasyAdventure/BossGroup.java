@@ -6,7 +6,7 @@ public class BossGroup {
     private Boss[] aliveBosses;
 
     // Bossの生存チェック
-    public void checkAliveBosses(BossGroup bosses) {
+    public boolean checkAliveBosses(BossGroup bosses) {
         for (Boss boss : bosses.aliveBosses) {
             if (boss.getHitPoint() <= 0) {
                 bosses.decreaseBossSize();
@@ -21,8 +21,9 @@ public class BossGroup {
         }
         if (bosses.getBossSize() == 0) {
             System.out.println("魔王軍を倒した！");
-            FantasyAdventure.getGameController().setGameLoopFlag(false);
+            return false;
         }
+        return true;
     }
 
     //Setter

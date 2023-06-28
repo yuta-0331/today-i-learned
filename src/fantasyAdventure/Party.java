@@ -9,7 +9,7 @@ class Party {
 
 
     // Adventurerの生存チェック
-    public void checkAliveAdventurers(Party party) {
+    public boolean checkAliveAdventurers(Party party) {
         for (Adventurer adventurer : party.aliveAdventurers) {
             if (adventurer.getHitPoint() <= 0) {
                 party.decreasePartySize();
@@ -24,8 +24,9 @@ class Party {
         }
         if (party.getPartySize() == 0) {
             System.out.println("全滅しました");
-            FantasyAdventure.getGameController().setGameLoopFlag(false);
+            return false;
         }
+        return true;
     }
     // Setter
     // 戦闘パーティの作成

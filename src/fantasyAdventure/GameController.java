@@ -138,7 +138,7 @@ class GameController {
         bossGroup.setAliveBosses(bossGroup.getBossSize());
         // バトル開始
         int turnCount = 1;
-        BattleLoop: while (isGameLoopFlag()) {
+        BattleLoop: while (true) {
             printPlayerStatus(adventurerParty);
             for (Adventurer adventurer : party.getAliveAdventurers()) {
                 System.out.println(adventurer.getName() + "のターン！");
@@ -146,9 +146,12 @@ class GameController {
                 int inputCommand = selectAdventurersAction(adventurer);
                 executeAdventurersTurn(adventurer,inputCommand, turnCount);
                 // 各キャラの行動後に生存チェックする
-                party.checkAliveAdventurers(party);
-                bossGroup.checkAliveBosses(bossGroup);
-                if (!isGameLoopFlag()) {
+                gameLoopFlag = party.checkAliveAdventurers(party);
+                if (!gameLoopFlag) {
+                    break BattleLoop;
+                }
+                gameLoopFlag = bossGroup.checkAliveBosses(bossGroup);
+                if (!gameLoopFlag) {
                     break BattleLoop;
                 }
             }
@@ -158,9 +161,12 @@ class GameController {
                 MyConsole.readLine();
                 executeBossesTurn(boss, turnCount);
                 // 各敵の行動後に生存チェックする
-                party.checkAliveAdventurers(party);
-                bossGroup.checkAliveBosses(bossGroup);
-                if (!isGameLoopFlag()) {
+                gameLoopFlag = party.checkAliveAdventurers(party);
+                if (!gameLoopFlag) {
+                    break BattleLoop;
+                }
+                gameLoopFlag = bossGroup.checkAliveBosses(bossGroup);
+                if (!gameLoopFlag) {
                     break BattleLoop;
                 }
             }
@@ -172,15 +178,6 @@ class GameController {
         } else {
             System.out.println("無事、姫を救い出しました！");
         }
-    }
-
-
-    public void setGameLoopFlag(boolean gameLoopFlag) {
-        this.gameLoopFlag = gameLoopFlag;
-    }
-
-    public boolean isGameLoopFlag() {
-        return gameLoopFlag;
     }
 
     public Party getParty() {
