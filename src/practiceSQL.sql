@@ -1,0 +1,4 @@
+CREATE TABLE 従業員(
+    ID int IDENTITY(1, 1) CONSTRAINT PK_従業員 PRIMARY KEY (ID),
+
+)
