@@ -16551,7 +16551,7 @@
       <ObjectId>4</ObjectId>
       <CollationName>SQL_Latin1_General_CP1_CI_AS</CollationName>
     </database>
-    <database id="5513" parent="1" name="sampleDB01">
+    <database id="5513" parent="1" name="sampleDB02">
       <ObjectId>5</ObjectId>
       <CollationName>SQL_Latin1_General_CP1_CI_AS</CollationName>
     </database>
@@ -16811,7 +16811,7 @@
 149575571|||0|select|G
 1787153412|||0|select|G
 1803153469|||0|select|G</Grants>
-      <IntrospectionTimestamp>2023-06-29.21:50:56.393</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-06-30.20:22:12.630</IntrospectionTimestamp>
       <ObjectId>1</ObjectId>
       <PermissionsCheckSum>7026290343</PermissionsCheckSum>
     </schema>
@@ -16853,6 +16853,7 @@
     </schema>
     <schema id="5578" parent="5513" name="dbo">
       <Current>1</Current>
+      <IntrospectionTimestamp>2023-06-30.21:00:56.200</IntrospectionTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
     <schema id="5579" parent="5513" name="guest">
@@ -16861,292 +16862,163 @@
     <schema id="5580" parent="5513" name="sys">
       <ObjectId>4</ObjectId>
     </schema>
-    <routine id="5581" parent="5565" name="sp_MScleanupmergepublisher">
-      <CreatedTimestamp>2023-01-25.20:16:34.233</CreatedTimestamp>
-      <ModifiedTimestamp>2023-01-25.20:17:48.980</ModifiedTimestamp>
-      <ObjectId>2139154666</ObjectId>
-      <RoutineType>proc</RoutineType>
-      <SourceTextLength>100</SourceTextLength>
-    </routine>
-    <routine id="5582" parent="5565" name="sp_MSrepl_startup">
-      <CreatedTimestamp>2023-01-25.20:16:34.220</CreatedTimestamp>
-      <ModifiedTimestamp>2023-01-25.20:17:48.977</ModifiedTimestamp>
-      <ObjectId>2123154609</ObjectId>
-      <RoutineType>proc</RoutineType>
-      <SourceTextLength>83</SourceTextLength>
-    </routine>
-    <table id="5583" parent="5565" name="MSreplication_options">
-      <CreatedTimestamp>2023-01-25.20:16:34.200</CreatedTimestamp>
-      <ModifiedTimestamp>2023-01-25.20:17:48.973</ModifiedTimestamp>
-      <ObjectId>2107154552</ObjectId>
+    <table id="5581" parent="5578" name="出荷先">
+      <CreatedTimestamp>2023-06-30.21:00:38.077</CreatedTimestamp>
+      <ModifiedTimestamp>2023-06-30.21:00:38.087</ModifiedTimestamp>
+      <ObjectId>901578250</ObjectId>
     </table>
-    <table id="5584" parent="5565" name="spt_fallback_db">
-      <CreatedTimestamp>2003-04-08.18:18:01.557</CreatedTimestamp>
-      <ModifiedTimestamp>2023-01-25.20:17:48.957</ModifiedTimestamp>
-      <ObjectId>117575457</ObjectId>
+    <table id="5582" parent="5578" name="受注">
+      <CreatedTimestamp>2023-06-30.21:00:38.083</CreatedTimestamp>
+      <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
+      <ObjectId>933578364</ObjectId>
     </table>
-    <table id="5585" parent="5565" name="spt_fallback_dev">
-      <CreatedTimestamp>2003-04-08.18:18:02.870</CreatedTimestamp>
-      <ModifiedTimestamp>2023-01-25.20:17:48.960</ModifiedTimestamp>
-      <ObjectId>133575514</ObjectId>
+    <table id="5583" parent="5578" name="受注明細">
+      <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
+      <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
+      <ObjectId>1013578649</ObjectId>
     </table>
-    <table id="5586" parent="5565" name="spt_fallback_usg">
-      <CreatedTimestamp>2003-04-08.18:18:04.180</CreatedTimestamp>
-      <ModifiedTimestamp>2023-01-25.20:17:48.960</ModifiedTimestamp>
-      <ObjectId>149575571</ObjectId>
+    <table id="5584" parent="5578" name="商品">
+      <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
+      <ModifiedTimestamp>2023-06-30.21:00:38.093</ModifiedTimestamp>
+      <ObjectId>981578535</ObjectId>
     </table>
-    <table id="5587" parent="5565" name="spt_monitor">
-      <CreatedTimestamp>2023-01-25.20:15:45.853</CreatedTimestamp>
-      <ModifiedTimestamp>2023-01-25.20:17:48.970</ModifiedTimestamp>
-      <ObjectId>1803153469</ObjectId>
-    </table>
-    <view id="5588" parent="5565" name="spt_values">
-      <CreatedTimestamp>2023-01-25.20:15:45.827</CreatedTimestamp>
-      <ModifiedTimestamp>2023-01-25.20:15:45.850</ModifiedTimestamp>
-      <ObjectId>1787153412</ObjectId>
-      <SourceTextLength>161</SourceTextLength>
-    </view>
-    <column id="5589" parent="5583" name="optname">
-      <DasType>sysname|0s</DasType>
+    <column id="5585" parent="5581" name="出荷先ID">
+      <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <SequenceIdentity>1(16)</SequenceIdentity>
     </column>
-    <column id="5590" parent="5583" name="value">
-      <DasType>bit|0s</DasType>
+    <column id="5586" parent="5581" name="出荷先名">
+      <DasType>nvarchar(50 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5591" parent="5583" name="major_version">
-      <DasType>int|0s</DasType>
+    <column id="5587" parent="5581" name="出荷先都道府県">
+      <DasType>nvarchar(10 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5592" parent="5583" name="minor_version">
-      <DasType>int|0s</DasType>
+    <column id="5588" parent="5581" name="出荷先住所">
+      <DasType>nvarchar(50 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="5593" parent="5583" name="revision">
+    <index id="5589" parent="5581" name="PK_出荷先ID">
+      <Clustering>1</Clustering>
+      <ColNames>出荷先ID</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5590" parent="5581" name="PK_出荷先ID">
+      <CreatedTimestamp>2023-06-30.21:00:38.080</CreatedTimestamp>
+      <ModifiedTimestamp>2023-06-30.21:00:38.080</ModifiedTimestamp>
+      <ObjectId>917578307</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_出荷先ID</UnderlyingIndexName>
+    </key>
+    <column id="5591" parent="5582" name="受注ID">
       <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <column id="5594" parent="5583" name="install_failures">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <column id="5595" parent="5584" name="xserver_name">
-      <DasType>varchar(30 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <SequenceIdentity>1001(1013)</SequenceIdentity>
     </column>
-    <column id="5596" parent="5584" name="xdttm_ins">
-      <DasType>datetime|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="5597" parent="5584" name="xdttm_last_ins_upd">
-      <DasType>datetime|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="5598" parent="5584" name="xfallback_dbid">
-      <DasType>smallint|0s</DasType>
-      <Position>4</Position>
-    </column>
-    <column id="5599" parent="5584" name="name">
-      <DasType>varchar(30 char)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <column id="5600" parent="5584" name="dbid">
-      <DasType>smallint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <column id="5601" parent="5584" name="status">
-      <DasType>smallint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-    </column>
-    <column id="5602" parent="5584" name="version">
-      <DasType>smallint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>8</Position>
-    </column>
-    <column id="5603" parent="5585" name="xserver_name">
-      <DasType>varchar(30 char)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="5604" parent="5585" name="xdttm_ins">
-      <DasType>datetime|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="5605" parent="5585" name="xdttm_last_ins_upd">
-      <DasType>datetime|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="5606" parent="5585" name="xfallback_low">
-      <DasType>int|0s</DasType>
-      <Position>4</Position>
-    </column>
-    <column id="5607" parent="5585" name="xfallback_drive">
-      <DasType>char(2 char)|0s</DasType>
-      <Position>5</Position>
-    </column>
-    <column id="5608" parent="5585" name="low">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <column id="5609" parent="5585" name="high">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-    </column>
-    <column id="5610" parent="5585" name="status">
-      <DasType>smallint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>8</Position>
-    </column>
-    <column id="5611" parent="5585" name="name">
-      <DasType>varchar(30 char)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>9</Position>
-    </column>
-    <column id="5612" parent="5585" name="phyname">
-      <DasType>varchar(127 char)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>10</Position>
-    </column>
-    <column id="5613" parent="5586" name="xserver_name">
-      <DasType>varchar(30 char)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="5614" parent="5586" name="xdttm_ins">
-      <DasType>datetime|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="5615" parent="5586" name="xdttm_last_ins_upd">
-      <DasType>datetime|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="5616" parent="5586" name="xfallback_vstart">
-      <DasType>int|0s</DasType>
-      <Position>4</Position>
-    </column>
-    <column id="5617" parent="5586" name="dbid">
-      <DasType>smallint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <column id="5618" parent="5586" name="segmap">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <column id="5619" parent="5586" name="lstart">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-    </column>
-    <column id="5620" parent="5586" name="sizepg">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>8</Position>
-    </column>
-    <column id="5621" parent="5586" name="vstart">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>9</Position>
-    </column>
-    <column id="5622" parent="5587" name="lastrun">
-      <DasType>datetime|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="5623" parent="5587" name="cpu_busy">
+    <column id="5592" parent="5582" name="出荷先ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5624" parent="5587" name="io_busy">
-      <DasType>int|0s</DasType>
+    <column id="5593" parent="5582" name="受注日">
+      <DasType>date|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5625" parent="5587" name="idle">
+    <foreign-key id="5594" parent="5582" name="FK_出荷先ID">
+      <ColNames>出荷先ID</ColNames>
+      <CreatedTimestamp>2023-06-30.21:00:38.087</CreatedTimestamp>
+      <ModifiedTimestamp>2023-06-30.21:00:38.087</ModifiedTimestamp>
+      <ObjectId>965578478</ObjectId>
+      <RefColNames>出荷先ID</RefColNames>
+      <RefTableId>901578250</RefTableId>
+      <RefTableName>出荷先</RefTableName>
+    </foreign-key>
+    <index id="5595" parent="5582" name="PK_受注ID">
+      <Clustering>1</Clustering>
+      <ColNames>受注ID</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5596" parent="5582" name="PK_受注ID">
+      <CreatedTimestamp>2023-06-30.21:00:38.087</CreatedTimestamp>
+      <ModifiedTimestamp>2023-06-30.21:00:38.087</ModifiedTimestamp>
+      <ObjectId>949578421</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_受注ID</UnderlyingIndexName>
+    </key>
+    <column id="5597" parent="5583" name="受注ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="5626" parent="5587" name="pack_received">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <column id="5627" parent="5587" name="pack_sent">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <column id="5628" parent="5587" name="connections">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-    </column>
-    <column id="5629" parent="5587" name="pack_errors">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>8</Position>
-    </column>
-    <column id="5630" parent="5587" name="total_read">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>9</Position>
-    </column>
-    <column id="5631" parent="5587" name="total_write">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>10</Position>
-    </column>
-    <column id="5632" parent="5587" name="total_errors">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>11</Position>
-    </column>
-    <column id="5633" parent="5588" name="name">
-      <DasType>nvarchar(35 char)|0s</DasType>
       <Position>1</Position>
     </column>
-    <column id="5634" parent="5588" name="number">
+    <column id="5598" parent="5583" name="商品ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5635" parent="5588" name="type">
-      <DasType>nchar(3 char)|0s</DasType>
+    <column id="5599" parent="5583" name="単価">
+      <DasType>money|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5636" parent="5588" name="low">
+    <column id="5600" parent="5583" name="数量">
       <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="5637" parent="5588" name="high">
+    <foreign-key id="5601" parent="5583" name="FK_受注ID">
+      <ColNames>受注ID</ColNames>
+      <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
+      <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
+      <ObjectId>1029578706</ObjectId>
+      <RefColNames>受注ID</RefColNames>
+      <RefTableId>933578364</RefTableId>
+      <RefTableName>受注</RefTableName>
+    </foreign-key>
+    <foreign-key id="5602" parent="5583" name="FK_商品ID">
+      <ColNames>商品ID</ColNames>
+      <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
+      <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
+      <ObjectId>1045578763</ObjectId>
+      <RefColNames>商品ID</RefColNames>
+      <RefTableId>981578535</RefTableId>
+      <RefTableName>商品</RefTableName>
+    </foreign-key>
+    <column id="5603" parent="5584" name="商品ID">
       <DasType>int|0s</DasType>
-      <Position>5</Position>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1(16)</SequenceIdentity>
     </column>
-    <column id="5638" parent="5588" name="status">
-      <DasType>int|0s</DasType>
-      <Position>6</Position>
+    <column id="5604" parent="5584" name="商品名">
+      <DasType>nvarchar(30 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
     </column>
+    <column id="5605" parent="5584" name="区分">
+      <DasType>nvarchar(10 char)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <index id="5606" parent="5584" name="PK_商品ID">
+      <Clustering>1</Clustering>
+      <ColNames>商品ID</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5607" parent="5584" name="PK_商品ID">
+      <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
+      <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
+      <ObjectId>997578592</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_商品ID</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>
