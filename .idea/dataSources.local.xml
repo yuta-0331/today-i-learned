@@ -30,10 +30,10 @@
       <schema-mapping>
         <introspection-scope>
           <node negative="1">
-            <node kind="database" qname="@">
-              <node kind="schema" qname="@" />
+            <node kind="database" qname="master" />
+            <node kind="database" qname="sampleDB02">
+              <node kind="schema" qname="dbo" />
             </node>
-            <node kind="database" qname="sampleDB01" />
           </node>
         </introspection-scope>
       </schema-mapping>
