@@ -16552,7 +16552,12 @@
       <CollationName>SQL_Latin1_General_CP1_CI_AS</CollationName>
     </database>
     <database id="5513" parent="1" name="sampleDB02">
+      <Fingerprint>1.37717/00000000-0000-0000-0000-000000000000@789869eeead2</Fingerprint>
+      <Grants>5|database||1|connect|G
+5|database||0|view any column encryption key definition|G
+5|database||0|view any column master key definition|G</Grants>
       <ObjectId>5</ObjectId>
+      <PermissionsCheckSum>3196235284</PermissionsCheckSum>
       <CollationName>SQL_Latin1_General_CP1_CI_AS</CollationName>
     </database>
     <database id="5514" parent="1" name="tempdb">
@@ -16821,118 +16826,196 @@
     <schema id="5567" parent="5510" name="sys">
       <ObjectId>4</ObjectId>
     </schema>
-    <schema id="5568" parent="5513" name="INFORMATION_SCHEMA">
+    <role id="5568" parent="5513" name="public">
+      <AuthType>none</AuthType>
+      <ObjectId>0</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="5569" parent="5513" name="dbo">
+      <AuthType>instance</AuthType>
+      <DefaultSchema>dbo</DefaultSchema>
+      <ObjectId>1</ObjectId>
+    </role>
+    <role id="5570" parent="5513" name="guest">
+      <AuthType>none</AuthType>
+      <DefaultSchema>guest</DefaultSchema>
+      <ObjectId>2</ObjectId>
+    </role>
+    <role id="5571" parent="5513" name="INFORMATION_SCHEMA">
+      <AuthType>none</AuthType>
+      <ObjectId>3</ObjectId>
+    </role>
+    <role id="5572" parent="5513" name="sys">
+      <AuthType>none</AuthType>
+      <ObjectId>4</ObjectId>
+    </role>
+    <role id="5573" parent="5513" name="db_owner">
+      <AuthType>none</AuthType>
+      <ObjectId>16384</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="5574" parent="5513" name="db_accessadmin">
+      <AuthType>none</AuthType>
+      <ObjectId>16385</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="5575" parent="5513" name="db_securityadmin">
+      <AuthType>none</AuthType>
+      <ObjectId>16386</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="5576" parent="5513" name="db_ddladmin">
+      <AuthType>none</AuthType>
+      <ObjectId>16387</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="5577" parent="5513" name="db_backupoperator">
+      <AuthType>none</AuthType>
+      <ObjectId>16389</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="5578" parent="5513" name="db_datareader">
+      <AuthType>none</AuthType>
+      <ObjectId>16390</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="5579" parent="5513" name="db_datawriter">
+      <AuthType>none</AuthType>
+      <ObjectId>16391</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="5580" parent="5513" name="db_denydatareader">
+      <AuthType>none</AuthType>
+      <ObjectId>16392</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="5581" parent="5513" name="db_denydatawriter">
+      <AuthType>none</AuthType>
+      <ObjectId>16393</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <schema id="5582" parent="5513" name="INFORMATION_SCHEMA">
       <ObjectId>3</ObjectId>
     </schema>
-    <schema id="5569" parent="5513" name="db_accessadmin">
+    <schema id="5583" parent="5513" name="db_accessadmin">
       <ObjectId>16385</ObjectId>
     </schema>
-    <schema id="5570" parent="5513" name="db_backupoperator">
+    <schema id="5584" parent="5513" name="db_backupoperator">
       <ObjectId>16389</ObjectId>
     </schema>
-    <schema id="5571" parent="5513" name="db_datareader">
+    <schema id="5585" parent="5513" name="db_datareader">
       <ObjectId>16390</ObjectId>
     </schema>
-    <schema id="5572" parent="5513" name="db_datawriter">
+    <schema id="5586" parent="5513" name="db_datawriter">
       <ObjectId>16391</ObjectId>
     </schema>
-    <schema id="5573" parent="5513" name="db_ddladmin">
+    <schema id="5587" parent="5513" name="db_ddladmin">
       <ObjectId>16387</ObjectId>
     </schema>
-    <schema id="5574" parent="5513" name="db_denydatareader">
+    <schema id="5588" parent="5513" name="db_denydatareader">
       <ObjectId>16392</ObjectId>
     </schema>
-    <schema id="5575" parent="5513" name="db_denydatawriter">
+    <schema id="5589" parent="5513" name="db_denydatawriter">
       <ObjectId>16393</ObjectId>
     </schema>
-    <schema id="5576" parent="5513" name="db_owner">
+    <schema id="5590" parent="5513" name="db_owner">
       <ObjectId>16384</ObjectId>
     </schema>
-    <schema id="5577" parent="5513" name="db_securityadmin">
+    <schema id="5591" parent="5513" name="db_securityadmin">
       <ObjectId>16386</ObjectId>
     </schema>
-    <schema id="5578" parent="5513" name="dbo">
+    <schema id="5592" parent="5513" name="dbo">
       <Current>1</Current>
-      <IntrospectionTimestamp>2023-06-30.21:00:56.200</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-07-02.20:04:04.397</IntrospectionTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
-    <schema id="5579" parent="5513" name="guest">
+    <schema id="5593" parent="5513" name="guest">
       <ObjectId>2</ObjectId>
     </schema>
-    <schema id="5580" parent="5513" name="sys">
+    <schema id="5594" parent="5513" name="sys">
       <ObjectId>4</ObjectId>
     </schema>
-    <table id="5581" parent="5578" name="出荷先">
+    <table id="5595" parent="5592" name="出荷先">
       <CreatedTimestamp>2023-06-30.21:00:38.077</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.087</ModifiedTimestamp>
       <ObjectId>901578250</ObjectId>
     </table>
-    <table id="5582" parent="5578" name="受注">
+    <table id="5596" parent="5592" name="受注">
       <CreatedTimestamp>2023-06-30.21:00:38.083</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
       <ObjectId>933578364</ObjectId>
     </table>
-    <table id="5583" parent="5578" name="受注明細">
+    <table id="5597" parent="5592" name="受注明細">
       <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
       <ObjectId>1013578649</ObjectId>
     </table>
-    <table id="5584" parent="5578" name="商品">
+    <table id="5598" parent="5592" name="商品">
       <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.093</ModifiedTimestamp>
       <ObjectId>981578535</ObjectId>
     </table>
-    <column id="5585" parent="5581" name="出荷先ID">
+    <column id="5599" parent="5595" name="出荷先ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1(16)</SequenceIdentity>
     </column>
-    <column id="5586" parent="5581" name="出荷先名">
+    <column id="5600" parent="5595" name="出荷先名">
       <DasType>nvarchar(50 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5587" parent="5581" name="出荷先都道府県">
+    <column id="5601" parent="5595" name="出荷先都道府県">
       <DasType>nvarchar(10 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5588" parent="5581" name="出荷先住所">
+    <column id="5602" parent="5595" name="出荷先住所">
       <DasType>nvarchar(50 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="5589" parent="5581" name="PK_出荷先ID">
+    <index id="5603" parent="5595" name="PK_出荷先ID">
       <Clustering>1</Clustering>
       <ColNames>出荷先ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5590" parent="5581" name="PK_出荷先ID">
+    <key id="5604" parent="5595" name="PK_出荷先ID">
       <CreatedTimestamp>2023-06-30.21:00:38.080</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.080</ModifiedTimestamp>
       <ObjectId>917578307</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK_出荷先ID</UnderlyingIndexName>
     </key>
-    <column id="5591" parent="5582" name="受注ID">
+    <column id="5605" parent="5596" name="受注ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1001(1013)</SequenceIdentity>
     </column>
-    <column id="5592" parent="5582" name="出荷先ID">
+    <column id="5606" parent="5596" name="出荷先ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5593" parent="5582" name="受注日">
+    <column id="5607" parent="5596" name="受注日">
       <DasType>date|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <foreign-key id="5594" parent="5582" name="FK_出荷先ID">
+    <foreign-key id="5608" parent="5596" name="FK_出荷先ID">
       <ColNames>出荷先ID</ColNames>
       <CreatedTimestamp>2023-06-30.21:00:38.087</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.087</ModifiedTimestamp>
@@ -16941,40 +17024,40 @@
       <RefTableId>901578250</RefTableId>
       <RefTableName>出荷先</RefTableName>
     </foreign-key>
-    <index id="5595" parent="5582" name="PK_受注ID">
+    <index id="5609" parent="5596" name="PK_受注ID">
       <Clustering>1</Clustering>
       <ColNames>受注ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5596" parent="5582" name="PK_受注ID">
+    <key id="5610" parent="5596" name="PK_受注ID">
       <CreatedTimestamp>2023-06-30.21:00:38.087</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.087</ModifiedTimestamp>
       <ObjectId>949578421</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK_受注ID</UnderlyingIndexName>
     </key>
-    <column id="5597" parent="5583" name="受注ID">
+    <column id="5611" parent="5597" name="受注ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5598" parent="5583" name="商品ID">
+    <column id="5612" parent="5597" name="商品ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5599" parent="5583" name="単価">
+    <column id="5613" parent="5597" name="単価">
       <DasType>money|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5600" parent="5583" name="数量">
+    <column id="5614" parent="5597" name="数量">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <foreign-key id="5601" parent="5583" name="FK_受注ID">
+    <foreign-key id="5615" parent="5597" name="FK_受注ID">
       <ColNames>受注ID</ColNames>
       <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
@@ -16983,7 +17066,7 @@
       <RefTableId>933578364</RefTableId>
       <RefTableName>受注</RefTableName>
     </foreign-key>
-    <foreign-key id="5602" parent="5583" name="FK_商品ID">
+    <foreign-key id="5616" parent="5597" name="FK_商品ID">
       <ColNames>商品ID</ColNames>
       <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
@@ -16992,28 +17075,28 @@
       <RefTableId>981578535</RefTableId>
       <RefTableName>商品</RefTableName>
     </foreign-key>
-    <column id="5603" parent="5584" name="商品ID">
+    <column id="5617" parent="5598" name="商品ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1(16)</SequenceIdentity>
     </column>
-    <column id="5604" parent="5584" name="商品名">
+    <column id="5618" parent="5598" name="商品名">
       <DasType>nvarchar(30 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5605" parent="5584" name="区分">
+    <column id="5619" parent="5598" name="区分">
       <DasType>nvarchar(10 char)|0s</DasType>
       <Position>3</Position>
     </column>
-    <index id="5606" parent="5584" name="PK_商品ID">
+    <index id="5620" parent="5598" name="PK_商品ID">
       <Clustering>1</Clustering>
       <ColNames>商品ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5607" parent="5584" name="PK_商品ID">
+    <key id="5621" parent="5598" name="PK_商品ID">
       <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
       <ObjectId>997578592</ObjectId>
