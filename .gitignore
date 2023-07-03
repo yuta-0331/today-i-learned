@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Eclipse
 .classpath
 .project
@@ -20,3 +21,6 @@ temp/
 # その他の一時ファイル
 *~
 *.swp
+=======
+/.metadata/
+>>>>>>> javaLesson-branch
