@@ -1,7 +1,6 @@
-import java.sql.Array;
 import java.util.ArrayList;
 
-public class Silver2_1 {
+public class Silver02_01 {
     public static void main(String[] args) {
         int val = 7;
         boolean flg = true;
