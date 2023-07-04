@@ -15,6 +15,7 @@ public class Silver02_01 {
         int b = 0413;
         int c = 0x10B;
         int d = 0b100001011;
+
 //        int e = 0827;
     }
 
