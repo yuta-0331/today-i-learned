@@ -1,3 +1,5 @@
+package silver_lesson_02;
+
 import java.util.ArrayList;
 
 public class Silver02_01 {
