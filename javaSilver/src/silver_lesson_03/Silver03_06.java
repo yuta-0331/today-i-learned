@@ -1,3 +1,5 @@
+package silver_lesson_03;
+
 public class Silver03_06 {
     public static void main(String[] args) {
         int a = 10;

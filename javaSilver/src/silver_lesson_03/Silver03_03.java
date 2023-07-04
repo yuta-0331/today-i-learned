@@ -1,3 +1,5 @@
+package silver_lesson_03;
+
 public class Silver03_03 {
     public static void main(String[] args) {
 //        byte a = 0b10000000;
