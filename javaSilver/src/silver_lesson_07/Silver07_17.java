@@ -1,16 +1,20 @@
 package silver_lesson_07;
 
-class A16 {}
-
-class B16 extends A16 {
+class A17 {
     void hello() {
-        System.out.println("hello");
+        System.out.println("A");
     }
 }
-public class Silver07_16 {
+
+class B17 extends A17 {
+    void hello() {
+        System.out.println("B");
+    }
+}
+public class Silver07_17 {
     public static void main(String[] args) {
-        A16 a = new B16();
-        B16 b = (B16) a;
+        A17 a = new A17();
+        B17 b = (B17) a;
         b.hello();
     }
 }

@@ -1,20 +1,19 @@
 package silver_lesson_07;
 
-class Sample18 {
-    private int num;
-    public Sample18(int num) {
-        setNum(num);
-    }
-    public int getNum() {
-        return num;
-    }
-    public void setNum(int num) {
-        this.num = num;
+class Parent19 {
+    String name;
+    String getName() {
+        return this.name;
     }
 }
-public class Silver07_18 {
+
+class Child19 extends Parent19 {
+    String name;
+}
+public class Silver07_19 {
     public static void main(String[] args) {
-        Sample18 s = new Sample18(10);
-        System.out.println(s.getNum());
+        Child19 child = new Child19();
+        child.name = "sample";
+        System.out.println(child.getName());
     }
 }

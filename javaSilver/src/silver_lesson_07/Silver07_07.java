@@ -1,23 +1,20 @@
 package silver_lesson_07;
-interface A6 {
-    default void sample() {
-        System.out.println("hello");
+interface A7 {
+    default void test() {
+        System.out.println("A");
     }
 }
-interface B6 extends A6 {
-
-}
-class C6 implements B6 {
-    @Override
-    public void sample() {
-
-        System.out.println("Java");
+interface B7 {
+    default void test() {
+        System.out.println("B");
     }
 }
 
-public class Silver07_06 {
+public class Silver07_07 implements A7, B7 {
+    public void test() {
+        A7.super.test();
+    }
     public static void main(String[] args) {
-        A6 a = new C6();
-        a.sample();
+        new Silver07_07().test();
     }
 }

@@ -1,20 +1,16 @@
 package silver_lesson_07;
-interface A7 {
-    default void test() {
-        System.out.println("A");
-    }
-}
-interface B7 {
-    default void test() {
-        System.out.println("B");
-    }
+abstract class A8 {
+    int a = 8;
+    abstract void method();
 }
 
-public class Silver07_07 implements A7, B7 {
-    public void test() {
-        A7.super.test();
+public class Silver07_08 extends A8 {
+    void method() {
+        System.out.println(a);
     }
+
     public static void main(String[] args) {
-        new Silver07_07().test();
+        new Silver07_08().method();
     }
+
 }

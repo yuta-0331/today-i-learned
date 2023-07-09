@@ -1,18 +1,23 @@
 package silver_lesson_07;
-interface A5 {
-    String toString();
-}
-
-class B5 implements A5 {
-    @Override
-    public String toString() {
-        return "B";
+interface A6 {
+    default void sample() {
+        System.out.println("hello");
     }
+}
+interface B6 extends A6 {
 
 }
-public class Silver07_05 extends Parent1 {
+class C6 implements B6 {
+    @Override
+    public void sample() {
+
+        System.out.println("Java");
+    }
+}
+
+public class Silver07_06 {
     public static void main(String[] args) {
-        A5 a = new B5();
-        System.out.println(a);
+        A6 a = new C6();
+        a.sample();
     }
 }

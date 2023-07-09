@@ -1,30 +1,16 @@
 package silver_lesson_07;
 
-interface Worker14 {
-    void work();
-}
-class Employee14 implements Worker14 {
-    public void work() {
-        System.out.println("work");
-    }
-    public void report() {
-        System.out.println("report");
-    }
-}
+class A16 {}
 
-class Engineer14 extends Employee14 {
-    public void create() {
-        System.out.println("create future");
+class B16 extends A16 {
+    void hello() {
+        System.out.println("hello");
     }
 }
-
-public class Silver07_14 {
+public class Silver07_16 {
     public static void main(String[] args) {
-        Worker14 a = new Engineer14();
-        Employee14 b = new Engineer14();
-        Engineer14 c = new Engineer14();
-//        a.create();
-        b.work();
-        c.report();
+        A16 a = new B16();
+        B16 b = (B16) a;
+        b.hello();
     }
 }

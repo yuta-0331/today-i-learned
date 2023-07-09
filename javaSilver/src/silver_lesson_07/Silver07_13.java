@@ -1,21 +1,19 @@
 package silver_lesson_07;
-class A12 {
-    String val = "A";
-    void print() {
-        System.out.println(val);
+
+interface Worker13 {
+    void work();
+}
+class Employee13 {
+    public void work() {
+        System.out.println("work");
     }
 }
-class B12 extends A12 {
-    String val = "B";
-}
 
-public class Silver07_12 {
+class Engineer extends Employee13 implements Worker13 {}
+
+public class Silver07_13 {
     public static void main(String[] args) {
-        A12 a = new A12();
-        A12 b = new B12();
-        System.out.println(a.val);
-        System.out.println(b.val);
-        a.print();
-        b.print();
+        Worker13 worker = new Engineer();
+        worker.work();
     }
 }

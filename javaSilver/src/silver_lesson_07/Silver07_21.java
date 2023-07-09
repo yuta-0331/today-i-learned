@@ -1,19 +1,27 @@
 package silver_lesson_07;
 
-class A20 {
-    public A20() {
+class Parent21 {
+    public Parent21() {
         System.out.println("A");
+    }
+    public Parent21(String val) {
+        this();
+        System.out.println(val);
     }
 }
 
-class B20 extends A20 {
-    public B20() {
-        System.out.println("B");
+class Child21 extends Parent21 {
+    public Child21() {
+        super("B");
+        System.out.println("C");
+    }
+    public Child21(String val) {
+        this();
+        System.out.println(val);
     }
 }
-public class Silver07_20 {
+public class Silver07_21 {
     public static void main(String[] args) {
-        A20 a = new B20();
-        B20 b = new B20();
+        new Child21("D");
     }
 }

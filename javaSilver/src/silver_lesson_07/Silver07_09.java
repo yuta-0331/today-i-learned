@@ -1,16 +1,24 @@
 package silver_lesson_07;
-abstract class A8 {
-    int a = 8;
-    abstract void method();
+abstract class AbstractSample9{
+    public void sample() {
+        System.out.println("A");
+        test();
+        System.out.println("C");
+    }
+
+    protected abstract void test();
 }
 
-public class Silver07_08 extends A8 {
-    void method() {
-        System.out.println(a);
+class ConcreteSample9 extends AbstractSample9 {
+    @Override
+    protected void test() {
+        System.out.println("B");
     }
+}
 
+public class Silver07_09 {
     public static void main(String[] args) {
-        new Silver07_08().method();
+        AbstractSample9 s = new ConcreteSample9();
+        s.sample();
     }
-
 }

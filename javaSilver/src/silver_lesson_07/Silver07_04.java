@@ -1,13 +1,15 @@
 package silver_lesson_07;
-
-class Parent1 {
-    String name;
-}
-public class Silver07_01 extends Parent1 {
-    Silver07_01() {
-        name = "java";
+interface A4 {
+     default void sample() {
+        System.out.println("sample");
     }
-    void hello() {
-        System.out.println("hello" + name);
+}
+class B4 implements A4 {
+
+}
+public class Silver07_04 extends Parent1 {
+    public static void main(String[] args) {
+        A4 a = new B4();
+        a.sample();
     }
 }
