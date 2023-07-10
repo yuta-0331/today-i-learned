@@ -74,12 +74,13 @@ SELECT 出荷先名, SUM(数量 * 単価) AS 注文金額計 FROM 受注明細
             GROUP BY 出荷先名 HAVING SUM(数量 * 単価) > 50000
 
 --出荷先名と出荷先毎の金額平均を取得、その金額が全体の平均以上かどうかを表示
-SELECT 出荷先名,
-       AVG(ISNULL(数量, 0) * ISNULL(単価, 0)) AS 金額平均,
-        CASE
-            WHEN AVG(ISNULL(数量, 0) * ISNULL(単価, 0)) >= (SELECT AVG(ISNULL(数量,0) * ISNULL(単価, 0)) FROM 受注明細)
+SELECT
+    出荷先名,
+    AVG(ISNULL(数量, 0) * ISNULL(単価, 0)) AS 金額平均,
+    CASE
+        WHEN AVG(ISNULL(数量, 0) * ISNULL(単価, 0)) >= (SELECT AVG(ISNULL(数量,0) * ISNULL(単価, 0)) FROM 受注明細)
                 THEN N'全体の平均以上'
-            ELSE N'全体の平均未満'
+        ELSE N'全体の平均未満'
         END AS 評価 FROM 受注明細 LEFT JOIN 受注 ON 受注.受注ID = 受注明細.受注ID
             LEFT JOIN 出荷先 ON 出荷先.出荷先ID = 受注.出荷先ID
                 GROUP BY 出荷先名

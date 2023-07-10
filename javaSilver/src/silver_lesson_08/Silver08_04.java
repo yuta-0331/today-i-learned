@@ -1,15 +1,13 @@
 package silver_lesson_08;
 
-import java.util.function.Function;
-
-public class Silver08_03 {
+public class Silver08_04 {
     public static void main(String[] args) {
-        String val = "A";
-        Function f = System.out::println;
-        f.test("B");
+//        int cnt = 0;
+        Runnable r = () -> {
+            for (int cnt = 0; cnt < 10; cnt++) {
+                System.out.println(cnt++);
+            }
+        };
+        new Thread(r).start();
     }
-    interface Function {
-        void test(String val);
-    }
-
 }
