@@ -78,8 +78,7 @@ public class View {
     }
 
     // レコードの追加
-    public void addRecord() {
-
+    public Grade addRecordCreate() {
         System.out.println("組:");
         String team = inputStr();
         System.out.println("名前:");
@@ -88,6 +87,7 @@ public class View {
         int englishScore = inputNum();
         System.out.println("数学:");
         int mathScore = inputNum();
+        return new Grade(0, team, name, englishScore, mathScore);
 
     }
 }
