@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class View {
-    private final String[] MENU_LIST = { "一覧", "検索", "追加", "修正", "削除" };
+    private final String[] MENU_LIST = { "一覧", "検索", "追加", "修正", "削除", "終了" };
     private final Scanner scanner;
-    
+    private int choiceMenuNum;
     public View() {
         scanner = new Scanner(System.in);
     }
@@ -23,7 +23,7 @@ public class View {
     public int selectMenu() {
         while (true) {
             System.out.print(":");
-            int choiceMenuNum = inputNum();
+            choiceMenuNum = inputNum();
             if (choiceMenuNum >= 1 && choiceMenuNum <= MENU_LIST.length) {
                 System.out.println(MENU_LIST[choiceMenuNum - 1] + "------");
                 return choiceMenuNum;
@@ -70,24 +70,46 @@ public class View {
 
     // リストの表示
     public void displayList(ArrayList<Grade> gradeList) {
+        if (gradeList.size() == 0) {
+            System.out.println("データが見つかりません");
+            return;
+        }
         for (Grade grade : gradeList) {
-            System.out.println("ID: " + grade.getId() + "  " + grade.getTeam() + "組  "
-                    + grade.getName() + "  英語" + grade.getEnglishScore() + "点  数学" 
-                    + grade.getMathScore() + "点");
+            displayRecord(grade);
+            System.out.println();
         }
     }
+    // gradeインスタンスの表示
+    public void displayRecord(Grade grade) {
+        System.out.print("ID: " + grade.getId() + "  " + grade.getTeam() + "組  "
+                + grade.getName() + "  英語" + grade.getEnglishScore() + "点  数学"
+                + grade.getMathScore() + "点　");
+    }
 
-    // レコードの追加
-    public Grade addRecordCreate() {
-        System.out.println("組:");
+    // 削除、追加の確認表示
+    public void displayRecordForAddOrDelete(Grade grade) {
+        String msg = null;
+        if (choiceMenuNum == 3) {
+            msg = "を追加しました。";
+        } else if (choiceMenuNum == 5) {
+            msg = "\n削除しますか？(y/n):";
+        }
+        displayRecord(grade);
+        System.out.println(msg);
+    }
+
+    // レコードの追加に使用するGrade型変数を作成
+    // *todo:点数の入力チェックを入れる
+    public Grade createNewGrade() {
+        System.out.print("組:");
         String team = inputStr();
-        System.out.println("名前:");
+        System.out.print("名前:");
         String name = inputStr();
-        System.out.println("英語:");
+        System.out.print("英語:");
         int englishScore = inputNum();
-        System.out.println("数学:");
+        System.out.print("数学:");
         int mathScore = inputNum();
+        // 仮にid = 0 でGradeインスタンスを作成
         return new Grade(0, team, name, englishScore, mathScore);
-
     }
 }

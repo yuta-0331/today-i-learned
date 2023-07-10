@@ -1,9 +1,6 @@
 package reportCard_JDBC;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class Model {
@@ -21,6 +18,15 @@ public class Model {
             e.printStackTrace();
         }
     }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public PreparedStatement getStatement() {
+        return statement;
+    }
+
     // リストの取得
     public ArrayList<Grade> getList() {
         String sql = "SELECT * FROM grade";
@@ -64,21 +70,20 @@ public class Model {
         }
         return gradeList;
     }
-
-    public Integer addRecord(String team, String name, int englishScore, int mathScore) {
+    // レコードの追加
+    public ResultSet addRecord(Grade grade) {
         String sql = "INSERT INTO grade VALUES(?, ?, ?, ?)";
-        int rows;
         try {
-            statement = connection.prepareStatement(sql);
-            statement.setString(1, team);
-            statement.setString(2, name);
-            statement.setInt(3, englishScore);
-            statement.setInt(4, mathScore);
-            rows = statement.executeUpdate();
-            return rows;
+            statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, grade.getTeam());
+            statement.setString(2, grade.getName());
+            statement.setInt(3, grade.getEnglishScore());
+            statement.setInt(4, grade.getMathScore());
+            statement.executeUpdate();
+            return statement.getGeneratedKeys();
         } catch (Exception e) {
             e.printStackTrace();
-            return 0;
+            return null;
         }
     }
 
