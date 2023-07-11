@@ -7,8 +7,13 @@ public class View {
     private final String[] MENU_LIST = { "一覧", "検索", "追加", "修正", "削除", "終了" };
     private final Scanner scanner;
     private int choiceMenuNum;
+    
     public View() {
         scanner = new Scanner(System.in);
+    }
+    
+    public Scanner getScanner() {
+        return scanner;
     }
 
     // menu表示
@@ -50,6 +55,20 @@ public class View {
         }
         return num;
     }
+    // スコアの入力
+    public int inputScore() {
+        int num;
+        while (true) {
+            num = inputNum();
+            if (num >= 0) {
+                break;
+            } else {
+                System.out.println("不正な入力です");
+            }
+        }
+        return num;
+    }
+    
     // 文字列の入力
     public String inputStr() {
         String str;
@@ -84,32 +103,58 @@ public class View {
         System.out.print("ID: " + grade.getId() + "  " + grade.getTeam() + "組  "
                 + grade.getName() + "  英語" + grade.getEnglishScore() + "点  数学"
                 + grade.getMathScore() + "点　");
-    }
-
-    // 削除、追加の確認表示
-    public void displayRecordForAddOrDelete(Grade grade) {
-        String msg = null;
-        if (choiceMenuNum == 3) {
-            msg = "を追加しました。";
-        } else if (choiceMenuNum == 5) {
-            msg = "\n削除しますか？(y/n):";
-        }
-        displayRecord(grade);
-        System.out.println(msg);
+        if (MENU_LIST[choiceMenuNum - 1].equals("追加")) {
+            System.out.println("を追加しました。");
+        } 
     }
 
     // レコードの追加に使用するGrade型変数を作成
-    // *todo:点数の入力チェックを入れる
     public Grade createNewGrade() {
         System.out.print("組:");
         String team = inputStr();
         System.out.print("名前:");
         String name = inputStr();
         System.out.print("英語:");
-        int englishScore = inputNum();
+        int englishScore = inputScore();
         System.out.print("数学:");
-        int mathScore = inputNum();
+        int mathScore = inputScore();
         // 仮にid = 0 でGradeインスタンスを作成
         return new Grade(0, team, name, englishScore, mathScore);
+    }
+    
+    // レコードの修正内容をGradeインスタンスで返す (beforeCorrection: 修正前の)
+    public Grade editRecord(Grade gradeBeforeCorrection) {
+        System.out.print("クラス(" + gradeBeforeCorrection.getTeam() + "):");
+        String team = inputStr();
+        System.out.print("名前(" + gradeBeforeCorrection.getName() + "):");
+        String name = inputStr();
+        System.out.print("英語(" + gradeBeforeCorrection.getEnglishScore() + "):");
+        int englishScore = inputScore();
+        System.out.print("数学(" + gradeBeforeCorrection.getMathScore() + "):");
+        int mathScore = inputScore();
+        
+        return new Grade(gradeBeforeCorrection.getId(), team, name, englishScore, mathScore);
+    }
+    
+    // レコードidの指定
+    public int selectRecordById() {
+        System.out.println("ID:");
+        return inputNum();
+    }
+    // 削除の確認
+    public boolean selectDeleteConfirm(Grade grade) {
+        displayRecord(grade);
+        System.out.println("削除しますか？(y/n)");
+        while (true) {
+            String ans = inputStr();
+            if (ans.equals("y")) {
+                return true;
+            } else if (ans.equals("n")) {
+                return false;
+            } else {
+                System.out.println("y/nで選択してください");
+            }
+        }
+        
     }
 }

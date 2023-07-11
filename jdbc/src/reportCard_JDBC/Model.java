@@ -48,8 +48,8 @@ public class Model {
         }
         return gradeList;
     }
-    // 検索してhitした生徒を表示
-    public ArrayList<Grade> getSearchResults(String name) {
+    // nameで検索してhitしたレコードをリストに入れて返す
+    public ArrayList<Grade> getSearchResultsByName(String name) {
         String sql = "SELECT * FROM grade WHERE name = ?";
         ArrayList<Grade> gradeList = new ArrayList<>();
         try {
@@ -70,6 +70,30 @@ public class Model {
         }
         return gradeList;
     }
+    
+    // idで検索してヒットしたレコードをGradeインスタンス化して返す
+    public Grade getSearchResultsById(int id) {
+        Grade grade = null;
+        String sql = "SELECT * FROM grade WHERE id = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                grade = new Grade(
+                        resultSet.getInt("id"),
+                        resultSet.getString("team"),
+                        resultSet.getString("name"),
+                        resultSet.getInt("englishScore"),
+                        resultSet.getInt("mathScore")
+                        );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return grade;
+    }
+    
     // レコードの追加
     public ResultSet addRecord(Grade grade) {
         String sql = "INSERT INTO grade VALUES(?, ?, ?, ?)";
@@ -84,6 +108,35 @@ public class Model {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+    // レコードの編集
+    public int editRecord(Grade grade) {
+        String sql = "UPDATE grade SET team = ?, name = ?, englishScore = ?, mathScore = ? WHERE id = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, grade.getTeam());
+            statement.setString(2, grade.getName());
+            statement.setInt(3, grade.getEnglishScore());
+            statement.setInt(4, grade.getMathScore());
+            statement.setInt(5, grade.getId());
+            return statement.executeUpdate(); // 更新成功したら行数が返る
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    
+    // レコードの削除
+    public int deleteRecord(int id) {
+        String sql = "DELETE FROM grade WHERE id = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            return statement.executeUpdate(); // 削除成功したら行数が返る
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
         }
     }
 
