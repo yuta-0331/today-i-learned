@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/silver_lesson_11/hello/hello.iml" filepath="$PROJECT_DIR$/silver_lesson_11/hello/hello.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaSilver.iml" filepath="$PROJECT_DIR$/javaSilver.iml" />
     </modules>
   </component>
