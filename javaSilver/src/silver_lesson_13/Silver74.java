@@ -1,12 +1,18 @@
 package silver_lesson_13;
 
 public class Silver74 {
+    int a;
+    public Silver74(int a) {
+        a = a;
+    }
+
     public static void main(String[] args) {
         char[][] array1 = {{'a', 'b'}, {'c', 'd'}};
         char[][] array2 = array1.clone();
         char[] array3 = array2[1].clone();
 
         System.out.println(array1[1].equals(array2[1]));
+        System.out.println('a' + "," + 1);
     }
 }
 
