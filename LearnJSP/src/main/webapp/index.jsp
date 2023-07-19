@@ -1,12 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
-<head>
-  <title>JSP - Hello World</title>
-</head>
-<body>
-<h1><%= "Hello World!" %></h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
-</body>
+  <head>
+    <title>JSP - Hello World</title>
+  </head>
+  <body>
+  <a href="sample01.jsp">sample01</a>
+  <a href="sample02.jsp">sample02</a>
+  </body>
 </html>
