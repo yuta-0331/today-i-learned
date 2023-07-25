@@ -20,6 +20,10 @@
         justify-content: center;
         align-items: center;
     }
+    .form_inner {
+        display: flex;
+        flex-direction: column;
+    }
 </style>
 </head>
 <body>
@@ -37,8 +41,10 @@
     Boolean literIsNull = (liter != null);
     Boolean metersIsNull = (meters != null);
     Boolean kiloGramIsNull = (kiloGram != null);
+
+    String name = (String) request.getAttribute("name");
     %>
-    <form action="" method="post">
+    <form action="${pageContext.request.contextPath}/myServlet04" method="post">
         <div class="form_container">
             <div class="form_inner">
                 <input type="number" name="gallon">
@@ -49,9 +55,11 @@
                 <input type="number" name="liter">
                 <input type="number" name="meters">
                 <input type="number" name="kiloGram">
+                <input type="text" name="name">
             </div>
         </div>
         <%= gallon %>
+        <%= name %>
         <div class="submit_container">
             <input type="submit" value="変換する">
         </div>
