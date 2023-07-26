@@ -40,26 +40,32 @@ public class MyServlet04 extends HttpServlet {
 		String metersStr = request.getParameter("meters");
 		String kiloGramStr = request.getParameter("kiloGram");
 
-		Double gallon = null;
-		Double yard = null;
-		Double pound = null;
-		Double liter = null;
-		Double meters = null;
-		Double kiloGram = null;
+		Double gallon = getDoubleParameter(request, "gallon");
+		Double yard = getDoubleParameter(request, "yard");
+		Double pound = getDoubleParameter(request, "pound");
+		Double liter = getDoubleParameter(request, "liter");
+		Double meters = getDoubleParameter(request, "meters");
+		Double kiloGram = getDoubleParameter(request, "kiloGram");
 
-		if (gallonStr != null && !gallonStr.equals("")) {
-			gallon = Double.parseDouble(gallonStr);
-		}
-		if (yardStr != null && !yardStr.equals("")) {
-			yard = Double.parseDouble(yardStr);
-		}
-
-		request.setAttribute("gallon",gallon);
+		request.setAttribute("gallon", gallon);
+		request.setAttribute("yard", yard);
+		request.setAttribute("pound", pound);
+		request.setAttribute("liter", liter);
+		request.setAttribute("meters",meters);
+		request.setAttribute("kiloGram",kiloGram);
 
 		String jspPath = "/WEB-INF/index.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(jspPath);
 		dispatcher.forward(request, response);
+	}
+
+	private Double getDoubleParameter(HttpServletRequest request, String paramName) {
+		String paramValue = request.getParameter(paramName);
+		if (paramValue != null && !paramValue.equals("")) {
+			return Double.parseDouble(paramValue);
+		}
+		return null;
 	}
 
 }
