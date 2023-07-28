@@ -17,10 +17,12 @@ public class Auth {
         return false;
     }
 
-    boolean loggedIn(Cookie cookie) {
-        if (cookie == null) return false;
-        if (cookie.getName().equals("stamp")) {
-            return cookie.getValue().equals("1234");
+    boolean loggedIn(Cookie[] cookies) {
+        for (Cookie cookie : cookies) {
+            if (cookie == null) return false;
+            if (cookie.getName().equals("stamp")) {
+                return cookie.getValue().equals("1234");
+            }
         }
         return false;
     }

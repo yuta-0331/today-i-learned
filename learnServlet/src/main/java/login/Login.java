@@ -12,11 +12,9 @@ public class Login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Cookie[] cookies = request.getCookies();
         Auth auth = new Auth();
-        for (Cookie cookie : cookies) {
-            if (auth.loggedIn(cookie)) {
-                response.sendRedirect("/page");
-                return;
-            }
+        if (auth.loggedIn(cookies)) {
+            response.sendRedirect("/page");
+            return;
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/login/loginForm.jsp");
         dispatcher.forward(request, response);
@@ -30,7 +28,8 @@ public class Login extends HttpServlet {
         Auth auth = new Auth();
 
         if (auth.isAuth(id, pw)) {
-
+            Cookie cookie = new Cookie("stamp", "1234");
+            response.addCookie(cookie);
         }
     }
 }

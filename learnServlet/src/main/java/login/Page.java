@@ -12,10 +12,8 @@ public class Page extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Cookie[] cookies = request.getCookies();
         Auth auth = new Auth();
-        for (Cookie cookie : cookies) {
-            if (auth.loggedIn(cookie)) {
+        if (auth.loggedIn(cookies)) {
 
-            }
         }
     }
 }
