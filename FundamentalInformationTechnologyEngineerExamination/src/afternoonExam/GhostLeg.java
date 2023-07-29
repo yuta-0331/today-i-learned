@@ -13,9 +13,9 @@ public class GhostLeg {
     }
 
     public void addHorizontalLine(int x1, int x2, double y) {
-        if (y <= 0.0 || y >= 1.0) {
-            throw IllegalArgumentException();
-        }
+//        if (y <= 0.0 || y >= 1.0) {
+//            throw IllegalArgumentException();
+//        }
         VerticalLine v1 = verticalLines.get(x1);
         VerticalLine v2 = verticalLines.get(x2);
         if (x1 != x2 && !v1.hasHorizontalLineAt(y) && !v2.hasHorizontalLineAt(y)) {
