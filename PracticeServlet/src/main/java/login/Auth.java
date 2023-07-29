@@ -1,6 +1,6 @@
 package login;
 
-import jakarta.servlet.http.Cookie;
+import javax.servlet.http.Cookie;
 
 public class Auth {
     String[] idList = { "tanaka", "saitou", "katou" };

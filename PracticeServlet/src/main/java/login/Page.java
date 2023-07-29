@@ -1,8 +1,8 @@
 package login;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ public class Page extends HttpServlet {
         Cookie[] cookies = request.getCookies();
         Auth auth = new Auth();
         if (!auth.loggedIn(cookies)) {
-            response.sendRedirect("/login");
+            response.sendRedirect("/src/main/java/login");
             return;
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/login/page.jsp");
