@@ -13,7 +13,7 @@ public class Page extends HttpServlet {
         Cookie[] cookies = request.getCookies();
         Auth auth = new Auth();
         if (!auth.loggedIn(cookies)) {
-            response.sendRedirect("/src/main/java/login");
+            response.sendRedirect("login");
             return;
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/login/page.jsp");

@@ -13,7 +13,7 @@ public class Login extends HttpServlet {
         Cookie[] cookies = request.getCookies();
         Auth auth = new Auth();
         if (auth.loggedIn(cookies)) {
-            response.sendRedirect("/page");
+            response.sendRedirect("page");
             return;
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/login/loginForm.jsp");
@@ -23,13 +23,14 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        String id = request.getParameter("id");
+        String id = request.getParameter("userId");
         String pw = request.getParameter("pw");
         Auth auth = new Auth();
 
         if (auth.isAuth(id, pw)) {
             Cookie cookie = new Cookie("stamp", "1234");
             response.addCookie(cookie);
+            response.sendRedirect("page");
         }
     }
 }

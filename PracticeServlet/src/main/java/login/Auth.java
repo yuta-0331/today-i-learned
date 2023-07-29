@@ -11,6 +11,7 @@ public class Auth {
         }
         for (int i = 0; i < idList.length; i++) {
             if (id.equals(idList[i]) && pw.equals(pwList[i])) {
+                System.out.println(idList[i]);
                 return true;
             }
         }
