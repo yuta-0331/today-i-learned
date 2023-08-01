@@ -8,11 +8,12 @@ interface Improver {
 }
 
 public class Test2 {
+
     public static void main(String[] args) {
         Decorator dec = (String m, String s) -> System.out.println(s + m + s);
         dec.decorate("Hello", "+++");
 
-        improver imp = v -> { return v * 2; };
+        Improver imp = v -> { return v * 2; };
         System.out.println(imp.improve(5));
     }
 
