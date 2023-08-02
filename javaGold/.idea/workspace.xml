@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ea3df349-922f-47e9-9cac-9c2751146962" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/gold01/Gold01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gold01/Gold02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gold01/Gold03.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gold01/Gold04.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Test2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/ReportCard.hGbo6Q/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/ReportCard.hGbo6Q/schema/dbo.sYMBAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" afterDir="false" />
@@ -17,6 +24,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -25,17 +39,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -51,7 +69,11 @@
       <updated>1690892698028</updated>
       <workItem from="1690892699200" duration="1162000" />
       <workItem from="1690893872141" duration="27000" />
+      <workItem from="1690894002804" duration="4100000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
