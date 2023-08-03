@@ -5,7 +5,7 @@ public enum Gold15 {
 }
 
 
-class Main {
+class Main15 {
     public static void main(String[] args) {
         System.out.println(Gold15.values()[0]);
     }
