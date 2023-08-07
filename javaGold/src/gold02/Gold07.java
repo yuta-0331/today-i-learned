@@ -27,6 +27,7 @@ class OldSample {
         Person07 sample = new Person07(Person07.Gender.MALE, 19);
 
         if (sample.getGender().equals(Person07.Gender.MALE)
+                || sample.getGender().equals(Person07.Gender.FEMALE)
                 && sample.getAge() >= 20) {
             System.out.println("ok");
             return;
