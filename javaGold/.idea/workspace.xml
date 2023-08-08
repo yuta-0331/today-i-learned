@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea3df349-922f-47e9-9cac-9c2751146962" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gold02/Gold08.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gold02/Gold09.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gold02/Gold07.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gold02/Gold07.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/ReportCard.hGbo6Q/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/ReportCard.hGbo6Q/schema/dbo.sYMBAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" afterDir="false" />
@@ -70,7 +66,7 @@
       <workItem from="1690893872141" duration="27000" />
       <workItem from="1690894002804" duration="15969000" />
       <workItem from="1691152025181" duration="47000" />
-      <workItem from="1691238013988" duration="9902000" />
+      <workItem from="1691238013988" duration="11872000" />
     </task>
     <servers />
   </component>
