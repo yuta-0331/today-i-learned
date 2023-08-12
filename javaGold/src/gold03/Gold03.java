@@ -28,14 +28,14 @@ public class Gold03 {
             exec3.submit(test);
         }
 
-        Thread.sleep(1 * 10000);
+        Thread.sleep(10000);
         System.out.println("---------10秒後----------");
 
         for (int i = 0; i < 5; i++) {
             exec3.submit(test);
         }
 
-        Thread.sleep(1 * 70000);
+        Thread.sleep(70000);
         System.out.println("---------70秒後----------");
 
         for (int i = 0; i < 5; i++) {
