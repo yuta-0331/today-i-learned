@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea3df349-922f-47e9-9cac-9c2751146962" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/ReportCard.hGbo6Q/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/ReportCard.hGbo6Q/schema/dbo.sYMBAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../practiceSQL/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" afterDir="false" />
@@ -70,6 +69,7 @@
       <workItem from="1691238013988" duration="11872000" />
       <workItem from="1691497138107" duration="4289000" />
       <workItem from="1691757340004" duration="974000" />
+      <workItem from="1691842849417" duration="57000" />
     </task>
     <servers />
   </component>
