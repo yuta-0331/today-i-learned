@@ -60,6 +60,17 @@ class Item03kai {
     private String name;
     private int price;
 
+    public int getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
     private Item03kai(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
