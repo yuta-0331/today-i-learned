@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="919485a0-2345-4870-bbf9-15174df0fc2f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/src/main/webapp/sample01.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/src/main/webapp/sample02.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LearnJSP/src/main/webapp/sample03.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../today-i-learned.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/ReportCard.hGbo6Q/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/ReportCard.hGbo6Q/schema/dbo.sYMBAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/sampleDB02.qneACA/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/429aa1ef-fe40-4082-835f-e33f8f12df23/storage_v2/_src_/database/sampleDB02.qneACA/schema/dbo.sYMBAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.sql" beforeDir="false" afterPath="$PROJECT_DIR$/user.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +32,33 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/yuta-higa/dev/today-i-learned/practiceSQL",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver"
+    ],
+    "RunConfigurationTargetLRU": [
+      "429aa1ef-fe40-4082-835f-e33f8f12df23",
+      "429aa1ef-fe40-4082-835f-e33f8f12df23/database/\"user\""
+    ]
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="user.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/user.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="429aa1ef-fe40-4082-835f-e33f8f12df23" namespace="database/&quot;user&quot;" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -52,6 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1689940374527</updated>
       <workItem from="1689940375621" duration="4000" />
+      <workItem from="1690696489460" duration="3902000" />
     </task>
     <servers />
   </component>

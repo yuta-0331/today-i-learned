@@ -16726,7 +16726,7 @@
     </schema>
     <schema id="5551" parent="5510" name="dbo">
       <Current>1</Current>
-      <IntrospectionTimestamp>2023-07-30.15:06:44.047</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-07-30.15:19:23.200</IntrospectionTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
     <schema id="5552" parent="5510" name="guest">
@@ -16860,7 +16860,7 @@
 149575571|||0|select|G
 1787153412|||0|select|G
 1803153469|||0|select|G</Grants>
-      <IntrospectionTimestamp>2023-07-30.15:07:57.973</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-07-30.15:20:02.073</IntrospectionTimestamp>
       <ObjectId>1</ObjectId>
       <PermissionsCheckSum>7026290343</PermissionsCheckSum>
     </schema>
@@ -16902,7 +16902,7 @@
     </schema>
     <schema id="5593" parent="5514" name="dbo">
       <Current>1</Current>
-      <IntrospectionTimestamp>2023-07-30.15:07:23.347</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-07-30.15:19:23.260</IntrospectionTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
     <schema id="5594" parent="5514" name="guest">
@@ -16943,6 +16943,7 @@
     </schema>
     <schema id="5606" parent="5516" name="dbo">
       <Current>1</Current>
+      <IntrospectionTimestamp>2023-07-30.15:20:21.920</IntrospectionTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
     <schema id="5607" parent="5516" name="guest">
@@ -17021,338 +17022,343 @@
       <ModifiedTimestamp>2023-06-30.21:00:38.093</ModifiedTimestamp>
       <ObjectId>981578535</ObjectId>
     </table>
-    <column id="5622" parent="5609" name="id">
+    <table id="5622" parent="5606" name="ユーザー">
+      <CreatedTimestamp>2023-07-30.15:20:01.920</CreatedTimestamp>
+      <ModifiedTimestamp>2023-07-30.15:20:01.920</ModifiedTimestamp>
+      <ObjectId>901578250</ObjectId>
+    </table>
+    <column id="5623" parent="5609" name="id">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>100(1101)</SequenceIdentity>
     </column>
-    <column id="5623" parent="5609" name="team">
+    <column id="5624" parent="5609" name="team">
       <DasType>nvarchar(10 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5624" parent="5609" name="name">
+    <column id="5625" parent="5609" name="name">
       <DasType>nvarchar(50 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5625" parent="5609" name="englishScore">
+    <column id="5626" parent="5609" name="englishScore">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="5626" parent="5609" name="mathScore">
+    <column id="5627" parent="5609" name="mathScore">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <index id="5627" parent="5609" name="pk_id">
+    <index id="5628" parent="5609" name="pk_id">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5628" parent="5609" name="pk_id">
+    <key id="5629" parent="5609" name="pk_id">
       <CreatedTimestamp>2023-07-10.18:54:50.953</CreatedTimestamp>
       <ModifiedTimestamp>2023-07-10.18:54:50.953</ModifiedTimestamp>
       <ObjectId>917578307</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>pk_id</UnderlyingIndexName>
     </key>
-    <column id="5629" parent="5612" name="optname">
+    <column id="5630" parent="5612" name="optname">
       <DasType>sysname|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5630" parent="5612" name="value">
+    <column id="5631" parent="5612" name="value">
       <DasType>bit|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5631" parent="5612" name="major_version">
+    <column id="5632" parent="5612" name="major_version">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5632" parent="5612" name="minor_version">
+    <column id="5633" parent="5612" name="minor_version">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="5633" parent="5612" name="revision">
+    <column id="5634" parent="5612" name="revision">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="5634" parent="5612" name="install_failures">
+    <column id="5635" parent="5612" name="install_failures">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="5635" parent="5613" name="xserver_name">
+    <column id="5636" parent="5613" name="xserver_name">
       <DasType>varchar(30 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5636" parent="5613" name="xdttm_ins">
+    <column id="5637" parent="5613" name="xdttm_ins">
       <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5637" parent="5613" name="xdttm_last_ins_upd">
+    <column id="5638" parent="5613" name="xdttm_last_ins_upd">
       <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5638" parent="5613" name="xfallback_dbid">
+    <column id="5639" parent="5613" name="xfallback_dbid">
       <DasType>smallint|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="5639" parent="5613" name="name">
+    <column id="5640" parent="5613" name="name">
       <DasType>varchar(30 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="5640" parent="5613" name="dbid">
+    <column id="5641" parent="5613" name="dbid">
       <DasType>smallint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="5641" parent="5613" name="status">
+    <column id="5642" parent="5613" name="status">
       <DasType>smallint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="5642" parent="5613" name="version">
+    <column id="5643" parent="5613" name="version">
       <DasType>smallint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="5643" parent="5614" name="xserver_name">
+    <column id="5644" parent="5614" name="xserver_name">
       <DasType>varchar(30 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5644" parent="5614" name="xdttm_ins">
+    <column id="5645" parent="5614" name="xdttm_ins">
       <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5645" parent="5614" name="xdttm_last_ins_upd">
+    <column id="5646" parent="5614" name="xdttm_last_ins_upd">
       <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5646" parent="5614" name="xfallback_low">
+    <column id="5647" parent="5614" name="xfallback_low">
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="5647" parent="5614" name="xfallback_drive">
+    <column id="5648" parent="5614" name="xfallback_drive">
       <DasType>char(2 char)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="5648" parent="5614" name="low">
+    <column id="5649" parent="5614" name="low">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="5649" parent="5614" name="high">
+    <column id="5650" parent="5614" name="high">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="5650" parent="5614" name="status">
+    <column id="5651" parent="5614" name="status">
       <DasType>smallint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="5651" parent="5614" name="name">
+    <column id="5652" parent="5614" name="name">
       <DasType>varchar(30 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="5652" parent="5614" name="phyname">
+    <column id="5653" parent="5614" name="phyname">
       <DasType>varchar(127 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>10</Position>
     </column>
-    <column id="5653" parent="5615" name="xserver_name">
+    <column id="5654" parent="5615" name="xserver_name">
       <DasType>varchar(30 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5654" parent="5615" name="xdttm_ins">
+    <column id="5655" parent="5615" name="xdttm_ins">
       <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5655" parent="5615" name="xdttm_last_ins_upd">
+    <column id="5656" parent="5615" name="xdttm_last_ins_upd">
       <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5656" parent="5615" name="xfallback_vstart">
+    <column id="5657" parent="5615" name="xfallback_vstart">
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="5657" parent="5615" name="dbid">
+    <column id="5658" parent="5615" name="dbid">
       <DasType>smallint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="5658" parent="5615" name="segmap">
+    <column id="5659" parent="5615" name="segmap">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="5659" parent="5615" name="lstart">
+    <column id="5660" parent="5615" name="lstart">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="5660" parent="5615" name="sizepg">
+    <column id="5661" parent="5615" name="sizepg">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="5661" parent="5615" name="vstart">
+    <column id="5662" parent="5615" name="vstart">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="5662" parent="5616" name="lastrun">
+    <column id="5663" parent="5616" name="lastrun">
       <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5663" parent="5616" name="cpu_busy">
+    <column id="5664" parent="5616" name="cpu_busy">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5664" parent="5616" name="io_busy">
+    <column id="5665" parent="5616" name="io_busy">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5665" parent="5616" name="idle">
+    <column id="5666" parent="5616" name="idle">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="5666" parent="5616" name="pack_received">
+    <column id="5667" parent="5616" name="pack_received">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="5667" parent="5616" name="pack_sent">
+    <column id="5668" parent="5616" name="pack_sent">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="5668" parent="5616" name="connections">
+    <column id="5669" parent="5616" name="connections">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="5669" parent="5616" name="pack_errors">
+    <column id="5670" parent="5616" name="pack_errors">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="5670" parent="5616" name="total_read">
+    <column id="5671" parent="5616" name="total_read">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="5671" parent="5616" name="total_write">
+    <column id="5672" parent="5616" name="total_write">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>10</Position>
     </column>
-    <column id="5672" parent="5616" name="total_errors">
+    <column id="5673" parent="5616" name="total_errors">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>11</Position>
     </column>
-    <column id="5673" parent="5617" name="name">
+    <column id="5674" parent="5617" name="name">
       <DasType>nvarchar(35 char)|0s</DasType>
       <Position>1</Position>
     </column>
-    <column id="5674" parent="5617" name="number">
+    <column id="5675" parent="5617" name="number">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5675" parent="5617" name="type">
+    <column id="5676" parent="5617" name="type">
       <DasType>nchar(3 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5676" parent="5617" name="low">
+    <column id="5677" parent="5617" name="low">
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="5677" parent="5617" name="high">
+    <column id="5678" parent="5617" name="high">
       <DasType>int|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="5678" parent="5617" name="status">
+    <column id="5679" parent="5617" name="status">
       <DasType>int|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="5679" parent="5618" name="出荷先ID">
+    <column id="5680" parent="5618" name="出荷先ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1(1002)</SequenceIdentity>
     </column>
-    <column id="5680" parent="5618" name="出荷先名">
+    <column id="5681" parent="5618" name="出荷先名">
       <DasType>nvarchar(50 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5681" parent="5618" name="出荷先都道府県">
+    <column id="5682" parent="5618" name="出荷先都道府県">
       <DasType>nvarchar(10 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5682" parent="5618" name="出荷先住所">
+    <column id="5683" parent="5618" name="出荷先住所">
       <DasType>nvarchar(50 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="5683" parent="5618" name="PK_出荷先ID">
+    <index id="5684" parent="5618" name="PK_出荷先ID">
       <Clustering>1</Clustering>
       <ColNames>出荷先ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5684" parent="5618" name="PK_出荷先ID">
+    <key id="5685" parent="5618" name="PK_出荷先ID">
       <CreatedTimestamp>2023-06-30.21:00:38.080</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.080</ModifiedTimestamp>
       <ObjectId>917578307</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK_出荷先ID</UnderlyingIndexName>
     </key>
-    <column id="5685" parent="5619" name="受注ID">
+    <column id="5686" parent="5619" name="受注ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1001(2002)</SequenceIdentity>
     </column>
-    <column id="5686" parent="5619" name="出荷先ID">
+    <column id="5687" parent="5619" name="出荷先ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5687" parent="5619" name="受注日">
+    <column id="5688" parent="5619" name="受注日">
       <DasType>date|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <foreign-key id="5688" parent="5619" name="FK_出荷先ID">
+    <foreign-key id="5689" parent="5619" name="FK_出荷先ID">
       <ColNames>出荷先ID</ColNames>
       <CreatedTimestamp>2023-06-30.21:00:38.087</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.087</ModifiedTimestamp>
@@ -17361,40 +17367,40 @@
       <RefTableId>901578250</RefTableId>
       <RefTableName>出荷先</RefTableName>
     </foreign-key>
-    <index id="5689" parent="5619" name="PK_受注ID">
+    <index id="5690" parent="5619" name="PK_受注ID">
       <Clustering>1</Clustering>
       <ColNames>受注ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5690" parent="5619" name="PK_受注ID">
+    <key id="5691" parent="5619" name="PK_受注ID">
       <CreatedTimestamp>2023-06-30.21:00:38.087</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.087</ModifiedTimestamp>
       <ObjectId>949578421</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK_受注ID</UnderlyingIndexName>
     </key>
-    <column id="5691" parent="5620" name="受注ID">
+    <column id="5692" parent="5620" name="受注ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5692" parent="5620" name="商品ID">
+    <column id="5693" parent="5620" name="商品ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5693" parent="5620" name="単価">
+    <column id="5694" parent="5620" name="単価">
       <DasType>money|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5694" parent="5620" name="数量">
+    <column id="5695" parent="5620" name="数量">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <foreign-key id="5695" parent="5620" name="FK_受注ID">
+    <foreign-key id="5696" parent="5620" name="FK_受注ID">
       <ColNames>受注ID</ColNames>
       <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
@@ -17403,7 +17409,7 @@
       <RefTableId>933578364</RefTableId>
       <RefTableName>受注</RefTableName>
     </foreign-key>
-    <foreign-key id="5696" parent="5620" name="FK_商品ID">
+    <foreign-key id="5697" parent="5620" name="FK_商品ID">
       <ColNames>商品ID</ColNames>
       <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
@@ -17412,33 +17418,62 @@
       <RefTableId>981578535</RefTableId>
       <RefTableName>商品</RefTableName>
     </foreign-key>
-    <column id="5697" parent="5621" name="商品ID">
+    <column id="5698" parent="5621" name="商品ID">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1(1002)</SequenceIdentity>
     </column>
-    <column id="5698" parent="5621" name="商品名">
+    <column id="5699" parent="5621" name="商品名">
       <DasType>nvarchar(30 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5699" parent="5621" name="区分">
+    <column id="5700" parent="5621" name="区分">
       <DasType>nvarchar(10 char)|0s</DasType>
       <Position>3</Position>
     </column>
-    <index id="5700" parent="5621" name="PK_商品ID">
+    <index id="5701" parent="5621" name="PK_商品ID">
       <Clustering>1</Clustering>
       <ColNames>商品ID</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5701" parent="5621" name="PK_商品ID">
+    <key id="5702" parent="5621" name="PK_商品ID">
       <CreatedTimestamp>2023-06-30.21:00:38.090</CreatedTimestamp>
       <ModifiedTimestamp>2023-06-30.21:00:38.090</ModifiedTimestamp>
       <ObjectId>997578592</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK_商品ID</UnderlyingIndexName>
+    </key>
+    <column id="5703" parent="5622" name="userId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1000(1001)</SequenceIdentity>
+    </column>
+    <column id="5704" parent="5622" name="userName">
+      <DasType>nvarchar(30 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="5705" parent="5622" name="password">
+      <DasType>nvarchar(30 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <index id="5706" parent="5622" name="pk_userId">
+      <Clustering>1</Clustering>
+      <ColNames>userId</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5707" parent="5622" name="pk_userId">
+      <CreatedTimestamp>2023-07-30.15:20:01.920</CreatedTimestamp>
+      <ModifiedTimestamp>2023-07-30.15:20:01.920</ModifiedTimestamp>
+      <ObjectId>917578307</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>pk_userId</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>
