@@ -12,7 +12,7 @@ int main() {
     }
 
     // sortのアルゴリズム
-    for (int i = 0, j = 9; i < 10; i++, j--) {
+    for (int i = 0; i < 10; i++) {
         int maxIndex = 0;
         for (int k = 1; k < 10 - i; k++) {
             if (numbers[k] > numbers[maxIndex]) {
@@ -20,8 +20,8 @@ int main() {
             }
         }
         int tmp = numbers[maxIndex];
-        numbers[maxIndex] = numbers[j];
-        numbers[j] = tmp;
+        numbers[maxIndex] = numbers[9 - i];
+        numbers[9 - i] = tmp;
     }
 
     // 配列の表示
