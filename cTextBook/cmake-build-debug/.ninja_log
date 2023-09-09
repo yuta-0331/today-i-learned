@@ -1,0 +1,6 @@
+# ninja log v5
+0	93	1694263335548014169	CMakeFiles/cTextBook.dir/struct.c.o	9d96ac0128e8e633
+0	38	1694263410763281572	cTextBook	fd36e713dc5256a0
+0	26	1694262405669618390	CMakeFiles/cTextBook.dir/main.c.o	a6ebbd7b29c8e221
+1	42	1694263814977023896	build.ninja	984dd4691db0dd99
+0	28	1694263821059883631	CMakeFiles/cTextBook.dir/sort.c.o	5b9729db2dfe80a3
