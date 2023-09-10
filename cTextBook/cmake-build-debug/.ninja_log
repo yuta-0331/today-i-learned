@@ -1,6 +1,15 @@
 # ninja log v5
-0	93	1694263335548014169	CMakeFiles/cTextBook.dir/struct.c.o	9d96ac0128e8e633
-0	38	1694263410763281572	cTextBook	fd36e713dc5256a0
-0	26	1694262405669618390	CMakeFiles/cTextBook.dir/main.c.o	a6ebbd7b29c8e221
-1	42	1694263814977023896	build.ninja	984dd4691db0dd99
 0	28	1694263821059883631	CMakeFiles/cTextBook.dir/sort.c.o	5b9729db2dfe80a3
+0	60	1694336170936056307	CMakeFiles/cTextBook.dir/chapter05/sort.c.o	1d62d10455fba46e
+0	37	1694348316927974870	build.ninja	984dd4691db0dd99
+0	26	1694262405669618390	CMakeFiles/cTextBook.dir/main.c.o	a6ebbd7b29c8e221
+1	22	1694336871698828932	CMakeFiles/chapter05_lesson05_sort.dir/chapter05/lesson01.c.o	f0c38f4b1547fe85
+0	93	1694263335548014169	CMakeFiles/cTextBook.dir/struct.c.o	9d96ac0128e8e633
+0	60	1694336170936073847	CMakeFiles/cTextBook.dir/chapter05/struct.c.o	4c794705f263c5a7
+0	21	1694336649983445761	CMakeFiles/chapter05_lesson05_sort.dir/chapter05/sort.c.o	1a9e012277a660fc
+0	23	1694336699249652897	CMakeFiles/chapter05_lesson05_struct.dir/chapter05/struct.c.o	b7ee21b1e454d922
+0	29	1694347609166626900	CMakeFiles/chapter05_lesson05.dir/chapter05/lesson01.c.o	f3dc670b79f35e2c
+0	32	1694348342432930521	CMakeFiles/Chapter05Lesson01.dir/chapter05/lesson01.c.o	3cd5e7c8b0b7532b
+32	69	1694348342470628901	Chapter05Lesson01	81900f589d3676b1
+0	30	1694348350954846801	CMakeFiles/Chapter05Lesson02.dir/chapter05/lesson02.c.o	269cff947c52c25e
+30	65	1694348350990104698	Chapter05Lesson02	4f17db9668ee2a85

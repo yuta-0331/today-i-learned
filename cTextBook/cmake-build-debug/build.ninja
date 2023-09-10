@@ -41,41 +41,66 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /Users/yuta-higa/dev/today-i-learned/cTextBook/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target cTextBook
+# Object build statements for EXECUTABLE target Chapter05Lesson01
 
 
 #############################################
-# Order-only phony target for cTextBook
+# Order-only phony target for Chapter05Lesson01
 
-build cmake_object_order_depends_target_cTextBook: phony || CMakeFiles/cTextBook.dir
+build cmake_object_order_depends_target_Chapter05Lesson01: phony || CMakeFiles/Chapter05Lesson01.dir
 
-build CMakeFiles/cTextBook.dir/struct.c.o: C_COMPILER__cTextBook_unscanned_Debug /Users/yuta-higa/dev/today-i-learned/cTextBook/struct.c || cmake_object_order_depends_target_cTextBook
-  DEP_FILE = CMakeFiles/cTextBook.dir/struct.c.o.d
+build CMakeFiles/Chapter05Lesson01.dir/chapter05/lesson01.c.o: C_COMPILER__Chapter05Lesson01_unscanned_Debug /Users/yuta-higa/dev/today-i-learned/cTextBook/chapter05/lesson01.c || cmake_object_order_depends_target_Chapter05Lesson01
+  DEP_FILE = CMakeFiles/Chapter05Lesson01.dir/chapter05/lesson01.c.o.d
   FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/cTextBook.dir
-  OBJECT_FILE_DIR = CMakeFiles/cTextBook.dir
-
-build CMakeFiles/cTextBook.dir/sort.c.o: C_COMPILER__cTextBook_unscanned_Debug /Users/yuta-higa/dev/today-i-learned/cTextBook/sort.c || cmake_object_order_depends_target_cTextBook
-  DEP_FILE = CMakeFiles/cTextBook.dir/sort.c.o.d
-  FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/cTextBook.dir
-  OBJECT_FILE_DIR = CMakeFiles/cTextBook.dir
+  OBJECT_DIR = CMakeFiles/Chapter05Lesson01.dir
+  OBJECT_FILE_DIR = CMakeFiles/Chapter05Lesson01.dir/chapter05
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target cTextBook
+# Link build statements for EXECUTABLE target Chapter05Lesson01
 
 
 #############################################
-# Link the executable cTextBook
+# Link the executable Chapter05Lesson01
 
-build cTextBook: C_EXECUTABLE_LINKER__cTextBook_Debug CMakeFiles/cTextBook.dir/struct.c.o CMakeFiles/cTextBook.dir/sort.c.o
+build Chapter05Lesson01: C_EXECUTABLE_LINKER__Chapter05Lesson01_Debug CMakeFiles/Chapter05Lesson01.dir/chapter05/lesson01.c.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  OBJECT_DIR = CMakeFiles/cTextBook.dir
+  OBJECT_DIR = CMakeFiles/Chapter05Lesson01.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = cTextBook
-  TARGET_PDB = cTextBook.dbg
+  TARGET_FILE = Chapter05Lesson01
+  TARGET_PDB = Chapter05Lesson01.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Chapter05Lesson02
+
+
+#############################################
+# Order-only phony target for Chapter05Lesson02
+
+build cmake_object_order_depends_target_Chapter05Lesson02: phony || CMakeFiles/Chapter05Lesson02.dir
+
+build CMakeFiles/Chapter05Lesson02.dir/chapter05/lesson02.c.o: C_COMPILER__Chapter05Lesson02_unscanned_Debug /Users/yuta-higa/dev/today-i-learned/cTextBook/chapter05/lesson02.c || cmake_object_order_depends_target_Chapter05Lesson02
+  DEP_FILE = CMakeFiles/Chapter05Lesson02.dir/chapter05/lesson02.c.o.d
+  FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/Chapter05Lesson02.dir
+  OBJECT_FILE_DIR = CMakeFiles/Chapter05Lesson02.dir/chapter05
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Chapter05Lesson02
+
+
+#############################################
+# Link the executable Chapter05Lesson02
+
+build Chapter05Lesson02: C_EXECUTABLE_LINKER__Chapter05Lesson02_Debug CMakeFiles/Chapter05Lesson02.dir/chapter05/lesson02.c.o
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
+  OBJECT_DIR = CMakeFiles/Chapter05Lesson02.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Chapter05Lesson02
+  TARGET_PDB = Chapter05Lesson02.dbg
 
 
 #############################################
@@ -111,7 +136,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/yuta-higa/dev/today-i-learned/cTextBook/cmake-build-debug
 
-build all: phony cTextBook
+build all: phony Chapter05Lesson01 Chapter05Lesson02
 
 # =============================================================================
 # Built-in targets
