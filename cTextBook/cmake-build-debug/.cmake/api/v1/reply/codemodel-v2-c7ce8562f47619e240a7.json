@@ -16,7 +16,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -32,7 +33,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -50,6 +52,13 @@
 					"id" : "Chapter05Lesson02::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-Chapter05Lesson02-Debug-2bfc1dfe81795ecfbd92.json",
 					"name" : "Chapter05Lesson02",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chapter05Lesson07::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chapter05Lesson07-Debug-071903091da9a2837b8f.json",
+					"name" : "Chapter05Lesson07",
 					"projectIndex" : 0
 				}
 			]

@@ -102,6 +102,37 @@ build Chapter05Lesson02: C_EXECUTABLE_LINKER__Chapter05Lesson02_Debug CMakeFiles
   TARGET_FILE = Chapter05Lesson02
   TARGET_PDB = Chapter05Lesson02.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target Chapter05Lesson07
+
+
+#############################################
+# Order-only phony target for Chapter05Lesson07
+
+build cmake_object_order_depends_target_Chapter05Lesson07: phony || CMakeFiles/Chapter05Lesson07.dir
+
+build CMakeFiles/Chapter05Lesson07.dir/chapter05/lesson07.c.o: C_COMPILER__Chapter05Lesson07_unscanned_Debug /Users/yuta-higa/dev/today-i-learned/cTextBook/chapter05/lesson07.c || cmake_object_order_depends_target_Chapter05Lesson07
+  DEP_FILE = CMakeFiles/Chapter05Lesson07.dir/chapter05/lesson07.c.o.d
+  FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/Chapter05Lesson07.dir
+  OBJECT_FILE_DIR = CMakeFiles/Chapter05Lesson07.dir/chapter05
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Chapter05Lesson07
+
+
+#############################################
+# Link the executable Chapter05Lesson07
+
+build Chapter05Lesson07: C_EXECUTABLE_LINKER__Chapter05Lesson07_Debug CMakeFiles/Chapter05Lesson07.dir/chapter05/lesson07.c.o
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
+  OBJECT_DIR = CMakeFiles/Chapter05Lesson07.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Chapter05Lesson07
+  TARGET_PDB = Chapter05Lesson07.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -136,7 +167,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/yuta-higa/dev/today-i-learned/cTextBook/cmake-build-debug
 
-build all: phony Chapter05Lesson01 Chapter05Lesson02
+build all: phony Chapter05Lesson01 Chapter05Lesson02 Chapter05Lesson07
 
 # =============================================================================
 # Built-in targets
