@@ -10,7 +10,6 @@ typedef struct {
 } Score;
 
 char *hd[] = {"グー", "チョキ", "パー"};
-int hdNum[] = {1, 2, 4};
 
 // 初期化処理
 void initialize(Score* s) {
@@ -45,6 +44,7 @@ void jyanken(int* h_hand, int* c_hand) {
 }
 
 int judgeGame(int* comp, int* human) {
+    int hdNum[] = {1, 2, 4};
     int sum = hdNum[*comp] | hdNum[*(comp + 1)] | hdNum[*human];
     int sumShiftLeft = sum > 4 ? (sum<<1) + 1 : sum << 1;
 

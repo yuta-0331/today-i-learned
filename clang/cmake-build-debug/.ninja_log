@@ -1,0 +1,7 @@
+# ninja log v5
+1	49	1694262251932939345	CMakeFiles/clang.dir/switchStatement/ExSwitch02.c.o	a2a85495fe125e41
+0	49	1694262251932939387	CMakeFiles/clang.dir/lesson01/hello.c.o	319352b45b6ea818
+0	50	1694262251933234624	CMakeFiles/clang.dir/lesson01/sort.c.o	1da51f17c623e384
+1	50	1694262251933355160	CMakeFiles/clang.dir/lesson01/struct.c.o	259d680ef8998cbc
+1	50	1694262251933150128	CMakeFiles/clang.dir/switchStatement/ExSwitch03.c.o	8bb37baeb6320c19
+1	50	1694262251933543944	CMakeFiles/clang.dir/switchStatement/ExSwitch01.c.o	51fccf6378aa7ac7

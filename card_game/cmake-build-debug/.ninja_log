@@ -1,0 +1,10 @@
+# ninja log v5
+6	59	1702386552921584154	build.ninja	dacf5d6253be772
+313	347	1701607585779560436	card_game	5160c024e5539bf3
+6	282	1701607585712506388	CMakeFiles/card_game.dir/main.cpp.o	ab987ba1f60395cd
+6	313	1701607585743452660	CMakeFiles/card_game.dir/Deck.cpp.o	ec723c6d8bd6f1e5
+2	1977	1703854618923884004	CMakeFiles/card_game.dir/Player.cpp.o	db78a8ad40ef80f7
+3	1978	1703854618923885504	CMakeFiles/card_game.dir/BasePlayer.cpp.o	430d21db4eb7b5e3
+1	1998	1703854618946108837	CMakeFiles/card_game.dir/main.cpp.o	ab987ba1f60395cd
+2	2036	1703854618984064184	CMakeFiles/card_game.dir/Deck.cpp.o	ec723c6d8bd6f1e5
+2036	2248	1703854619196900236	card_game	3d70123c640e5293
